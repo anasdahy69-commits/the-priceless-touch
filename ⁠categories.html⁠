@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | The Priceless Touch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: { 800: '#7A1C1C', 900: '#581111' },
+                        gold: { 500: '#D4AF37', 600: '#AA8C2C' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-950 text-white font-sans antialiased">
+
+    <!-- US Ticker Announcement Bar -->
+    <div class="bg-burgundy-900 text-gold-500 text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide border-b border-gold-500/20">
+        🇺🇸 Curated Exclusively for US Shoppers | Fast Amazon Prime Shipping | Top US Finds
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-burgundy-800/90 backdrop-blur-md border-b border-gold-500/30 px-4 sm:px-8 py-4 flex justify-between items-center shadow-xl">
+        <a href="index.html" class="flex items-center gap-2 text-xl sm:text-2xl font-bold tracking-wider text-gold-500">
+            <span>👑 THE PRICELESS TOUCH</span>
+            <span class="text-xs bg-gold-500 text-burgundy-900 px-1.5 py-0.5 rounded font-bold">🇺🇸 US</span>
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="index.html" class="hover:text-gold-500 transition">Home</a>
+            <a href="categories.html" class="text-gold-500 hover:text-white transition">Categories</a>
+            <a href="products.html" class="hover:text-gold-500 transition">All Products</a>
+            <a href="favorites.html" class="relative hover:text-gold-500 transition flex items-center gap-1">
+                <i class="fa-solid fa-heart text-gold-500"></i> Wishlist
+                <span id="wishlist-badge" class="absolute -top-2 -right-3 bg-gold-500 text-burgundy-900 text-[10px] font-bold px-1.5 rounded-full">0</span>
+            </a>
+        </div>
+        <div class="md:hidden flex items-center gap-4">
+            <a href="favorites.html" class="relative text-gold-500"><i class="fa-solid fa-heart text-lg"></i><span id="wishlist-badge-mobile" class="absolute -top-2 -right-2 bg-gold-500 text-burgundy-900 text-[9px] px-1 rounded-full">0</span></a>
+            <a href="products.html" class="text-white"><i class="fa-solid fa-search text-lg"></i></a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="py-12 px-4 text-center bg-gradient-to-b from-burgundy-900/40 to-gray-950 border-b border-burgundy-800/50">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white">
+                Explore Our <span class="text-gold-500">Curated Categories</span>
+            </h1>
+            <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto">
+                Handpicked selections categorized for elite US lifestyles. Find your target category below.
+            </p>
+        </div>
+    </header>
+
+    <!-- Categories Grid -->
+    <main class="py-16 px-4 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Category Card 1 -->
+            <a href="products.html?category=home" class="group bg-gray-900/60 backdrop-blur-md p-8 rounded-2xl border border-gold-500/20 text-center hover:border-gold-500 transition transform hover:-translate-y-1 shadow-lg">
+                <div class="text-gold-500 text-4xl mb-4 group-hover:scale-110 transition"><i class="fa-solid fa-house-chimney-window"></i></div>
+                <h3 class="text-xl font-bold mb-2 text-white">Luxury Home & Living</h3>
+                <p class="text-gray-400 text-sm">Elevate your living spaces with elite decor and home tech.</p>
+            </a>
+            <!-- Category Card 2 -->
+            <a href="products.html?category=beauty" class="group bg-gray-900/60 backdrop-blur-md p-8 rounded-2xl border border-gold-500/20 text-center hover:border-gold-500 transition transform hover:-translate-y-1 shadow-lg">
+                <div class="text-gold-500 text-4xl mb-4 group-hover:scale-110 transition"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3 class="text-xl font-bold mb-2 text-white">Beauty & Personal Care</h3>
+                <p class="text-gray-400 text-sm">Top-tier skincare, wellness, and self-care essentials.</p>
+            </a>
+            <!-- Category Card 3 -->
+            <a href="products.html?category=tech" class="group bg-gray-900/60 backdrop-blur-md p-8 rounded-2xl border border-gold-500/20 text-center hover:border-gold-500 transition transform hover:-translate-y-1 shadow-lg">
+                <div class="text-gold-500 text-4xl mb-4 group-hover:scale-110 transition"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3 class="text-xl font-bold mb-2 text-white">Smart Gadgets & Tech</h3>
+                <p class="text-gray-400 text-sm">Cutting-edge tools and gadgets optimized for daily efficiency.</p>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-burgundy-900/80 border-t border-gold-500/20 py-8 px-4 text-center text-xs text-gray-400">
+        <div class="max-w-4xl mx-auto space-y-4">
+            <p><strong>Affiliate Disclosure:</strong> As an Amazon Associate, we earn from qualifying purchases. All transactions are securely completed on Amazon.com.</p>
+            <p class="text-gold-500">&copy; 2026 THE PRICELESS TOUCH. Curated Exclusively for US Shoppers.</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateBadges() {
+            const wishlist = JSON.parse(localStorage.getItem('user_wishlist')) || [];
+            document.querySelectorAll('#wishlist-badge, #wishlist-badge-mobile').forEach(el => {
+                el.innerText = wishlist.length;
+            });
+        }
+        updateBadges();
+    </script>
+</body>
+</html>
