@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curated US Finds | Elite Amazon Picks</title>
-    <!-- Tailwind CSS CDN -->
+    <title>The Priceless Touch | Curated US Finds</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        burgundy: {
-                            800: '#7A1C1C',
-                            900: '#581111',
-                        },
-                        gold: {
-                            500: '#D4AF37',
-                            600: '#AA8C2C',
-                        }
+                        burgundy: { 950: '#1a0508', 900: '#2b0a0f', 800: '#431018', 700: '#5c1622' },
+                        gold: { 500: '#d4af37', 600: '#c5a028', 400: '#e6ca65' }
                     }
                 }
             }
@@ -26,85 +19,202 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-950 text-white font-sans antialiased">
+<body class="bg-burgundy-950 text-gray-100 font-sans antialiased selection:bg-gold-500 selection:text-burgundy-950">
 
-    <!-- US Ticker Announcement Bar -->
-    <div class="bg-burgundy-900 text-gold-500 text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide border-b border-gold-500/20">
-        🇺🇸 Curated Exclusively for US Shoppers | Fast Amazon Prime Shipping | Top US Finds
+    <!-- Top Ticker Bar -->
+    <div class="bg-burgundy-900 text-gold-400 text-xs py-2 px-3 text-center font-medium tracking-wide border-b border-gold-500/20">
+        🇺🇸 Exclusive US Curated Finds | Fast Prime Delivery
     </div>
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-burgundy-800/90 backdrop-blur-md border-b border-gold-500/30 px-4 sm:px-8 py-4 flex justify-between items-center shadow-xl">
-        <a href="index.html" class="flex items-center gap-2 text-xl sm:text-2xl font-bold tracking-wider text-gold-500">
-            <span>👑 THE PRICELESS TOUCH</span>
-            <span class="text-xs bg-gold-500 text-burgundy-900 px-1.5 py-0.5 rounded font-bold">🇺🇸 US</span>
+    <!-- Mobile-First Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-burgundy-950/95 backdrop-blur-md border-b border-gold-500/20 px-4 py-3 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2 text-lg font-bold tracking-wider text-gold-500">
+            <span>THE PRICELESS TOUCH</span>
         </a>
-        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-            <a href="index.html" class="text-gold-500 hover:text-white transition">Home</a>
-            <a href="categories.html" class="hover:text-gold-500 transition">Categories</a>
-            <a href="products.html" class="hover:text-gold-500 transition">All Products</a>
-            <a href="favorites.html" class="relative hover:text-gold-500 transition flex items-center gap-1">
-                <i class="fa-solid fa-heart text-gold-500"></i> Wishlist
-                <span id="wishlist-badge" class="absolute -top-2 -right-3 bg-gold-500 text-burgundy-900 text-[10px] font-bold px-1.5 rounded-full">0</span>
+        <div class="flex items-center gap-4 text-sm">
+            <a href="favorites.html" class="relative text-gold-500 p-1">
+                <i class="fa-solid fa-heart text-xl"></i>
+                <span id="wishlist-badge" class="absolute -top-1 -right-1 bg-gold-500 text-burgundy-950 text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">0</span>
             </a>
-        </div>
-        <div class="md:hidden flex items-center gap-4">
-            <a href="favorites.html" class="relative text-gold-500"><i class="fa-solid fa-heart text-lg"></i><span id="wishlist-badge-mobile" class="absolute -top-2 -right-2 bg-gold-500 text-burgundy-900 text-[9px] px-1 rounded-full">0</span></a>
-            <a href="products.html" class="text-white"><i class="fa-solid fa-search text-lg"></i></a>
+            <a href="products.html" class="text-gray-300 hover:text-gold-500 p-1">
+                <i class="fa-solid fa-search text-lg"></i>
+            </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative py-20 px-4 text-center bg-gradient-to-b from-burgundy-900/40 to-gray-950 border-b border-burgundy-800/50">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 text-white">
-                Handpicked <span class="text-gold-500">Amazon US</span> Excellence
+    <header class="py-12 px-4 text-center bg-gradient-to-b from-burgundy-900 to-burgundy-950 border-b border-burgundy-800/50">
+        <div class="max-w-xl mx-auto space-y-4">
+            <span class="inline-block text-xs font-semibold tracking-widest uppercase bg-gold-500/10 text-gold-400 px-3 py-1 rounded-full border border-gold-500/20">
+                Curated Luxury
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                Handpicked Amazon US <span class="text-gold-500">Excellence</span>
             </h1>
-            <p class="text-gray-300 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                Discover top-rated, premium selections rigorously curated for the US market. No clutter, just the absolute best finds ready on Amazon Prime.
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed px-2">
+                Discover top-rated luxury selections rigorously curated for the US market. No clutter, just absolute elegance.
             </p>
-            <a href="categories.html" class="inline-block bg-gold-500 hover:bg-gold-600 text-burgundy-900 font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 text-lg">
-                Explore Categories <i class="fa-solid fa-arrow-right ml-2"></i>
-            </a>
+            <div class="pt-2 flex flex-col sm:flex-row justify-center gap-3">
+                <a href="categories.html" class="w-full sm:w-auto bg-gold-500 hover:bg-gold-600 text-burgundy-950 font-bold px-6 py-3 rounded-xl text-sm transition shadow-lg flex items-center justify-center gap-2">
+                    Explore Categories <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="products.html" class="w-full sm:w-auto bg-burgundy-900 hover:bg-burgundy-800 text-gold-400 border border-gold-500/30 font-bold px-6 py-3 rounded-xl text-sm transition flex items-center justify-center">
+                    All Products
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Core Values / Features Section -->
-    <section class="py-16 px-4 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-900/60 backdrop-blur-md p-8 rounded-2xl border border-gold-500/20 text-center hover:border-gold-500/50 transition">
-            <div class="text-gold-500 text-3xl mb-4"><i class="fa-solid fa-shield-halved"></i></div>
-            <h3 class="text-xl font-bold mb-2 text-white">100% US Verified</h3>
-            <p class="text-gray-400 text-sm">Every recommendation is sourced directly from top sellers on Amazon US with elite ratings.</p>
+    <!-- Categories Quick Grid -->
+    <section class="py-10 px-4 max-w-6xl mx-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-white tracking-wide">Top Categories</h2>
+            <a href="categories.html" class="text-xs text-gold-400 hover:underline">View All</a>
         </div>
-        <div class="bg-gray-900/60 backdrop-blur-md p-8 rounded-2xl border border-gold-500/20 text-center hover:border-gold-500/50 transition">
-            <div class="text-gold-500 text-3xl mb-4"><i class="fa-solid fa-bolt"></i></div>
-            <h3 class="text-xl font-bold mb-2 text-white">Prime Shipping Ready</h3>
-            <p class="text-gray-400 text-sm">Enjoy fast, reliable shipping directly through your Amazon Prime account.</p>
+        <div class="grid grid-cols-3 gap-3">
+            <a href="products.html?cat=home" class="bg-burgundy-900/80 border border-gold-500/20 p-4 rounded-2xl text-center hover:border-gold-500 transition group">
+                <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-gold-500/10 text-gold-500 flex items-center justify-center text-lg group-hover:scale-110 transition">
+                    <i class="fa-solid fa-couch"></i>
+                </div>
+                <span class="text-xs font-semibold text-gray-200">Home</span>
+            </a>
+            <a href="products.html?cat=beauty" class="bg-burgundy-900/80 border border-gold-500/20 p-4 rounded-2xl text-center hover:border-gold-500 transition group">
+                <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-gold-500/10 text-gold-500 flex items-center justify-center text-lg group-hover:scale-110 transition">
+                    <i class="fa-solid fa-spray-can-sparkles"></i>
+                </div>
+                <span class="text-xs font-semibold text-gray-200">Beauty</span>
+            </a>
+            <a href="products.html?cat=tech" class="bg-burgundy-900/80 border border-gold-500/20 p-4 rounded-2xl text-center hover:border-gold-500 transition group">
+                <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-gold-500/10 text-gold-500 flex items-center justify-center text-lg group-hover:scale-110 transition">
+                    <i class="fa-solid fa-laptop"></i>
+                </div>
+                <span class="text-xs font-semibold text-gray-200">Tech</span>
+            </a>
         </div>
-        <div class="bg-gray-900/60 backdrop-blur-md p-8 rounded-2xl border border-gold-500/20 text-center hover:border-gold-500/50 transition">
-            <div class="text-gold-500 text-3xl mb-4"><i class="fa-solid fa-star"></i></div>
-            <h3 class="text-xl font-bold mb-2 text-white">Top Rated Choices</h3>
-            <p class="text-gray-400 text-sm">Only products with exceptional customer reviews and proven satisfaction make our lists.</p>
+    </section>
+
+    <!-- Featured Products Grid (Mobile Friendly) -->
+    <section class="py-6 px-4 max-w-6xl mx-auto">
+        <h2 class="text-xl font-bold text-white tracking-wide mb-6">Featured US Finds</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="featured-grid">
+            <!-- Item 1 -->
+            <div class="bg-burgundy-900/60 rounded-2xl border border-gold-500/20 overflow-hidden flex flex-col shadow-lg">
+                <div class="relative h-56 bg-burgundy-950">
+                    <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&auto=format&fit=crop&q=60" alt="Chair" class="w-full h-full object-cover">
+                    <button onclick="toggleWishlist(1)" class="absolute top-3 right-3 bg-burgundy-950/80 p-2.5 rounded-full text-gold-500 hover:bg-burgundy-950 transition">
+                        <i id="heart-1" class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <span class="text-[10px] text-gold-400 font-bold uppercase tracking-wider mb-1">Home Decor</span>
+                    <h3 class="text-base font-bold text-white mb-1">Luxury Velvet Accent Chair</h3>
+                    <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i>
+                        <span class="text-white font-bold">4.9</span>
+                        <span class="text-gray-400">(1,240)</span>
+                    </div>
+                    <div class="mt-auto flex items-center justify-between pt-3 border-t border-burgundy-800/50">
+                        <span class="text-lg font-extrabold text-gold-500">$299.00</span>
+                        <a href="https://amazon.com" target="_blank" class="bg-gold-500 hover:bg-gold-600 text-burgundy-950 font-bold px-3.5 py-2 rounded-xl text-xs transition">
+                            Amazon US <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-burgundy-900/60 rounded-2xl border border-gold-500/20 overflow-hidden flex flex-col shadow-lg">
+                <div class="relative h-56 bg-burgundy-950">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60" alt="Serum" class="w-full h-full object-cover">
+                    <button onclick="toggleWishlist(2)" class="absolute top-3 right-3 bg-burgundy-950/80 p-2.5 rounded-full text-gold-500 hover:bg-burgundy-950 transition">
+                        <i id="heart-2" class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <span class="text-[10px] text-gold-400 font-bold uppercase tracking-wider mb-1">Beauty</span>
+                    <h3 class="text-base font-bold text-white mb-1">24K Gold Facial Serum</h3>
+                    <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i>
+                        <span class="text-white font-bold">4.8</span>
+                        <span class="text-gray-400">(850)</span>
+                    </div>
+                    <div class="mt-auto flex items-center justify-between pt-3 border-t border-burgundy-800/50">
+                        <span class="text-lg font-extrabold text-gold-500">$68.00</span>
+                        <a href="https://amazon.com" target="_blank" class="bg-gold-500 hover:bg-gold-600 text-burgundy-950 font-bold px-3.5 py-2 rounded-xl text-xs transition">
+                            Amazon US <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-burgundy-900/60 rounded-2xl border border-gold-500/20 overflow-hidden flex flex-col shadow-lg">
+                <div class="relative h-56 bg-burgundy-950">
+                    <img src="https://images.unsplash.com/photo-1534073828943-f801091fab18?w=500&auto=format&fit=crop&q=60" alt="Lamp" class="w-full h-full object-cover">
+                    <button onclick="toggleWishlist(3)" class="absolute top-3 right-3 bg-burgundy-950/80 p-2.5 rounded-full text-gold-500 hover:bg-burgundy-950 transition">
+                        <i id="heart-3" class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="p-4 flex flex-col flex-grow">
+                    <span class="text-[10px] text-gold-400 font-bold uppercase tracking-wider mb-1">Tech</span>
+                    <h3 class="text-base font-bold text-white mb-1">Smart Ambient LED Desk Lamp</h3>
+                    <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i>
+                        <span class="text-white font-bold">4.9</span>
+                        <span class="text-gray-400">(2,100)</span>
+                    </div>
+                    <div class="mt-auto flex items-center justify-between pt-3 border-t border-burgundy-800/50">
+                        <span class="text-lg font-extrabold text-gold-500">$89.99</span>
+                        <a href="https://amazon.com" target="_blank" class="bg-gold-500 hover:bg-gold-600 text-burgundy-950 font-bold px-3.5 py-2 rounded-xl text-xs transition">
+                            Amazon US <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-burgundy-900/80 border-t border-gold-500/20 py-8 px-4 text-center text-xs text-gray-400">
-        <div class="max-w-4xl mx-auto space-y-4">
-            <p><strong>Affiliate Disclosure:</strong> As an Amazon Associate, we earn from qualifying purchases. We do not process payments or handle shipping; all transactions are securely completed on Amazon.com.</p>
-            <p class="text-gold-500">&copy; 2026 THE PRICELESS TOUCH. Curated Exclusively for US Shoppers.</p>
+    <footer class="bg-burgundy-900 border-t border-gold-500/20 py-8 px-4 text-center text-xs text-gray-400 mt-12">
+        <div class="max-w-xl mx-auto space-y-3">
+            <p><strong>Affiliate Disclosure:</strong> As an Amazon Associate, we earn from qualifying purchases.</p>
+            <p class="text-gold-400">&copy; 2026 THE PRICELESS TOUCH. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Update Wishlist Badges
-        function updateBadges() {
+        function updateWishlistBadge() {
             const wishlist = JSON.parse(localStorage.getItem('user_wishlist')) || [];
-            document.querySelectorAll('#wishlist-badge, #wishlist-badge-mobile').forEach(el => {
-                el.innerText = wishlist.length;
+            document.getElementById('wishlist-badge').innerText = wishlist.length;
+            
+            wishlist.forEach(id => {
+                const icon = document.getElementById(`heart-${id}`);
+                if(icon) {
+                    icon.classList.remove('fa-regular');
+                    icon.classList.add('fa-solid', 'text-gold-500');
+                }
             });
         }
-        updateBadges();
+
+        function toggleWishlist(id) {
+            let wishlist = JSON.parse(localStorage.getItem('user_wishlist')) || [];
+            const index = wishlist.indexOf(id);
+            const icon = document.getElementById(`heart-${id}`);
+
+            if (index > -1) {
+                wishlist.splice(index, 1);
+                icon.classList.remove('fa-solid', 'text-gold-500');
+                icon.classList.add('fa-regular');
+            } else {
+                wishlist.push(id);
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid', 'text-gold-500');
+            }
+            localStorage.setItem('user_wishlist', JSON.stringify(wishlist));
+            updateWishlistBadge();
+        }
+
+        updateWishlistBadge();
     </script>
 </body>
 </html>
