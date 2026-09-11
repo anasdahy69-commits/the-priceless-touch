@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist | The Priceless Touch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: { 800: '#7A1C1C', 900: '#581111' },
+                        gold: { 500: '#D4AF37', 600: '#AA8C2C' }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-950 text-white font-sans antialiased">
+
+    <!-- US Ticker Announcement Bar -->
+    <div class="bg-burgundy-900 text-gold-500 text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide border-b border-gold-500/20">
+        🇺🇸 Curated Exclusively for US Shoppers | Fast Amazon Prime Shipping | Top US Finds
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-burgundy-800/90 backdrop-blur-md border-b border-gold-500/30 px-4 sm:px-8 py-4 flex justify-between items-center shadow-xl">
+        <a href="index.html" class="flex items-center gap-2 text-xl sm:text-2xl font-bold tracking-wider text-gold-500">
+            <span>👑 THE PRICELESS TOUCH</span>
+            <span class="text-xs bg-gold-500 text-burgundy-900 px-1.5 py-0.5 rounded font-bold">🇺🇸 US</span>
+        </a>
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="index.html" class="hover:text-gold-500 transition">Home</a>
+            <a href="categories.html" class="hover:text-gold-500 transition">Categories</a>
+            <a href="products.html" class="hover:text-gold-500 transition">All Products</a>
+            <a href="favorites.html" class="text-gold-500 transition flex items-center gap-1">
+                <i class="fa-solid fa-heart text-gold-500"></i> Wishlist
+                <span id="wishlist-badge" class="absolute -top-2 -right-3 bg-gold-500 text-burgundy-900 text-[10px] font-bold px-1.5 rounded-full">0</span>
+            </a>
+        </div>
+        <div class="md:hidden flex items-center gap-4">
+            <a href="favorites.html" class="relative text-gold-500"><i class="fa-solid fa-heart text-lg"></i><span id="wishlist-badge-mobile" class="absolute -top-2 -right-2 bg-gold-500 text-burgundy-900 text-[9px] px-1 rounded-full">0</span></a>
+            <a href="products.html" class="text-white"><i class="fa-solid fa-search text-lg"></i></a>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="py-10 px-4 text-center bg-gradient-to-b from-burgundy-900/40 to-gray-950 border-b border-burgundy-800/50">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3 text-white">
+                Your Saved <span class="text-gold-500">Wishlist</span>
+            </h1>
+            <p class="text-gray-300 text-sm sm:text-base">
+                Your personal collection of handpicked items ready for Amazon US.
+            </p>
+        </div>
+    </header>
+
+    <!-- Wishlist Products Grid -->
+    <main class="py-12 px-4 max-w-7xl mx-auto">
+        <div id="wishlist-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <!-- Dynamic Wishlist Items -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-burgundy-900/80 border-t border-gold-500/20 py-8 px-4 text-center text-xs text-gray-400">
+        <div class="max-w-4xl mx-auto space-y-4">
+            <p><strong>Affiliate Disclosure:</strong> As an Amazon Associate, we earn from qualifying purchases. All transactions are securely completed on Amazon.com.</p>
+            <p class="text-gold-500">&copy; 2026 THE PRICELESS TOUCH. Curated Exclusively for US Shoppers.</p>
+        </div>
+    </footer>
+
+    <script>
+        const products = [
+            { id: 1, name: "Luxury Velvet Accent Chair", category: "home", price: "$299.00", rating: "4.9", reviews: "(1,240)", image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&auto=format&fit=crop&q=60", link: "https://amazon.com" },
+            { id: 2, name: "24K Gold Facial Serum", category: "beauty", price: "$68.00", rating: "4.8", reviews: "(850)", image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&auto=format&fit=crop&q=60", link: "https://amazon.com" },
+            { id: 3, name: "Smart Ambient LED Desk Lamp", category: "tech", price: "$89.99", rating: "4.9", reviews: "(2,100)", image: "https://images.unsplash.com/photo-1534073828943-f801091fab18?w=500&auto=format&fit=crop&q=60", link: "https://amazon.com" },
+            { id: 4, name: "Minimalist Ceramic Vase Set", category: "home", price: "$45.00", rating: "4.7", reviews: "(430)", image: "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?w=500&auto=format&fit=crop&q=60", link: "https://amazon.com" },
+            { id: 5, name: "Ionic Professional Hair Dryer", category: "beauty", price: "$149.00", rating: "4.9", reviews: "(3,400)", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&auto=format&fit=crop&q=60", link: "https://amazon.com" },
+            { id: 6, name: "Wireless Fast Charging Stand", category: "tech", price: "$39.99", rating: "4.8", reviews: "(1,900)", image: "https://images.unsplash.com/photo-1586816879360-004f5b0c51e3?w=500&auto=format&fit=crop&q=60", link: "https://amazon.com" }
+        ];
+
+        function renderWishlist() {
+            const wishlist = JSON.parse(localStorage.getItem('user_wishlist')) || [];
+            const grid = document.getElementById('wishlist-grid');
+
+            const filtered = products.filter(p => wishlist.includes(p.id));
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-3 text-center py-16 space-y-4">
+                        <i class="fa-regular fa-heart text-5xl text-gold-500/50"></i>
+                        <p class="text-gray-400 text-lg">Your wishlist is currently empty.</p>
+                        <a href="products.html" class="inline-block bg-gold-500 text-burgundy-900 font-bold px-6 py-3 rounded-xl text-sm transition hover:bg-gold-600">Explore Products</a>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(p => `
+                <div class="bg-gray-900/60 backdrop-blur-md rounded-2xl border border-gold-500/20 overflow-hidden flex flex-col group hover:border-gold-500 transition shadow-lg">
+                    <div class="relative h-64 overflow-hidden bg-gray-950">
+                        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <button onclick="removeFromWishlist(${p.id})" class="absolute top-3 right-3 bg-burgundy-900/90 p-2.5 rounded-full text-gold-500 hover:bg-burgundy-800 transition">
+                            <i class="fa-solid fa-trash-can text-sm"></i>
+                        </button>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs text-gold-500 font-semibold uppercase tracking-wider mb-1">${p.category}</span>
+                        <h3 class="text-lg font-bold text-white mb-2">${p.name}</h3>
+                        <div class="flex items-center gap-1 text-yellow-500 text-xs mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-white font-bold ml-1">${p.rating}</span>
+                            <span class="text-gray-400">${p.reviews}</span>
+                        </div>
+                        <div class="mt-auto flex items-center justify-between pt-4 border-t border-gray-800">
+                            <span class="text-xl font-extrabold text-gold-500">${p.price}</span>
+                            <a href="${p.link}" target="_blank" class="bg-gold-500 hover:bg-gold-600 text-burgundy-900 font-bold px-4 py-2 rounded-xl text-sm transition">
+                                View on Amazon <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function removeFromWishlist(id) {
+            let wishlist = JSON.parse(localStorage.getItem('user_wishlist')) || [];
+            wishlist = wishlist.filter(item => item !== id);
+            localStorage.setItem('user_wishlist', JSON.stringify(wishlist));
+            renderWishlist();
+            updateBadges();
+        }
+
+        function updateBadges() {
+            const wishlist = JSON.parse(localStorage.getItem('user_wishlist')) || [];
+            document.querySelectorAll('#wishlist-badge, #wishlist-badge-mobile').forEach(el => {
+                el.innerText = wishlist.length;
+            });
+        }
+
+        renderWishlist();
+        updateBadges();
+    </script>
+</body>
+</html>
