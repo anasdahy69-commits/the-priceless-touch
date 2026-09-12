@@ -19,7 +19,6 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        /* Sticky header configuration */
         header {
             position: sticky;
             top: 0;
@@ -106,10 +105,46 @@
         }
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
             width: 100%;
             max-width: 900px;
+        }
+        .product-card {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-3px);
+        }
+        .product-img-wrapper {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .product-name {
+            font-size: 14px;
+            font-weight: 300;
+            color: #ffffff;
+            font-family: serif;
+            letter-spacing: 1px;
+            line-height: 1.3;
         }
         footer {
             padding: 20px;
@@ -141,7 +176,14 @@
         <input type="text" id="searchInput" class="search-box" placeholder="Search kitchen items..." onkeyup="searchProducts()">
 
         <div class="products-grid" id="productsContainer">
-            <!-- Products will be added here dynamically -->
+            <!-- 
+            <a href="AMAZON_LINK" target="_blank" class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="image-name.jpg" alt="Product Name" width="300" height="400" loading="lazy">
+                </div>
+                <div class="product-name">Product Name Here</div>
+            </a> 
+            -->
         </div>
     </div>
 
@@ -153,7 +195,7 @@
             items.forEach(item => {
                 let text = item.textContent.toLowerCase();
                 if (text.includes(input)) {
-                    item.style.display = "block";
+                    item.style.display = "flex";
                 } else {
                     item.style.display = "none";
                 }
