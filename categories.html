@@ -20,7 +20,7 @@
             min-height: 100vh;
         }
         header {
-            padding: 20px 15px;
+            padding: 20px 15px 15px 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
         header h1 {
@@ -28,6 +28,27 @@
             font-weight: 400;
             letter-spacing: 1.5px;
             font-family: serif;
+            margin-bottom: 12px;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-links a.active {
+            color: #d4af37; /* اللون الذهبي للصفحة الحالية */
+            font-weight: 500;
+        }
+        .nav-links a:hover {
+            color: #d4af37;
         }
         .top-title {
             padding: 40px 20px 30px 20px;
@@ -92,6 +113,12 @@
 
     <header>
         <h1>The Priceless Touch</h1>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="categories.html" class="active">Categories</a>
+            <a href="kitchen.html">Kitchen</a>
+            <a href="decor.html">Decor</a>
+        </nav>
     </header>
 
     <div class="top-title">
