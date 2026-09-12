@@ -78,7 +78,6 @@
             text-transform: uppercase;
             margin-bottom: 25px;
         }
-        /* Search box styling */
         .search-box {
             width: 100%;
             max-width: 400px;
@@ -100,7 +99,6 @@
         .search-box:focus {
             border-color: #d4af37;
         }
-        /* Products grid container */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -135,17 +133,13 @@
         <h1 class="brand-title">The Priceless Touch</h1>
         <h2 class="page-title">Home Decor</h2>
 
-        <!-- Functional search input -->
         <input type="text" id="searchInput" class="search-box" placeholder="Search decor items..." onkeyup="searchProducts()">
 
-        <!-- Products container -->
         <div class="products-grid" id="productsContainer">
-            <!-- Products will be added here dynamically -->
         </div>
     </div>
 
     <script>
-        // Live search filtering function
         function searchProducts() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let items = document.querySelectorAll('.product-card');
