@@ -1,77 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Priceless Touch | Curated Elegance</title>
+    <title>The Priceless Touch</title>
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #1a0f13;
-            color: #f4e8e1;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #3b0a12;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            padding: 20px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        header h1 {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            font-family: serif;
         }
         .hero-container {
-            position: relative;
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            width: 100%;
+            background-color: #000;
+        }
+        .hero-image {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+        .content-section {
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: #d4af37;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        .content-section h2 {
+            font-size: 26px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            line-height: 1.4;
+            margin-bottom: 35px;
+            font-family: serif;
+            text-transform: uppercase;
         }
-        p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        .btn {
-            background-color: #d4af37;
-            color: #1a0f13;
-            padding: 15px 35px;
-            font-size: 1.2rem;
-            font-weight: bold;
+        .btn-browse {
+            display: inline-block;
+            padding: 14px 45px;
+            border: 1px solid #d4af37;
+            border-radius: 35px;
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 30px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: transparent;
         }
-        .btn:hover {
-            background-color: #fff;
-            transform: scale(1.05);
+        .btn-browse:hover {
+            background-color: #d4af37;
+            color: #3b0a12;
         }
-        .disclosure {
-            position: absolute;
-            bottom: 15px;
-            font-size: 0.8rem;
-            color: #ccc;
-            max-width: 800px;
-            padding: 0 15px;
+        footer {
+            padding: 20px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
 <body>
 
-    <div class="hero-container">
+    <header>
         <h1>The Priceless Touch</h1>
-        <p>Discover hand-picked, elegant items designed to bring a touch of charm and sophistication to your everyday life.</p>
-        
-        <a href="categories.html" class="btn">Browse Categories</a>
+    </header>
 
-        <div class="disclosure">
-            Affiliate Disclosure: As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.
-        </div>
+    <div class="hero-container">
+        <img src="DD412AFE-3D6DF-4CF4-BAFF-3C698ADA337A.jpeg" alt="The Priceless Touch Hero" class="hero-image">
     </div>
+
+    <div class="content-section">
+        <h2>Discover Something<br>You'll Love</h2>
+        <a href="categories.html" class="btn-browse">Browse Categories</a>
+    </div>
+
+    <footer>
+        Affiliate Disclosure: As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.
+    </footer>
 
 </body>
 </html>
