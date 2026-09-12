@@ -69,11 +69,17 @@
             text-align: center;
         }
         .category-card {
+            display: block;
             width: 100%;
             background-color: #000;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        .category-card:hover {
+            transform: scale(1.02);
         }
         .category-card img {
             width: 100%;
@@ -112,19 +118,19 @@
     </div>
 
     <div class="categories-container">
-        <!-- القسم الأول (المطبخ) -->
+        <!-- القسم الأول (يودي على صفحة kitchen.html) -->
         <div class="category-item">
-            <div class="category-card">
+            <a href="kitchen.html" class="category-card">
                 <img src="Category1.PNG" alt="Kitchen">
-            </div>
+            </a>
             <div class="category-title">Kitchen</div>
         </div>
 
-        <!-- القسم الثاني (ديكور البيت) -->
+        <!-- القسم الثاني (يودي على صفحة decor.html) -->
         <div class="category-item">
-            <div class="category-card">
+            <a href="decor.html" class="category-card">
                 <img src="Category2.PNG" alt="Home Decor">
-            </div>
+            </a>
             <div class="category-title">Home Decor</div>
         </div>
     </div>
