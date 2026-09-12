@@ -20,15 +20,8 @@
             min-height: 100vh;
         }
         header {
-            padding: 20px 15px 15px 15px;
+            padding: 18px 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        header h1 {
-            font-size: 24px;
-            font-weight: 400;
-            letter-spacing: 1.5px;
-            font-family: serif;
-            margin-bottom: 12px;
         }
         .nav-links {
             display: flex;
@@ -44,32 +37,76 @@
             transition: color 0.3s ease;
         }
         .nav-links a.active {
-            color: #d4af37; /* اللون الذهبي للصفحة الحالية */
+            color: #d4af37;
             font-weight: 500;
         }
         .nav-links a:hover {
             color: #d4af37;
         }
+        .hero-section {
+            width: 100%;
+            background-color: #000;
+        }
+        .hero-section img {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            display: block;
+        }
         .content-container {
             flex: 1;
-            padding: 40px 20px;
+            padding: 35px 20px 50px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+        .brand-title {
+            font-size: 28px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+            color: #d4af37;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
         .page-title {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 300;
             letter-spacing: 2px;
             font-family: serif;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
-        /* هنا هنبقى نضيف المنتجات بعدين براحتنا */
-        .products-placeholder {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.7);
+        /* Search box styling */
+        .search-box {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            margin-bottom: 35px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+        .search-box::placeholder {
+            color: rgba(255, 255, 255, 0.6);
             letter-spacing: 1px;
+        }
+        .search-box:focus {
+            border-color: #d4af37;
+        }
+        /* Products grid container */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 900px;
         }
         footer {
             padding: 20px;
@@ -82,7 +119,6 @@
 <body>
 
     <header>
-        <h1>The Priceless Touch</h1>
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="categories.html">Categories</a>
@@ -91,10 +127,39 @@
         </nav>
     </header>
 
-    <div class="content-container">
-        <h2 class="page-title">Home Decor</h2>
-        <div class="products-placeholder">Products coming soon...</div>
+    <div class="hero-section">
+        <img src="Category2.PNG" alt="Home Decor">
     </div>
+
+    <div class="content-container">
+        <h1 class="brand-title">The Priceless Touch</h1>
+        <h2 class="page-title">Home Decor</h2>
+
+        <!-- Functional search input -->
+        <input type="text" id="searchInput" class="search-box" placeholder="Search decor items..." onkeyup="searchProducts()">
+
+        <!-- Products container -->
+        <div class="products-grid" id="productsContainer">
+            <!-- Products will be added here dynamically -->
+        </div>
+    </div>
+
+    <script>
+        // Live search filtering function
+        function searchProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let items = document.querySelectorAll('.product-card');
+
+            items.forEach(item => {
+                let text = item.textContent.toLowerCase();
+                if (text.includes(input)) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
+        }
+    </script>
 
     <footer>
         Affiliate Disclosure: As an Amazon Associate, I earn from qualifying purchases at no extra cost to you.
