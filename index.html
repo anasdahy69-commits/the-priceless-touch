@@ -19,11 +19,15 @@
             flex-direction: column;
             min-height: 100vh;
         }
+        /* Sticky header configuration */
         header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #3b0a12;
             padding: 18px 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
-        /* الهيدر بقى فيه الروابط بس من غير اسم البراند */
         .nav-links {
             display: flex;
             justify-content: center;
@@ -63,7 +67,6 @@
             justify-content: center;
             align-items: center;
         }
-        /* اسم البراند الجديد تحت الصورة بلون ذهبي وخط مختلف */
         .brand-title {
             font-size: 28px;
             font-weight: 400;
@@ -71,7 +74,7 @@
             font-family: "Playfair Display", Georgia, "Times New Roman", serif;
             color: #d4af37;
             text-transform: uppercase;
-            margin-bottom: 30px; /* مسافة مريحة بين اسم البراند وجملة Discover */
+            margin-bottom: 30px;
         }
         .main-title {
             font-size: 22px;
@@ -80,7 +83,7 @@
             line-height: 1.4;
             font-family: serif;
             text-transform: uppercase;
-            margin-bottom: 35px; /* مسافة مريحة بين جملة Discover والزر */
+            margin-bottom: 35px;
         }
         .btn {
             display: inline-block;
@@ -107,7 +110,6 @@
 </head>
 <body>
 
-    <!-- الهيدر دلوقتي فيه الروابط فقط -->
     <header>
         <nav class="nav-links">
             <a href="index.html" class="active">Home</a>
@@ -118,13 +120,11 @@
     </header>
 
     <div class="hero-section">
-        <img src="hero.jpg" alt="Hero Image">
+        <img src="hero.jpg" alt="Hero Image" loading="lazy">
     </div>
 
     <div class="content-container">
-        <!-- اسم البراند تحت صورة الغلاف باللون الذهبي -->
         <h1 class="brand-title">The Priceless Touch</h1>
-        
         <h2 class="main-title">Discover Something<br>You'll Love</h2>
         <a href="categories.html" class="btn">Browse Categories</a>
     </div>
