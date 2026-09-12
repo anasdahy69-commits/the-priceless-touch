@@ -19,7 +19,12 @@
             flex-direction: column;
             min-height: 100vh;
         }
+        /* Sticky header configuration */
         header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #3b0a12;
             padding: 18px 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
