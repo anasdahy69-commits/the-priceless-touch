@@ -1,0 +1,20 @@
+name: Optimize Images
+
+on:
+  push:
+    paths:
+      - 'images/**'
+
+jobs:
+  build:
+    name: Max Quality & Speed Optimization
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: High Quality Image Optimization
+        uses: patrimart/image-optimizer@main
+        with:
+          path: images
+          quality: 100
