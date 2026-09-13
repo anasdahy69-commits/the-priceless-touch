@@ -8,14 +8,13 @@ on:
 
 jobs:
   build:
-    name: Max Quality & Speed Optimization
+    name: Compress and Convert Images
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: High Quality Image Optimization
-        uses: patrimart/image-optimizer@main
+      - name: Automatic Image Optimization
+        uses: calibreapp/image-actions@main
         with:
-          path: images
-          quality: 100
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
