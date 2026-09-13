@@ -141,6 +141,39 @@
             letter-spacing: 1px;
             line-height: 1.3;
         }
+        
+        /* Back to Top Button Styling */
+        #backToTopBtn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            width: 45px;
+            height: 45px;
+            background-color: #ffffff;
+            color: #3b0a12;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        #backToTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #backToTopBtn:hover {
+            background-color: #d4af37;
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
         footer {
             padding: 18px 15px;
             font-size: 10px;
@@ -182,6 +215,9 @@
         </div>
     </div>
 
+    <!-- Back to Top Button Element -->
+    <button id="backToTopBtn" onclick="scrollToTop()" title="Go to top">▲</button>
+
     <script>
         function searchProducts() {
             let input = document.getElementById('searchInput').value.toLowerCase();
@@ -194,6 +230,24 @@
                 } else {
                     item.style.display = "none";
                 }
+            });
+        }
+
+        // Back to Top Script
+        const backToTopButton = document.getElementById("backToTopBtn");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopButton.classList.add("show");
+            } else {
+                backToTopButton.classList.remove("show");
+            }
+        };
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         }
     </script>
