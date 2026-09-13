@@ -142,36 +142,38 @@
             line-height: 1.3;
         }
         
-        /* Back to Top Button Styling */
+        /* Fixed Back to Top Button Styling (Pure White Circle, Black Real Arrow, No Yellow Border) */
         #backToTopBtn {
             position: fixed;
             bottom: 25px;
             right: 25px;
             z-index: 9999;
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             background-color: #ffffff;
-            color: #3b0a12;
-            border: 2px solid #d4af37;
+            border: none;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
         }
         #backToTopBtn.show {
             opacity: 1;
             visibility: visible;
         }
         #backToTopBtn:hover {
-            background-color: #d4af37;
-            color: #ffffff;
-            transform: scale(1.1);
+            transform: scale(1.08);
+        }
+        #backToTopBtn svg {
+            width: 22px;
+            height: 22px;
+            fill: #000000;
+            display: block;
         }
 
         footer {
@@ -215,8 +217,12 @@
         </div>
     </div>
 
-    <!-- Back to Top Button Element -->
-    <button id="backToTopBtn" onclick="scrollToTop()" title="Go to top">▲</button>
+    <!-- Back to Top Button Element with a Real SVG Arrow (Centered, Black, White Circle) -->
+    <button id="backToTopBtn" onclick="scrollToTop()" title="Go to top">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 4L4 12H9V20H15V12H20L12 4Z" />
+        </svg>
+    </button>
 
     <script>
         function searchProducts() {
