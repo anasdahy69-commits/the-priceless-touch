@@ -7,13 +7,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  optimize:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Compress Images
-        uses: calibre/image-actions@main
+      - name: Optimize images
+        uses: hirasso/actions-image-optimizer@v1
         with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: 'Optimize images automatically'
