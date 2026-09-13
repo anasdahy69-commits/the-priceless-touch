@@ -7,14 +7,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Compress and Convert Images
+  optimize:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Automatic Image Optimization
-        uses: calibreapp/image-actions@main
+      - name: Compress Images
+        uses: calibre/image-actions@main
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
