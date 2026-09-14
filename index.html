@@ -92,6 +92,27 @@
             background: var(--btn-hover-bg);
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .wishlist-icon {
+            font-size: 16px;
+            text-decoration: none;
+            color: var(--header-action-color);
+            transition: transform 0.2s ease, opacity 0.3s ease;
+            opacity: 0.9;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .wishlist-icon:hover {
+            transform: scale(1.15);
+            opacity: 1;
+        }
+
         .about-link {
             font-size: 10px;
             font-weight: 600;
@@ -190,7 +211,10 @@
     <header>
         <div class="nav-container">
             <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
-            <a href="/shop/about.html" class="about-link">About</a>
+            <div class="nav-right">
+                <a href="/shop/wishlist.html" class="wishlist-icon" title="Wishlist">🤍</a>
+                <a href="/shop/about.html" class="about-link">About</a>
+            </div>
         </div>
     </header>
 
