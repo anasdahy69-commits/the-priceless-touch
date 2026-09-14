@@ -16,15 +16,15 @@
             --text-color: #ffffff;
             --nav-bg: #3b0a12;
             --border-color: rgba(255, 255, 255, 0.2);
-            --accent-gold: #d4af37; /* Deep Glossy Rich Gold in Dark Mode */
+            --accent-gold: #b89728; /* Darker, richer deep gold */
             --header-action-color: #ffffff; /* White menu lines in Dark Mode */
-            --btn-hover-bg: rgba(212, 175, 55, 0.85); 
+            --btn-hover-bg: rgba(184, 151, 40, 0.85); 
             --footer-color: rgba(255, 255, 255, 0.6);
             --pure-icon-color: #ffffff; /* White sun in Dark Mode */
             --drawer-bg: #fcfbfa;
             --drawer-text: #2c2c2c;
-            --brand-color: #d4af37; /* Deep Glossy Rich Gold for Brand Name in Dark Mode */
-            --btn-bg-color: #d4af37; /* Solid Deep Gold Button in Dark Mode */
+            --brand-color: #b89728; /* Darker, richer deep gold for Brand Name in Dark Mode */
+            --btn-bg-color: #b89728; /* Solid Darker Gold Button in Dark Mode */
             --btn-text-color: #ffffff; /* White text inside button */
         }
 
@@ -82,7 +82,7 @@
             position: relative;
         }
 
-        /* Brand Name in Header Center: Enlarged, Thicker, Clear, Exactly Two Lines */
+        /* Brand Name in Header Center: Two lines strictly ("The" alone, "Priceless Touch" together) */
         .brand-header-title {
             position: absolute;
             left: 50%;
@@ -92,6 +92,7 @@
             flex-direction: column;
             align-items: center;
             line-height: 1.1;
+            white-space: nowrap;
             transition: opacity 0.3s ease;
         }
 
