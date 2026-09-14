@@ -89,7 +89,7 @@
             background: var(--btn-hover-bg);
         }
 
-        /* About Button: بنفس أبعاد وستايل زرار الـ Light/Dark تماماً */
+        /* About Button: مربع بزوايا حادة وقائمة (border-radius: 0) وبنفس العرض والأبعاد */
         .about-link {
             display: inline-block;
             background: transparent;
@@ -98,7 +98,7 @@
             padding: 6px 12px;
             width: 82px;
             text-align: center;
-            border-radius: 20px;
+            border-radius: 0; /* زوايا قائمة ومربعة تماماً */
             cursor: pointer;
             font-size: 10px;
             font-weight: 700;
@@ -127,7 +127,7 @@
         }
 
         .content-container {
-            padding: 35px 24px 30px 24px; /* قللنا المسافة السفلية عشان خط الفوتر يقرب شوية */
+            padding: 35px 24px 30px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -171,10 +171,10 @@
             border-color: var(--accent-gold);
         }
 
-        /* Footer: تم تقريب الخط الفاصل ومسافة العرض لتكون متناسقة ومريحة للعين */
+        /* Footer */
         footer {
             margin-top: auto;
-            padding: 24px 20px 35px 20px; /* تقليل البادنج العلوي للخط الفاصل */
+            padding: 24px 20px 35px 20px;
             font-size: 11px;
             font-weight: 500;
             line-height: 1.6;
