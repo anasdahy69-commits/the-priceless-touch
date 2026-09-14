@@ -29,7 +29,7 @@
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
             --accent-gold: #997413;
-            --header-action-color: #997413;
+            --header-action-color: #2c2c2c;
             --header-action-border: #997413;
             --btn-hover-bg: rgba(0, 0, 0, 0.08);
             --footer-color: #6c5713;
@@ -74,7 +74,7 @@
         #theme-toggle {
             background: transparent;
             border: 1.5px solid var(--header-action-border);
-            color: var(--header-action-color);
+            color: var(--text-color);
             padding: 6px 12px;
             width: 82px;
             text-align: center;
@@ -99,18 +99,27 @@
         }
 
         .wishlist-icon {
-            font-size: 16px;
             text-decoration: none;
             color: var(--header-action-color);
-            transition: transform 0.2s ease, opacity 0.3s ease;
-            opacity: 0.9;
             display: inline-flex;
             align-items: center;
+            opacity: 0.95;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+        }
+
+        .wishlist-icon svg {
+            width: 17px;
+            height: 17px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .wishlist-icon:hover {
-            transform: scale(1.15);
             opacity: 1;
+            transform: scale(1.1);
         }
 
         .about-link {
@@ -212,7 +221,11 @@
         <div class="nav-container">
             <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
             <div class="nav-right">
-                <a href="/shop/wishlist.html" class="wishlist-icon" title="Wishlist">🤍</a>
+                <a href="/shop/wishlist.html" class="wishlist-icon" title="Wishlist">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </a>
                 <a href="/shop/about.html" class="about-link">About</a>
             </div>
         </div>
