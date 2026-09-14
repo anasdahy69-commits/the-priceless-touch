@@ -7,54 +7,211 @@
     
     <!-- Custom Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <style>
+        /* Colors and Variables: Default is Royal Burgundy (Dark Mode) */
+        :root {
+            --bg-color: #3b0a12;
+            --text-color: #ffffff;
+            --nav-bg: #3b0a12;
+            --border-color: rgba(255, 255, 255, 0.2);
+            --accent-gold: #f3d06b;
+            --header-action-color: #ffffff; /* White menu lines in Dark Mode */
+            --btn-hover-bg: rgba(255, 255, 255, 0.12);
+            --footer-color: rgba(255, 255, 255, 0.6);
+            --pure-icon-color: #ffffff; /* White sun in Dark Mode */
+            --drawer-bg: #fcfbfa;
+            --drawer-text: #2c2c2c;
+            --card-title-color: #ffffff;
+        }
+
+        body.light-mode {
+            --bg-color: #fcfbfa;
+            --text-color: #2c2c2c;
+            --nav-bg: #f5f2f0;
+            --border-color: rgba(0, 0, 0, 0.15);
+            --accent-gold: #997413;
+            --header-action-color: #000000; /* Black menu lines in Light Mode */
+            --btn-hover-bg: rgba(0, 0, 0, 0.08);
+            --footer-color: #6c5713;
+            --pure-icon-color: #000000; /* Black moon in Light Mode */
+            --drawer-bg: #f5f2f0;
+            --drawer-text: #2c2c2c;
+            --card-title-color: #2c2c2c;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            background-color: #3b0a12;
-            color: #ffffff;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         /* Sticky header configuration */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: #3b0a12;
-            padding: 22px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            background-color: var(--nav-bg);
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
-        .nav-links {
+
+        .nav-container {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 650px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Pure geometric theme toggle icon without background */
+        #theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--pure-icon-color);
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 25px;
+            cursor: pointer;
+            padding: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #theme-toggle svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        #theme-toggle:hover {
+            opacity: 0.8;
+        }
+
+        /* Menu Button (3 Lines) */
+        .menu-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            padding: 0;
+        }
+
+        .menu-btn span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--header-action-color);
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Sidebar Drawer Styling */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -240px;
+            width: 240px;
+            height: 100%;
+            background-color: var(--drawer-bg);
+            color: var(--drawer-text);
+            z-index: 2001;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 20px 16px;
+            transition: right 0.3s ease;
+            text-align: left;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--drawer-text);
+            line-height: 1;
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: var(--drawer-text);
             font-size: 13px;
-            letter-spacing: 1px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
         }
-        .nav-links a {
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s ease;
+
+        .sidebar-item svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--drawer-text);
+            fill: none;
+            stroke-width: 2;
         }
-        .nav-links a.active {
-            color: #d4af37;
-            font-weight: 500;
-        }
-        .nav-links a:hover {
-            color: #d4af37;
-        }
+
         .top-title {
             padding: 40px 20px 25px 20px;
         }
+
         .top-title h2 {
             font-size: 26px;
             font-weight: 300;
@@ -63,6 +220,7 @@
             font-family: serif;
             text-transform: uppercase;
         }
+
         .categories-container {
             flex: 1;
             padding: 10px 20px 40px 20px;
@@ -71,11 +229,13 @@
             gap: 40px;
             align-items: center;
         }
+
         .category-item {
             width: 100%;
             max-width: 400px;
             text-align: center;
         }
+
         .category-card {
             display: block;
             width: 100%;
@@ -86,44 +246,74 @@
             text-decoration: none;
             transition: transform 0.3s ease;
         }
+
         .category-card:hover {
             transform: scale(1.02);
         }
+
         .category-card img {
             width: 100%;
             height: 280px;
             object-fit: cover;
             display: block;
         }
+
         .category-title {
             margin-top: 15px;
             font-size: 20px;
             font-weight: 300;
-            color: #ffffff;
+            color: var(--card-title-color);
             font-family: serif;
             letter-spacing: 1.5px;
+            transition: color 0.3s ease;
         }
+
         footer {
-            padding: 18px 15px;
-            font-size: 10px;
-            line-height: 1.4;
-            color: rgba(255, 255, 255, 0.55);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: auto;
+            padding: 24px 20px 35px 20px;
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--footer-color);
+            border-top: 1px solid var(--border-color);
             max-width: 650px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="categories.html" class="active">Categories</a>
-            <a href="decor.html">Decor</a>
-            <a href="kitchen.html">Kitchen</a>
-        </nav>
+        <div class="nav-container">
+            <!-- Pure geometric theme toggle icon without background -->
+            <button id="theme-toggle" aria-label="Toggle Theme">
+                <span id="theme-icon"></span>
+            </button>
+            
+            <button class="menu-btn" id="openMenu" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
+
+    <!-- Sidebar Drawer Menu -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <button class="close-btn" id="closeMenu" aria-label="Close Menu">&times;</button>
+        </div>
+        <div class="sidebar-menu">
+            <a href="index.html" class="sidebar-item">
+                <span>HOME</span>
+                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+        </div>
+    </div>
 
     <div class="top-title">
         <h2>Curated<br>Just For You.</h2>
@@ -148,8 +338,57 @@
     </div>
 
     <footer>
-        Affiliate Disclosure: We are a participant in affiliate programs with Amazon, Target, Walmart, and other major retailers. We may earn a commission from qualifying purchases at no extra cost to you.
+        <p>Affiliate Disclosure: We are a participant in affiliate programs with Amazon, Target, Walmart, and other major retailers. We may earn a commission from qualifying purchases at no extra cost to you, helping us bring you the finest selections.</p>
     </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIconSpan = document.getElementById('theme-icon');
+        const bodyElement = document.body;
+
+        /* Geometric SVGs: Sun with perfectly equal symmetrical rays, and a moon crescent */
+        const sunSvg = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+        const moonSvg = `<svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>`;
+
+        function updateThemeUI(isLight) {
+            if (isLight) {
+                bodyElement.classList.add('light-mode');
+                themeIconSpan.innerHTML = moonSvg;
+                localStorage.setItem('theme', 'light');
+            } else {
+                bodyElement.classList.remove('light-mode');
+                themeIconSpan.innerHTML = sunSvg;
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            updateThemeUI(true);
+        } else {
+            updateThemeUI(false);
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isLightNow = bodyElement.classList.contains('light-mode');
+            updateThemeUI(!isLightNow);
+        });
+
+        // Sidebar Menu Open/Close Logic
+        const openMenuBtn = document.getElementById('openMenu');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        }
+
+        openMenuBtn.addEventListener('click', toggleSidebar);
+        closeMenuBtn.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+    </script>
 
 </body>
 </html>
