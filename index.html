@@ -10,114 +10,192 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <style>
+        /* Colors and Variables for Dark and Light Modes */
+        :root {
+            --bg-color: #3b0a12;
+            --text-color: #ffffff;
+            --nav-bg: #3b0a12;
+            --border-color: rgba(255, 255, 255, 0.15);
+            --accent-gold: #d4af37;
+            --btn-hover-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        body.light-mode {
+            --bg-color: #fcfbfa;
+            --text-color: #2c2c2c;
+            --nav-bg: #f5f2f0;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --accent-gold: #b38f27;
+            --btn-hover-bg: rgba(0, 0, 0, 0.05);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            background-color: #3b0a12;
-            color: #ffffff;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: #3b0a12;
-            padding: 22px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            background-color: var(--nav-bg);
+            padding: 15px 10px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
+
+        /* Header layout optimized for mobile to avoid clutter */
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            font-size: 13px;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 12px;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
+
         .nav-links a {
-            color: #ffffff;
+            color: var(--text-color);
             text-decoration: none;
             transition: color 0.3s ease;
         }
+
         .nav-links a.active {
-            color: #d4af37;
+            color: var(--accent-gold);
             font-weight: 500;
         }
+
         .nav-links a:hover {
-            color: #d4af37;
+            color: var(--accent-gold);
         }
+
+        /* Elegant and compact Theme Toggle button */
+        #theme-toggle {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 4px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            background: var(--btn-hover-bg);
+        }
+
         .hero-section {
             width: 100%;
             background-color: #000;
             margin-top: 0px;
         }
+
         .hero-section img {
             width: 100%;
             height: auto;
-            max-height: 450px;
+            max-height: 400px;
             object-fit: cover;
             display: block;
         }
+
         .content-container {
             flex: 1;
-            padding: 30px 20px 30px 20px;
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
         }
+
         .main-title {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 300;
             letter-spacing: 2px;
             line-height: 1.4;
             font-family: serif;
             text-transform: uppercase;
-            margin-top: 0;
-            margin-bottom: 0;
+            margin: 0;
         }
+
         .btn {
             display: inline-block;
-            padding: 14px 35px;
-            border: 1px solid #ffffff;
+            padding: 12px 30px;
+            border: 1px solid var(--text-color);
             border-radius: 35px;
-            color: #d4af37;
+            color: var(--accent-gold);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 1.5px;
             background: transparent;
             transition: background 0.3s ease, border-color 0.3s ease;
         }
+
         .btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #d4af37;
+            background: var(--btn-hover-bg);
+            border-color: var(--accent-gold);
         }
+
         footer {
             padding: 18px 15px;
             font-size: 10px;
             line-height: 1.4;
             color: rgba(255, 255, 255, 0.55);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid var(--border-color);
             max-width: 650px;
             margin: 0 auto;
+        }
+
+        /* Responsive layout for wider screens */
+        @media (min-width: 600px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 15px;
+            }
+            .nav-links {
+                font-size: 13px;
+                gap: 25px;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <nav class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="categories.html">Categories</a>
-            <a href="decor.html">Decor</a>
-            <a href="kitchen.html">Kitchen</a>
-        </nav>
+        <div class="nav-container">
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="categories.html">Categories</a>
+                <a href="decor.html">Decor</a>
+                <a href="kitchen.html">Kitchen</a>
+            </nav>
+            <!-- Integrated Theme Toggle Button -->
+            <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">🌙 Luxury Mode</button>
+        </div>
     </header>
 
     <div class="hero-section">
@@ -132,6 +210,29 @@
     <footer>
         Affiliate Disclosure: We are a participant in affiliate programs with Amazon, Target, Walmart, and other major retailers. We may earn a commission from qualifying purchases at no extra cost to you.
     </footer>
+
+    <!-- Script for Theme Switching and Local Storage Persistence -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const bodyElement = document.body;
+
+        if (localStorage.getItem('theme') === 'light') {
+            bodyElement.classList.add('light-mode');
+            themeToggleBtn.textContent = '☀️ Light Mode';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            bodyElement.classList.toggle('light-mode');
+            
+            if (bodyElement.classList.contains('light-mode')) {
+                themeToggleBtn.textContent = '☀️ Light Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeToggleBtn.textContent = '🌙 Luxury Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 
 </body>
 </html>
