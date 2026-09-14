@@ -18,6 +18,7 @@
             --border-color: rgba(255, 255, 255, 0.15);
             --accent-gold: #d4af37;
             --btn-hover-bg: rgba(255, 255, 255, 0.1);
+            --footer-color: rgba(255, 255, 255, 0.55); /* اللون العادي الهادئ في الوضع الملكي */
         }
 
         body.light-mode {
@@ -27,6 +28,7 @@
             --border-color: rgba(0, 0, 0, 0.1);
             --accent-gold: #b38f27;
             --btn-hover-bg: rgba(0, 0, 0, 0.05);
+            --footer-color: #b38f27; /* اللون الذهبي الفخم في الوضع الأبيض */
         }
 
         * {
@@ -163,10 +165,11 @@
             padding: 18px 15px;
             font-size: 10px;
             line-height: 1.4;
-            color: rgba(255, 255, 255, 0.55);
+            color: var(--footer-color);
             border-top: 1px solid var(--border-color);
             max-width: 650px;
             margin: 0 auto;
+            transition: color 0.3s ease;
         }
 
         /* Responsive layout for wider screens */
@@ -193,8 +196,8 @@
                 <a href="decor.html">Decor</a>
                 <a href="kitchen.html">Kitchen</a>
             </nav>
-            <!-- Integrated Theme Toggle Button -->
-            <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">🌙 Luxury Mode</button>
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">☀️ Light Mode</button>
         </div>
     </header>
 
@@ -216,8 +219,11 @@
         const themeToggleBtn = document.getElementById('theme-toggle');
         const bodyElement = document.body;
 
+        // Check saved preference on load
         if (localStorage.getItem('theme') === 'light') {
             bodyElement.classList.add('light-mode');
+            themeToggleBtn.textContent = '🌙 Luxury Mode';
+        } else {
             themeToggleBtn.textContent = '☀️ Light Mode';
         }
 
@@ -225,10 +231,10 @@
             bodyElement.classList.toggle('light-mode');
             
             if (bodyElement.classList.contains('light-mode')) {
-                themeToggleBtn.textContent = '☀️ Light Mode';
+                themeToggleBtn.textContent = '🌙 Luxury Mode';
                 localStorage.setItem('theme', 'light');
             } else {
-                themeToggleBtn.textContent = '🌙 Luxury Mode';
+                themeToggleBtn.textContent = '☀️ Light Mode';
                 localStorage.setItem('theme', 'dark');
             }
         });
