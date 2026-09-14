@@ -25,6 +25,7 @@
             --drawer-text: #ffffff;
             --card-title-color: #ffffff;
             --home-link-color: #ffffff;
+            --curated-title-color: #ffffff; /* White in Dark Mode */
         }
 
         body.light-mode {
@@ -41,6 +42,7 @@
             --drawer-text: #2c2c2c; /* Dark text in Drawer */
             --card-title-color: #2c2c2c; /* Dark title in Light Mode */
             --home-link-color: #2c2c2c; /* Dark home link in Light Mode */
+            --curated-title-color: #2d6a4f; /* Exact matching button green for Curated title in Light Mode */
         }
 
         * {
@@ -91,7 +93,7 @@
             gap: 10px;
             color: var(--home-link-color);
             text-decoration: none;
-            font-size: 22px; /* Doubled/Enlarged size */
+            font-size: 22px;
             font-weight: 900;
             letter-spacing: 2.5px;
             text-transform: uppercase;
@@ -99,7 +101,7 @@
         }
 
         .home-link svg {
-            width: 24px; /* Scaled arrow icon accordingly */
+            width: 24px;
             height: 24px;
             stroke: currentColor;
             stroke-width: 2.5;
@@ -257,7 +259,7 @@
         }
 
         .top-title {
-            padding: 40px 20px 25px 20px;
+            padding: 40px 20px 45px 20px; /* Increased bottom padding to create extra space before categories */
         }
 
         .top-title h2 {
@@ -267,7 +269,7 @@
             line-height: 1.4;
             font-family: serif;
             text-transform: uppercase;
-            color: var(--text-color);
+            color: var(--curated-title-color); /* Green in Light Mode, White in Dark Mode */
             transition: color 0.3s ease;
         }
 
