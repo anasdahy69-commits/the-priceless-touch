@@ -287,7 +287,7 @@
             justify-content: center;
             gap: 25px;
             min-height: 35vh;
-            max-width: 550px;
+            max-width: 600px;
             margin: 0 auto;
             width: 100%;
         }
@@ -325,7 +325,7 @@
             transform: translateY(-1px);
         }
 
-        /* Categories text list styling (2 lines, white text, clear dividers) */
+        /* Categories text list styling (Strictly 2 lines with dash dividers) */
         .home-categories-text {
             display: flex;
             flex-direction: column;
@@ -338,11 +338,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 12px;
+            flex-wrap: nowrap; /* Prevent items from breaking arbitrarily */
+            white-space: nowrap; /* Keep line contents intact */
+            gap: 8px;
+            font-size: 11px;
             font-weight: 600;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: var(--categories-text-color);
             transition: color 0.3s ease;
@@ -423,18 +424,18 @@
         <h2 class="main-title">Discover Something<br>You'll Love</h2>
         <a href="categories.html" class="btn">Browse Categories</a>
         
-        <!-- 8 Categories in 2 lines with clear distinct dividers -->
+        <!-- 8 Categories in strictly 2 lines with dash (-) dividers -->
         <div class="home-categories-text">
             <div class="categories-line">
-                <span>Kitchen</span> <span class="cat-divider">/</span>
-                <span>Decor</span> <span class="cat-divider">/</span>
-                <span>Smart Tech</span> <span class="cat-divider">/</span>
+                <span>Kitchen</span> <span class="cat-divider">-</span>
+                <span>Decor</span> <span class="cat-divider">-</span>
+                <span>Smart Tech</span> <span class="cat-divider">-</span>
                 <span>Bedrooms</span>
             </div>
             <div class="categories-line">
-                <span>Office</span> <span class="cat-divider">/</span>
-                <span>Bathroom</span> <span class="cat-divider">/</span>
-                <span>Patio</span> <span class="cat-divider">/</span>
+                <span>Office</span> <span class="cat-divider">-</span>
+                <span>Bathroom</span> <span class="cat-divider">-</span>
+                <span>Patio</span> <span class="cat-divider">-</span>
                 <span>Pet Care</span>
             </div>
         </div>
