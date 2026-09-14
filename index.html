@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Priceless Touch</title>
     
-    <!-- Professional Favicon Integration -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <style>
-        /* Colors and Variables: Default is Royal Burgundy (Dark Mode) */
         :root {
             --bg-color: #3b0a12;
             --text-color: #ffffff;
@@ -27,6 +25,7 @@
             --drawer-border: rgba(255, 255, 255, 0.15);
             --brand-color: #ffffff; 
             --categories-text-color: rgba(255, 255, 255, 0.85);
+            --cat-divider-color: rgba(255, 255, 255, 0.4);
         }
 
         body.light-mode {
@@ -45,6 +44,7 @@
             --drawer-border: rgba(0, 0, 0, 0.1);
             --brand-color: #2d6a4f; 
             --categories-text-color: rgba(44, 44, 44, 0.85); 
+            --cat-divider-color: #000000;
         }
 
         * {
@@ -159,7 +159,6 @@
             border-radius: 2px;
         }
 
-        /* Sidebar Drawer Styling */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -335,8 +334,8 @@
         }
 
         .cat-divider {
-            color: rgba(255, 255, 255, 0.4);
-            font-weight: 400;
+            color: var(--cat-divider-color);
+            font-weight: 600;
         }
 
         footer {
@@ -375,24 +374,21 @@
         </div>
     </header>
 
-    <!-- Sidebar Drawer Menu -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <button class="close-btn" id="closeMenu" aria-label="Close Menu">&times;</button>
         </div>
         <div class="sidebar-menu">
-            <!-- Wishlist Item -->
             <a href="wishlist.html" class="sidebar-item">
                 <span>WISHLIST</span>
                 <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </a>
             
-            <!-- About Item -->
             <a href="about.html" class="sidebar-item">
                 <span>ABOUT</span>
                 <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
                     <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round"/>
                     <circle cx="12" cy="17" r="1" fill="currentColor"/>
                 </svg>
