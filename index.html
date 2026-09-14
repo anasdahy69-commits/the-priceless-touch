@@ -26,7 +26,7 @@
             --drawer-text: #ffffff; 
             --drawer-border: rgba(255, 255, 255, 0.15);
             --brand-color: #ffffff; 
-            --categories-text-color: rgba(255, 255, 255, 0.85); /* Soft non-glaring white */
+            --categories-text-color: rgba(255, 255, 255, 0.85);
         }
 
         body.light-mode {
@@ -159,7 +159,7 @@
             border-radius: 2px;
         }
 
-        /* Sidebar Drawer Styling - Perfectly optimized proportions */
+        /* Sidebar Drawer Styling */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -181,8 +181,8 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: -230px;
-            width: 230px; /* Slightly wider to give elements breathing room */
+            right: -210px;
+            width: 210px;
             height: 100%;
             background-color: var(--drawer-bg);
             color: var(--drawer-text);
@@ -203,7 +203,7 @@
         .sidebar-header {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
         .close-btn {
@@ -223,21 +223,18 @@
         .sidebar-menu {
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
-            justify-content: space-between; /* Distributes items evenly to fill up the full vertical height */
-            gap: 6px;
+            gap: 5px;
         }
 
-        /* Main Menu Items (Wishlist & About) - Larger & Bolder */
         .sidebar-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 0;
+            padding: 16px 0;
             border-bottom: 1px solid var(--drawer-border);
             text-decoration: none;
             color: var(--drawer-text);
-            font-size: 13px; /* Increased font size */
+            font-size: 13px;
             font-weight: 800;
             letter-spacing: 1.2px;
             text-transform: uppercase;
@@ -254,53 +251,6 @@
             stroke: var(--drawer-text);
             fill: none;
             stroke-width: 2;
-        }
-
-        /* Categories Section inside Sidebar - Bold, spacious, filling the drawer nicely */
-        .sidebar-category-group {
-            display: flex;
-            flex-direction: column;
-            border-bottom: 1px solid var(--drawer-border);
-            padding-bottom: 8px;
-        }
-
-        .sidebar-category-title {
-            padding: 12px 0 8px 0;
-            font-size: 13px; /* Matched with main items */
-            font-weight: 900;
-            letter-spacing: 1.4px;
-            text-transform: uppercase;
-            color: var(--drawer-text);
-        }
-
-        .sidebar-sub-items {
-            display: flex;
-            flex-direction: column;
-            padding-left: 6px;
-        }
-
-        /* Sub-items (The 8 Categories) - Large, clear, perfectly padded to fill vertical space */
-        .sidebar-sub-item {
-            text-decoration: none;
-            color: var(--categories-text-color);
-            font-size: 12px; /* Increased text size for clear readability */
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            display: block;
-            padding: 11px 0; /* Generous vertical padding to stretch down gracefully */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
-        }
-
-        .sidebar-sub-item:last-child {
-            border-bottom: none;
-        }
-
-        .sidebar-sub-item:hover {
-            opacity: 1;
-            transform: translateX(4px);
-            color: var(--drawer-text);
         }
 
         .hero-section {
@@ -432,38 +382,21 @@
             <button class="close-btn" id="closeMenu" aria-label="Close Menu">&times;</button>
         </div>
         <div class="sidebar-menu">
-            <div>
-                <!-- Wishlist Item -->
-                <a href="wishlist.html" class="sidebar-item">
-                    <span>WISHLIST</span>
-                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </a>
-                
-                <!-- About Item -->
-                <a href="about.html" class="sidebar-item">
-                    <span>ABOUT</span>
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round"/>
-                        <circle cx="12" cy="17" r="1" fill="currentColor"/>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- Categories Group (Enlarged and nicely distributed) -->
-            <div class="sidebar-category-group">
-                <div class="sidebar-category-title">CATEGORIES</div>
-                <div class="sidebar-sub-items">
-                    <a href="kitchen.html" class="sidebar-sub-item">Kitchen</a>
-                    <a href="decor.html" class="sidebar-sub-item">Decor</a>
-                    <a href="smart-tech.html" class="sidebar-sub-item">Smart Tech</a>
-                    <a href="bedrooms.html" class="sidebar-sub-item">Bedrooms</a>
-                    <a href="office.html" class="sidebar-sub-item">Office</a>
-                    <a href="bathroom.html" class="sidebar-sub-item">Bathroom</a>
-                    <a href="patio.html" class="sidebar-sub-item">Patio</a>
-                    <a href="pet-care.html" class="sidebar-sub-item">Pet Care</a>
-                </div>
-            </div>
+            <!-- Wishlist Item -->
+            <a href="wishlist.html" class="sidebar-item">
+                <span>WISHLIST</span>
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </a>
+            
+            <!-- About Item -->
+            <a href="about.html" class="sidebar-item">
+                <span>ABOUT</span>
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round"/>
+                    <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                </svg>
+            </a>
         </div>
     </div>
 
@@ -538,8 +471,8 @@
         }
 
         openMenuBtn.addEventListener('click', toggleSidebar);
-    closeMenuBtn.addEventListener('click', toggleSidebar);
-    sidebarOverlay.addEventListener('click', toggleSidebar);
+        closeMenuBtn.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
     </script>
 
 </body>
