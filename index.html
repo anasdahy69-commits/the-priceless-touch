@@ -113,11 +113,13 @@
         }
 
         .content-container {
-            padding: 25px 20px;
+            padding: 35px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px; /* تقليل الفراغات عشان العناصر تترفع لفوق وتبان بسرعة */
+            justify-content: center;
+            gap: 30px; /* مسافة إضافية مظبوطة بناءً على الأسهم عشان زرار المود ينزل للمكان المطلوب */
+            min-height: 35vh; /* ضبط المساحة عشان نزلنا العناصر لتحت بالمسافة المحددة */
         }
 
         .main-title {
@@ -149,7 +151,7 @@
         }
 
         footer {
-            padding: 25px 20px 35px 20px;
+            padding: 25px 20px 40px 20px;
             font-size: 10px;
             line-height: 1.6;
             color: var(--footer-color);
@@ -207,7 +209,7 @@
     </header>
 
     <div class="hero-section">
-        <img src="images/hero.JPG" alt="Hero Image" width="1200" height="600" fetchpriority="high">
+        <image src="images/hero.JPG" alt="Hero Image" width="1200" height="600" fetchpriority="high">
     </div>
 
     <div class="content-container">
