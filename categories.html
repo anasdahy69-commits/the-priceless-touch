@@ -21,6 +21,7 @@
             --drawer-text: #ffffff; 
             --drawer-border: rgba(255, 255, 255, 0.15);
             --brand-color: #ffffff; 
+            --curated-color: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
         }
 
         body.light-mode {
@@ -35,6 +36,7 @@
             --drawer-text: #2c2c2c; 
             --drawer-border: rgba(0, 0, 0, 0.1);
             --brand-color: #2d6a4f; 
+            --curated-color: #2d6a4f; 
         }
 
         * {
@@ -242,6 +244,23 @@
             stroke-width: 2;
         }
 
+        .content-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .top-divider {
+            width: 100%;
+            height: 1px;
+            background-color: var(--border-color);
+            margin-top: 15px;
+            margin-bottom: 40px;
+            transition: background-color 0.3s ease;
+        }
+
         .content-container {
             padding: 35px 20px 50px 20px;
             display: flex;
@@ -250,32 +269,35 @@
             max-width: 650px;
             margin: 0 auto;
             width: 100%;
-            flex: 1;
             gap: 40px;
         }
 
         .page-header-title {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            line-height: 1.4;
-            font-family: serif;
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 3.5px;
+            line-height: 1.35;
+            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
             text-transform: uppercase;
             width: 100%;
-            margin-top: 5px;
-            margin-bottom: 15px;
+            margin-top: 15px;
+            margin-bottom: 0;
+            white-space: nowrap;
+            background: var(--curated-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        body.light-mode .page-header-title {
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+            color: var(--curated-color);
         }
 
         .page-header-title span {
             display: block;
-        }
-
-        .top-divider {
-            width: 100%;
-            height: 1px;
-            background-color: var(--border-color);
-            margin-bottom: 10px;
-            transition: background-color 0.3s ease;
         }
 
         .category-section {
@@ -383,76 +405,79 @@
         </div>
     </div>
 
-    <div class="content-container">
-        <h1 class="page-header-title">
-            Curated
-            <span>Just For You.</span>
-        </h1>
+    <!-- Divider ممتد من الطرف للطرف -->
+    <div class="top-divider"></div>
 
-        <div class="top-divider"></div>
+    <div class="content-wrapper">
+        <div class="content-container">
+            <h1 class="page-header-title">
+                Curated
+                <span>Just For You.</span>
+            </h1>
 
-        <!-- 1. Kitchen -->
-        <div class="category-section">
-            <a href="sections/1-kitchen.html" class="category-card">
-                <img src="images/kitchen.jpg" alt="Kitchen" width="1200" height="600" loading="lazy">
-            </a>
-            <h2 class="section-title">Kitchen</h2>
-        </div>
+            <!-- 1. Kitchen -->
+            <div class="category-section">
+                <a href="sections/1-kitchen.html" class="category-card">
+                    <img src="images/kitchen.jpg" alt="Kitchen" width="1200" height="600" loading="lazy">
+                </a>
+                <h2 class="section-title">Kitchen</h2>
+            </div>
 
-        <!-- 2. Decor -->
-        <div class="category-section">
-            <a href="sections/2-decor.html" class="category-card">
-                <img src="images/decor.jpg" alt="Decor" width="1200" height="600" loading="lazy">
-            </a>
-            <h2 class="section-title">Decor</h2>
-        </div>
+            <!-- 2. Decor -->
+            <div class="category-section">
+                <a href="sections/2-decor.html" class="category-card">
+                    <img src="images/decor.jpg" alt="Decor" width="1200" height="600" loading="lazy">
+                </a>
+                <h2 class="section-title">Decor</h2>
+            </div>
 
-        <!-- 3. Smart Tech -->
-        <div class="category-section">
-            <a href="sections/3-smart-tech.html" class="category-card">
-                <img src="images/smart-tech.jpg" alt="Smart Tech" width="1200" height="600" loading="lazy">
-            </a>
-            <h2 class="section-title">Smart Tech</h2>
-        </div>
+            <!-- 3. Smart Tech -->
+            <div class="category-section">
+                <a href="sections/3-smart-tech.html" class="category-card">
+                    <img src="images/smart-tech.jpg" alt="Smart Tech" width="1200" height="600" loading="lazy">
+                </a>
+                <h2 class="section-title">Smart Tech</h2>
+            </div>
 
-        <!-- 4. Bedrooms -->
-        <div class="category-section">
-            <a href="sections/4-bedrooms.html" class="category-card">
-                <img src="images/bedrooms.jpg" alt="Bedrooms" width="1200" height="600" loading="lazy">
-            </a>
-            <h2 class="section-title">Bedrooms</h2>
-        </div>
+            <!-- 4. Bedrooms -->
+            <div class="category-section">
+                <a href="sections/4-bedrooms.html" class="category-card">
+                    <img src="images/bedrooms.jpg" alt="Bedrooms" width="1200" height="600" loading="lazy">
+                </a>
+                <h2 class="section-title">Bedrooms</h2>
+            </div>
 
-        <!-- 5. Office -->
-        <div class="category-section">
-            <a href="sections/5-office.html" class="category-card">
-                <img src="images/office.jpg" alt="Office" width="1200" height="600" loading="lazy">
-            </a>
-            <h2 class="section-title">Office</h2>
-        </div>
+            <!-- 5. Office -->
+            <div class="category-section">
+                <a href="sections/5-office.html" class="category-card">
+                    <img src="images/office.jpg" alt="Office" width="1200" height="600" loading="lazy">
+                </a>
+                <h2 class="section-title">Office</h2>
+            </div>
 
-        <!-- 6. Bathroom -->
-        <div class="category-section">
-            <a href="sections/6-bathroom.html" class="category-card">
-                <img src="images/bathroom.jpg" alt="Bathroom" width="1200" height="600" loading="lazy">
-            </a>
-            <h2 class="section-title">Bathroom</h2>
-        </div>
+            <!-- 6. Bathroom -->
+            <div class="category-section">
+                <a href="sections/6-bathroom.html" class="category-card">
+                    <img src="images/bathroom.jpg" alt="Bathroom" width="1200" height="600" loading="lazy">
+                </a>
+                <h2 class="section-title">Bathroom</h2>
+            </div>
 
-        <!-- 7. Patio -->
-        <div class="category-section">
-            <a href="sections/7-patio.html" class="category-card">
-                <img src="images/patio.jpg" alt="Patio" width="1200" height="600" loading="lazy">
-            </a>
-            <h2 class="section-title">Patio</h2>
-        </div>
+            <!-- 7. Patio -->
+            <div class="category-section">
+                <a href="sections/7-patio.html" class="category-card">
+                    <img src="images/patio.jpg" alt="Patio" width="1200" height="600" loading="lazy">
+                </a>
+                <h2 class="section-title">Patio</h2>
+            </div>
 
-        <!-- 8. Pet Care -->
-        <div class="category-section">
-            <a href="sections/8-pet-care.html" class="category-card">
-                <img src="images/pet-care.jpg" alt="Pet Care" width="1200" height="600" loading="lazy">
-            </a>
-            <h2 class="section-title">Pet Care</h2>
+            <!-- 8. Pet Care -->
+            <div class="category-section">
+                <a href="sections/8-pet-care.html" class="category-card">
+                    <img src="images/pet-care.jpg" alt="Pet Care" width="1200" height="600" loading="lazy">
+                </a>
+                <h2 class="section-title">Pet Care</h2>
+            </div>
         </div>
     </div>
 
