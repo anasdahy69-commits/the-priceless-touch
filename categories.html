@@ -5,44 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories - The Priceless Touch</title>
     
-    <!-- Custom Favicon -->
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <style>
-        /* Colors and Variables: Default is Royal Burgundy (Dark Mode) -> Pure White text */
         :root {
             --bg-color: #3b0a12;
             --text-color: #ffffff;
             --nav-bg: #3b0a12;
             --border-color: rgba(255, 255, 255, 0.2);
-            --accent-gold: #f3d06b;
-            --header-action-color: #ffffff; /* White menu lines in Dark Mode */
-            --btn-hover-bg: rgba(255, 255, 255, 0.12);
+            --header-action-color: #ffffff; 
             --footer-color: rgba(255, 255, 255, 0.6);
-            --pure-icon-color: #ffffff; /* White sun in Dark Mode */
-            --drawer-bg: #3b0a12;
-            --drawer-text: #ffffff;
-            --card-title-color: #ffffff;
-            --home-link-color: #ffffff;
-            --curated-title-color: #ffffff; /* White in Dark Mode */
+            --pure-icon-color: #ffffff; 
+            --drawer-bg: #3b0a12; 
+            --drawer-text: #ffffff; 
+            --drawer-border: rgba(255, 255, 255, 0.15);
+            --brand-color: #ffffff; 
         }
 
         body.light-mode {
             --bg-color: #fcfbfa;
-            --text-color: #2c2c2c; /* Black/Dark text in Light Mode */
+            --text-color: #2c2c2c;
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
-            --accent-gold: #997413;
-            --header-action-color: #000000; /* Black menu lines in Light Mode */
-            --btn-hover-bg: rgba(0, 0, 0, 0.08);
-            --footer-color: #2c2c2c;
-            --pure-icon-color: #000000; /* Black moon in Light Mode */
-            --drawer-bg: #f5f2f0;
-            --drawer-text: #2c2c2c; /* Dark text in Drawer */
-            --card-title-color: #2c2c2c; /* Dark title in Light Mode */
-            --home-link-color: #2c2c2c; /* Dark home link in Light Mode */
-            --curated-title-color: #2d6a4f; /* Exact matching button green for Curated title in Light Mode */
+            --header-action-color: #000000; 
+            --footer-color: #2d6a4f;
+            --pure-icon-color: #000000; 
+            --drawer-bg: #f5f2f0; 
+            --drawer-text: #2c2c2c; 
+            --drawer-border: rgba(0, 0, 0, 0.1);
+            --brand-color: #2d6a4f; 
         }
 
         * {
@@ -62,7 +54,6 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Sticky header configuration */
         header {
             position: sticky;
             top: 0;
@@ -83,38 +74,41 @@
             position: relative;
         }
 
-        /* Center Home Link (Doubled size, Bold, Thick and Balanced) */
-        .home-link {
+        .brand-header-title {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--home-link-color);
             text-decoration: none;
-            font-size: 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+            white-space: nowrap;
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-header-title:hover {
+            opacity: 0.85;
+        }
+
+        .brand-line-1 {
+            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
+            font-size: 20px;
             font-weight: 900;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            transition: color 0.3s ease, opacity 0.3s ease;
+            letter-spacing: 2.2px;
+            color: var(--brand-color);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
         }
 
-        .home-link svg {
-            width: 24px;
-            height: 24px;
-            stroke: currentColor;
-            stroke-width: 2.5;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .brand-line-2 {
+            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
+            font-size: 23px;
+            font-weight: 900;
+            letter-spacing: 1.6px;
+            color: var(--brand-color);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
         }
 
-        .home-link:hover {
-            opacity: 0.8;
-        }
-
-        /* Pure geometric theme toggle icon without background */
         #theme-toggle {
             background: transparent;
             border: none;
@@ -135,11 +129,6 @@
             fill: currentColor;
         }
 
-        #theme-toggle:hover {
-            opacity: 0.8;
-        }
-
-        /* Menu Button (3 Lines) */
         .menu-btn {
             background: transparent;
             border: none;
@@ -158,10 +147,8 @@
             width: 100%;
             background-color: var(--header-action-color);
             border-radius: 2px;
-            transition: background-color 0.3s ease;
         }
 
-        /* Sidebar Drawer Styling (Reduced width to half) */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -183,8 +170,8 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: -160px;
-            width: 160px;
+            right: -210px;
+            width: 210px;
             height: 100%;
             background-color: var(--drawer-bg);
             color: var(--drawer-text);
@@ -192,7 +179,8 @@
             box-shadow: -5px 0 20px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            padding: 20px 14px;
+            padding: 22px 16px;
+            overflow-y: auto;
             transition: right 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             text-align: left;
         }
@@ -204,13 +192,13 @@
         .sidebar-header {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .close-btn {
             background: transparent;
             border: none;
-            font-size: 24px;
+            font-size: 26px;
             cursor: pointer;
             color: var(--drawer-text);
             line-height: 1;
@@ -224,26 +212,22 @@
         .sidebar-menu {
             display: flex;
             flex-direction: column;
-            gap: 0;
+            gap: 5px;
         }
 
         .sidebar-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--drawer-border);
             text-decoration: none;
             color: var(--drawer-text);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
             transition: opacity 0.2s ease;
-        }
-
-        body.light-mode .sidebar-item {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .sidebar-item:hover {
@@ -258,75 +242,72 @@
             stroke-width: 2;
         }
 
-        .top-title {
-            padding: 40px 20px 65px 20px;
-        }
-
-        .top-title h2 {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            line-height: 1.35;
-            font-family: serif;
-            text-transform: uppercase;
-            color: var(--curated-title-color);
-            transition: color 0.3s ease;
-        }
-
-        .categories-container {
-            flex: 1;
-            padding: 10px 20px 40px 20px;
+        /* حاوية المحتوى مع مسافات مريحة ومتماثلة */
+        .content-container {
+            padding: 40px 20px 50px 20px;
             display: flex;
             flex-direction: column;
-            gap: 45px;
+            align-items: center;
+            max-width: 650px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+            gap: 40px; /* مسافة مريحة بين كل قسم والثاني */
+        }
+
+        /* تنسيق القسم الواحد (عنوان + خط فاصل + صورة) */
+        .category-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
 
-        .category-item {
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-family: serif;
+            text-transform: uppercase;
+            margin-bottom: 20px; /* مسافة متماثلة تحت العنوان وقبل الخط الفاصل */
+        }
+
+        /* الخط الفاصل المطابق تماماً لخط الهيدر */
+        .section-divider {
             width: 100%;
-            max-width: 400px;
-            text-align: center;
+            height: 1px;
+            background-color: var(--border-color);
+            margin-bottom: 25px; /* مسافة مريحة تحت الخط وقبل الصورة مباشرة */
+            transition: background-color 0.3s ease;
         }
 
         .category-card {
-            display: block;
             width: 100%;
-            background-color: #000;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             text-decoration: none;
+            display: block;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
         }
 
         .category-card:hover {
-            transform: scale(1.02);
+            transform: translateY(-3px);
         }
 
         .category-card img {
             width: 100%;
-            height: 280px;
-            object-fit: cover;
+            height: auto;
             display: block;
-        }
-
-        .category-title {
-            margin-top: 22px;
-            font-size: 30px;
-            font-weight: 600;
-            color: var(--card-title-color);
-            font-family: serif;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
+            object-fit: cover;
         }
 
         footer {
             margin-top: auto;
-            padding: 24px 20px 35px 20px;
+            padding: 40px 20px 50px 20px;
             font-size: 11px;
             font-weight: 500;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--footer-color);
             border-top: 1px solid var(--border-color);
             max-width: 650px;
@@ -341,18 +322,15 @@
 
     <header>
         <div class="nav-container">
-            <!-- Pure geometric theme toggle icon without background -->
             <button id="theme-toggle" aria-label="Toggle Theme">
                 <span id="theme-icon"></span>
             </button>
             
-            <!-- Centered Home Link with Left-pointing geometric arrow -->
-            <a href="index.html" class="home-link">
-                <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                <span>HOME</span>
+            <a href="index.html" class="brand-header-title">
+                <span class="brand-line-1">The</span>
+                <span class="brand-line-2">Priceless Touch</span>
             </a>
 
-            <!-- Menu Button (3 Lines) -->
             <button class="menu-btn" id="openMenu" aria-label="Open Menu">
                 <span></span>
                 <span></span>
@@ -361,7 +339,6 @@
         </div>
     </header>
 
-    <!-- Sidebar Drawer Menu -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
@@ -372,84 +349,43 @@
                 <span>WISHLIST</span>
                 <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </a>
+            
             <a href="about.html" class="sidebar-item">
                 <span>ABOUT</span>
                 <svg viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
                     <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round"/>
                     <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                </svg>
+            </a>
+
+            <a href="index.html" class="sidebar-item">
+                <span>HOME</span>
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="9 22 9 12 15 12 15 22" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </a>
         </div>
     </div>
 
-    <div class="top-title">
-        <h2>Curated<br>Just For You.</h2>
-    </div>
-
-    <div class="categories-container">
-        <!-- 1. Kitchen -->
-        <div class="category-item">
-            <a href="sections/1-kitchen.html" class="category-card">
-                <img src="images/Category1.webp" alt="Kitchen" width="400" height="280" loading="lazy">
+    <div class="content-container">
+        <!-- قسم المطبخ (مثال) -->
+        <div class="category-section">
+            <h2 class="section-title">Kitchen</h2>
+            <div class="section-divider"></div>
+            <a href="kitchen.html" class="category-card">
+                <img src="images/kitchen.jpg" alt="Kitchen" width="1200" height="600" loading="lazy">
             </a>
-            <div class="category-title">Kitchen</div>
         </div>
 
-        <!-- 2. Decor -->
-        <div class="category-item">
-            <a href="sections/2-decor.html" class="category-card">
-                <img src="images/category2.webp" alt="Decor" width="400" height="280" loading="lazy">
+        <!-- قسم الديكور (مثال) -->
+        <div class="category-section">
+            <h2 class="section-title">Decor</h2>
+            <div class="section-divider"></div>
+            <a href="decor.html" class="category-card">
+                <img src="images/decor.jpg" alt="Decor" width="1200" height="600" loading="lazy">
             </a>
-            <div class="category-title">Decor</div>
-        </div>
-
-        <!-- 3. Smart Tech -->
-        <div class="category-item">
-            <a href="sections/3-smart-tech.html" class="category-card">
-                <img src="images/smart-tech.webp" alt="Smart Tech" width="400" height="280" loading="lazy">
-            </a>
-            <div class="category-title">Smart Tech</div>
-        </div>
-
-        <!-- 4. Bedrooms -->
-        <div class="category-item">
-            <a href="sections/4-bedrooms.html" class="category-card">
-                <img src="images/bedrooms.webp" alt="Bedrooms" width="400" height="280" loading="lazy">
-            </a>
-            <div class="category-title">Bedrooms</div>
-        </div>
-
-        <!-- 5. Office -->
-        <div class="category-item">
-            <a href="sections/5-office.html" class="category-card">
-                <img src="images/office.webp" alt="Office" width="400" height="280" loading="lazy">
-            </a>
-            <div class="category-title">Office</div>
-        </div>
-
-        <!-- 6. Bathroom -->
-        <div class="category-item">
-            <a href="sections/6-bathroom.html" class="category-card">
-                <img src="images/bathroom.webp" alt="Bathroom" width="400" height="280" loading="lazy">
-            </a>
-            <div class="category-title">Bathroom</div>
-        </div>
-
-        <!-- 7. Patio -->
-        <div class="category-item">
-            <a href="sections/7-patio.html" class="category-card">
-                <img src="images/patio.webp" alt="Patio" width="400" height="280" loading="lazy">
-            </a>
-            <div class="category-title">Patio</div>
-        </div>
-
-        <!-- 8. Pet Care -->
-        <div class="category-item">
-            <a href="sections/8-pet-care.html" class="category-card">
-                <img src="images/pet-care.webp" alt="Pet Care" width="400" height="280" loading="lazy">
-            </a>
-            <div class="category-title">Pet Care</div>
         </div>
     </div>
 
@@ -480,8 +416,6 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             updateThemeUI(true);
-        } else {
-            updateThemeUI(false);
         }
 
         themeToggleBtn.addEventListener('click', () => {
