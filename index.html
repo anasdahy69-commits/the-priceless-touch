@@ -20,6 +20,7 @@
             --header-action-color: #ffffff;
             --header-action-border: rgba(255, 255, 255, 0.4);
             --btn-hover-bg: rgba(255, 255, 255, 0.12);
+            --menu-bg: #4c0d18;
             --footer-color: rgba(255, 255, 255, 0.6);
         }
 
@@ -32,6 +33,7 @@
             --header-action-color: #2c2c2c;
             --header-action-border: #997413;
             --btn-hover-bg: rgba(0, 0, 0, 0.08);
+            --menu-bg: #ebe5e0;
             --footer-color: #6c5713;
         }
 
@@ -69,6 +71,7 @@
             max-width: 650px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
         }
 
         #theme-toggle {
@@ -92,24 +95,74 @@
             background: var(--btn-hover-bg);
         }
 
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .wishlist-icon {
-            text-decoration: none;
+        .menu-toggle-btn {
+            background: transparent;
+            border: 1.5px solid var(--header-action-border);
             color: var(--header-action-color);
+            padding: 6px 10px;
+            border-radius: 20px;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
-            opacity: 0.95;
-            transition: opacity 0.3s ease, transform 0.2s ease;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
 
-        .wishlist-icon svg {
-            width: 17px;
-            height: 17px;
+        .menu-toggle-btn:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        .menu-toggle-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 55px;
+            right: 0;
+            background-color: var(--menu-bg);
+            border: 1.5px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            width: 180px;
+            display: none;
+            flex-direction: column;
+            padding: 8px 0;
+            z-index: 1100;
+            text-align: left;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .dropdown-menu.show {
+            display: flex;
+        }
+
+        .dropdown-item {
+            padding: 11px 16px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--header-action-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .dropdown-item:hover {
+            background: var(--btn-hover-bg);
+            color: var(--accent-gold);
+        }
+
+        .dropdown-item svg {
+            width: 16px;
+            height: 16px;
             stroke: currentColor;
             fill: none;
             stroke-width: 2;
@@ -117,28 +170,9 @@
             stroke-linejoin: round;
         }
 
-        .wishlist-icon:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        .about-link {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: var(--header-action-color);
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            text-decoration-thickness: 1.5px;
-            text-decoration-color: var(--header-action-color);
-            text-transform: uppercase;
-            white-space: nowrap;
-            opacity: 0.95;
-            transition: color 0.3s ease, text-decoration-color 0.3s ease;
-        }
-
-        .about-link:hover {
-            opacity: 1;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-section {
@@ -220,13 +254,30 @@
     <header>
         <div class="nav-container">
             <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
-            <div class="nav-right">
-                <a href="/shop/wishlist.html" class="wishlist-icon" title="Wishlist">
+            
+            <button class="menu-toggle-btn" id="menuBtn" aria-label="Menu">
+                <svg viewBox="0 0 24 24">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="/shop/wishlist.html" class="dropdown-item">
+                    <span>Wishlist</span>
                     <svg viewBox="0 0 24 24">
                         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                     </svg>
                 </a>
-                <a href="/shop/about.html" class="about-link">About</a>
+                <a href="/shop/about.html" class="dropdown-item">
+                    <span>About</span>
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                </a>
             </div>
         </div>
     </header>
@@ -264,6 +315,20 @@
             } else {
                 themeToggleBtn.textContent = '☀️ Light';
                 localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        const menuBtn = document.getElementById('menuBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+
+        window.addEventListener('click', () => {
+            if (dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
             }
         });
     </script>
