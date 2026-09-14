@@ -16,16 +16,16 @@
             --text-color: #ffffff;
             --nav-bg: #3b0a12;
             --border-color: rgba(255, 255, 255, 0.2);
-            --accent-gold: #b89728; /* Darker, richer deep gold */
+            --accent-gold: #b89728; /* Rich deep gold for Brand Name */
             --header-action-color: #ffffff; /* White menu lines in Dark Mode */
-            --btn-hover-bg: rgba(184, 151, 40, 0.85); 
+            --btn-bg-color: #280308; /* Much darker distinct burgundy for the button in Dark Mode */
+            --btn-hover-bg: #1a0205; /* Even darker on hover */
+            --btn-text-color: #ffffff; /* White text inside button */
             --footer-color: rgba(255, 255, 255, 0.6);
             --pure-icon-color: #ffffff; /* White sun in Dark Mode */
             --drawer-bg: #fcfbfa;
             --drawer-text: #2c2c2c;
-            --brand-color: #b89728; /* Darker, richer deep gold for Brand Name in Dark Mode */
-            --btn-bg-color: #b89728; /* Solid Darker Gold Button in Dark Mode */
-            --btn-text-color: #ffffff; /* White text inside button */
+            --brand-color: #b89728; /* Rich deep gold for Brand Name in Dark Mode */
         }
 
         body.light-mode {
@@ -35,14 +35,14 @@
             --border-color: rgba(0, 0, 0, 0.15);
             --accent-gold: #2d6a4f; /* Light Green theme tone */
             --header-action-color: #000000; /* Black menu lines in Light Mode */
+            --btn-bg-color: #2d6a4f; /* Solid Light Green Button in Light Mode */
             --btn-hover-bg: rgba(45, 106, 79, 0.85); 
+            --btn-text-color: #ffffff; /* White text inside button */
             --footer-color: #2d6a4f;
             --pure-icon-color: #000000; /* Black moon in Light Mode */
             --drawer-bg: #f5f2f0;
             --drawer-text: #2c2c2c;
             --brand-color: #2d6a4f; /* Matching Light Green tone for Brand Name in Light Mode */
-            --btn-bg-color: #2d6a4f; /* Solid Light Green Button in Light Mode */
-            --btn-text-color: #ffffff; /* White text inside button */
         }
 
         * {
@@ -292,7 +292,7 @@
             width: auto;
             min-width: 240px;
             padding: 15px 34px;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 35px;
             background-color: var(--btn-bg-color);
             color: var(--btn-text-color);
@@ -300,13 +300,12 @@
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 1.5px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
         }
 
         .btn:hover {
-            background-color: var(--btn-bg-color);
-            opacity: 0.9;
+            background-color: var(--btn-hover-bg);
             transform: translateY(-1px);
         }
 
