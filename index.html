@@ -58,6 +58,7 @@
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
+        /* توحيد المسافات والأبعاد بشكل متماثل تماماً بين الأطراف والعناصر الداخلية */
         .nav-container {
             display: flex;
             justify-content: space-between;
@@ -67,7 +68,7 @@
             width: 100%;
         }
 
-        /* Theme Toggle Button: Natural flexible size matching the burgundy style */
+        /* Theme Toggle Button */
         #theme-toggle {
             background: transparent;
             border: 1.5px solid var(--accent-gold);
@@ -87,13 +88,6 @@
             background: var(--btn-hover-bg);
         }
 
-        /* Right side container with balanced gap to avoid crowding */
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
         .header-brand {
             font-family: serif;
             font-size: 14px;
@@ -105,15 +99,15 @@
             white-space: nowrap;
         }
 
-        /* About link with a distinct clear underline */
+        /* About link with clear underline */
         .about-link {
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 1px;
             color: var(--text-color);
             text-decoration: underline;
-            text-underline-offset: 4px; /* مسافة أنيقة بين الكلمة والخط السفلي */
-            text-decoration-thickness: 1.5px; /* سمك الخط السفلي عشان يكون واضح للعين */
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1.5px;
             text-transform: uppercase;
             opacity: 0.95;
             white-space: nowrap;
@@ -203,10 +197,8 @@
     <header>
         <div class="nav-container">
             <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
-            <div class="header-right">
-                <a href="index.html" class="header-brand">The Priceless Touch</a>
-                <a href="about.html" class="about-link">About</a>
-            </div>
+            <a href="index.html" class="header-brand">The Priceless Touch</a>
+            <a href="about.html" class="about-link">About</a>
         </div>
     </header>
 
