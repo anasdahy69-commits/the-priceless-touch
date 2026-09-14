@@ -25,7 +25,7 @@
             --drawer-border: rgba(255, 255, 255, 0.15);
             --brand-color: #ffffff; 
             --curated-color: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
-            --cat-title-color: #ffffff; /* أبيض في الوضع الداكن */
+            --cat-title-color: #ffffff;
         }
 
         body.light-mode {
@@ -44,7 +44,7 @@
             --drawer-border: rgba(0, 0, 0, 0.1);
             --brand-color: #2d6a4f; 
             --curated-color: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%); 
-            --cat-title-color: #0a0a0a; /* أسود غامق جداً في الوضع الفاتح */
+            --cat-title-color: #0a0a0a;
         }
 
         * {
@@ -252,8 +252,9 @@
             stroke-width: 2;
         }
 
+        /* زيادة المسافات العلوية بحيث يظهر العنوان ويأخذ مساحة مريحة ويظهر أول قسم فقط بوضوح عند الفتح */
         .content-container {
-            padding: 40px 20px 60px 20px;
+            padding: 65px 20px 80px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -264,11 +265,11 @@
         }
 
         .page-title {
-            font-size: 26px;
+            font-size: 27px;
             font-weight: 900;
             letter-spacing: 2.5px;
             line-height: 1.3;
-            margin-bottom: 35px;
+            margin-bottom: 50px; /* مسافة أوسع وأكبر تحت الحملة للوصول لأول الأقسام */
             font-family: "Playfair Display", Didot, "Bodoni MT", serif;
             text-transform: uppercase;
             background: var(--curated-color);
@@ -284,7 +285,7 @@
         .categories-grid {
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            gap: 45px; /* مسافة مريحة بين كل قسم والثاني بعد عمل Scroll */
             width: 100%;
         }
 
@@ -300,13 +301,13 @@
             transform: translateY(-3px);
         }
 
-        /* حاوية الصورة بأبعاد 3:4 (مستطيلة وعريضة) */
+        /* حاوية الصورة بأبعاد 3:4 عريضة ومستطيلة وبحجم أكبر وأوضح */
         .category-img-wrapper {
             width: 100%;
             aspect-ratio: 4 / 3;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             background-color: #000;
         }
 
@@ -322,14 +323,14 @@
             transform: scale(1.03);
         }
 
-        /* اسم القسم تحت الصورة بخط أوضح وأتخن حاجة بسيطة لقراءة ممتازة على الموبايل */
+        /* حجم أكبر وواضح لاسم القسم وأتخن ليكون مقروءاً وممتازاً على شاشات الهواتف */
         .category-name {
             color: var(--cat-title-color);
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 2px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2.2px;
             text-transform: uppercase;
-            margin-top: 12px;
+            margin-top: 15px;
             transition: opacity 0.3s ease;
         }
 
