@@ -26,6 +26,7 @@
             --brand-color: #ffffff; 
             --categories-text-color: rgba(255, 255, 255, 0.85);
             --cat-divider-color: rgba(255, 255, 255, 0.4);
+            --curated-color: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
         }
 
         body.light-mode {
@@ -45,6 +46,7 @@
             --brand-color: #2d6a4f; 
             --categories-text-color: rgba(44, 44, 44, 0.85); 
             --cat-divider-color: #000000;
+            --curated-color: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
         }
 
         * {
@@ -265,7 +267,6 @@
             display: block;
         }
 
-        /* مسافات مريحة ومتساوية بالكامل للعناصر، بدون تكبير خطوط الأقسام */
         .content-container {
             padding: 50px 24px 60px 24px;
             display: flex;
@@ -279,15 +280,24 @@
             width: 100%;
         }
 
+        /* تم تطبيق نفس تنسيق ونوع وحجم الخط والتدرج الذهبي لجملة Curated بدقة */
         .main-title {
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            line-height: 1.5;
-            font-family: serif;
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 3.5px;
+            line-height: 1.35;
+            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
             text-transform: uppercase;
             width: 100%;
             margin: 0;
+            background: var(--curated-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .main-title span {
+            display: block;
         }
 
         .btn {
@@ -315,7 +325,7 @@
         .home-categories-text {
             display: flex;
             flex-direction: column;
-            gap: 8px; /* رجعنا المسافة الأصلية والصغيرة بين سطور الأقسام */
+            gap: 8px;
             margin-top: 5px;
             width: 100%;
             padding: 0 12px;
@@ -327,7 +337,7 @@
             align-items: center;
             white-space: nowrap;
             gap: 6px;
-            font-size: 10px; /* حجم الحروف رجع زي الأول تماماً (صغير وهادئ) */
+            font-size: 10px;
             font-weight: 600;
             letter-spacing: 0.8px;
             text-transform: uppercase;
@@ -341,7 +351,7 @@
 
         footer {
             margin-top: auto;
-            padding: 40px 20px 50px 20px; /* تباعد كبير ومريح ونازل لتحت خالص بعيد عن الزحمة */
+            padding: 40px 20px 50px 20px;
             font-size: 11px;
             font-weight: 500;
             line-height: 1.7;
@@ -410,7 +420,10 @@
     </div>
 
     <div class="content-container">
-        <h2 class="main-title">Discover Something<br>You'll Love</h2>
+        <h2 class="main-title">
+            Discover Something
+            <span>You'll Love</span>
+        </h2>
         <a href="categories.html" class="btn">Browse Categories</a>
         
         <div class="home-categories-text">
