@@ -9,18 +9,20 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <style>
-        /* Colors and Variables: Default is Royal Burgundy (Dark Mode) */
         :root {
             --bg-color: #3b0a12;
             --text-color: #ffffff;
             --nav-bg: #3b0a12;
             --border-color: rgba(255, 255, 255, 0.2);
             --accent-gold: #f3d06b;
-            --header-action-color: #ffffff;
+            --header-action-color: #ffffff; 
             --btn-hover-bg: rgba(255, 255, 255, 0.12);
             --footer-color: rgba(255, 255, 255, 0.6);
             --pure-icon-color: #ffffff; 
-            --nav-link-color: #ffffff;
+            --drawer-bg: #3b0a12; 
+            --drawer-text: #ffffff; 
+            --drawer-border: rgba(255, 255, 255, 0.15);
+            --brand-color: #ffffff; 
         }
 
         body.light-mode {
@@ -29,11 +31,14 @@
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
             --accent-gold: #997413;
-            --header-action-color: #000000;
+            --header-action-color: #000000; 
             --btn-hover-bg: rgba(0, 0, 0, 0.08);
             --footer-color: #2d6a4f;
             --pure-icon-color: #000000; 
-            --nav-link-color: #2d6a4f;
+            --drawer-bg: #f5f2f0; 
+            --drawer-text: #2c2c2c; 
+            --drawer-border: rgba(0, 0, 0, 0.1);
+            --brand-color: #2d6a4f; 
         }
 
         * {
@@ -70,6 +75,42 @@
             max-width: 650px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
+        }
+
+        .brand-header-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.1;
+            white-space: nowrap;
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-header-title:hover {
+            opacity: 0.85;
+        }
+
+        .brand-line-1 {
+            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 2.2px;
+            color: var(--brand-color);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        }
+
+        .brand-line-2 {
+            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
+            font-size: 23px;
+            font-weight: 900;
+            letter-spacing: 1.6px;
+            color: var(--brand-color);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
         }
 
         #theme-toggle {
@@ -92,19 +133,117 @@
             fill: currentColor;
         }
 
-        .nav-link {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            color: var(--nav-link-color);
-            text-decoration: none;
-            text-transform: uppercase;
-            white-space: nowrap;
-            transition: opacity 0.3s ease;
+        .menu-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            padding: 0;
         }
 
-        .nav-link:hover {
+        .menu-btn span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--header-action-color);
+            border-radius: 2px;
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -210px;
+            width: 210px;
+            height: 100%;
+            background-color: var(--drawer-bg);
+            color: var(--drawer-text);
+            z-index: 2001;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            padding: 22px 16px;
+            overflow-y: auto;
+            transition: right 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            text-align: left;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: none;
+            font-size: 26px;
+            cursor: pointer;
+            color: var(--drawer-text);
+            line-height: 1;
+            transition: opacity 0.2s ease;
+        }
+
+        .close-btn:hover {
+            opacity: 0.7;
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--drawer-border);
+            text-decoration: none;
+            color: var(--drawer-text);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            transition: opacity 0.2s ease;
+        }
+
+        .sidebar-item:hover {
             opacity: 0.8;
+        }
+
+        .sidebar-item svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--drawer-text);
+            fill: none;
+            stroke-width: 2;
         }
 
         .content-container {
@@ -227,15 +366,36 @@
             <button id="theme-toggle" aria-label="Toggle Theme">
                 <span id="theme-icon"></span>
             </button>
-            <a href="index.html" class="nav-link">Home</a>
+            
+            <a href="index.html" class="brand-header-title">
+                <span class="brand-line-1">The</span>
+                <span class="brand-line-2">Priceless Touch</span>
+            </a>
+
+            <button class="menu-btn" id="openMenu" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <button class="close-btn" id="closeMenu" aria-label="Close Menu">&times;</button>
+        </div>
+        <div class="sidebar-menu">
+            <a href="wishlist.html" class="sidebar-item">
+                <span>WISHLIST</span>
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </a>
+        </div>
+    </div>
+
     <div class="content-container">
         <h1 class="main-title">Your Wishlist</h1>
-        <div id="wishlist-container" class="wishlist-grid">
-            <!-- المنتجات المحفوظة هتظهر هنا أوتوماتيك -->
-        </div>
+        <div id="wishlist-container" class="wishlist-grid"></div>
         <button onclick="goBack()" class="btn">BACK</button>
     </div>
 
@@ -275,16 +435,28 @@
             updateThemeUI(!isLightNow);
         });
 
-        // Smart Back function to return to the exact previous page
+        const openMenuBtn = document.getElementById('openMenu');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        }
+
+        openMenuBtn.addEventListener('click', toggleSidebar);
+        closeMenuBtn.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+
         function goBack() {
             if (document.referrer && document.referrer !== window.location.href) {
                 history.back();
             } else {
-                window.location.href = 'index.html'; // Fallback to home if no history
+                window.location.href = 'index.html'; 
             }
         }
 
-        // كود عرض عناصر المفضلة المحفوظة على جهاز الزائر
         function loadWishlist() {
             const container = document.getElementById('wishlist-container');
             let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
