@@ -15,20 +15,20 @@
             --bg-color: #3b0a12;
             --text-color: #ffffff;
             --nav-bg: #3b0a12;
-            --border-color: rgba(255, 255, 255, 0.15);
-            --accent-gold: #d4af37;
-            --btn-hover-bg: rgba(255, 255, 255, 0.1);
-            --footer-color: rgba(255, 255, 255, 0.45);
+            --border-color: rgba(255, 255, 255, 0.2);
+            --accent-gold: #f3d06b;
+            --btn-hover-bg: rgba(255, 255, 255, 0.12);
+            --footer-color: rgba(255, 255, 255, 0.6);
         }
 
         body.light-mode {
             --bg-color: #fcfbfa;
             --text-color: #2c2c2c;
             --nav-bg: #f5f2f0;
-            --border-color: rgba(0, 0, 0, 0.1);
-            --accent-gold: #b38f27;
+            --border-color: rgba(0, 0, 0, 0.15);
+            --accent-gold: #997413;
             --btn-hover-bg: rgba(0, 0, 0, 0.08);
-            --footer-color: #8c7320;
+            --footer-color: #6c5713;
         }
 
         * {
@@ -53,29 +53,30 @@
             top: 0;
             z-index: 1000;
             background-color: var(--nav-bg);
-            padding: 15px 20px;
+            padding: 16px 20px;
             border-bottom: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .nav-container {
             display: flex;
-            justify-content: space-between; /* زرار المود شمال، واسم الموقع وAbout يمين */
+            justify-content: space-between;
             align-items: center;
             max-width: 650px;
             margin: 0 auto;
         }
 
-        /* Theme Toggle in Header (Far Left) */
+        /* Theme Toggle Button */
         #theme-toggle {
             background: transparent;
-            border: 1px solid var(--accent-gold);
+            border: 1.5px solid var(--accent-gold);
             color: var(--accent-gold);
-            padding: 6px 14px;
+            padding: 7px 15px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 11px;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
             transition: all 0.3s ease;
         }
@@ -89,32 +90,32 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            gap: 2px;
+            gap: 4px;
         }
 
         .header-brand {
             font-family: serif;
-            font-size: 13px;
-            letter-spacing: 1.5px;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
             color: var(--accent-gold);
             text-decoration: none;
             text-transform: uppercase;
-            font-weight: 400;
         }
 
         .about-link {
-            font-size: 10px;
-            letter-spacing: 1px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
             color: var(--text-color);
             text-decoration: none;
             text-transform: uppercase;
-            opacity: 0.8;
+            opacity: 0.95;
             transition: color 0.3s ease;
         }
 
         .about-link:hover {
             color: var(--accent-gold);
-            opacity: 1;
         }
 
         .hero-section {
@@ -144,8 +145,8 @@
         }
 
         .main-title {
-            font-size: 20px;
-            font-weight: 300;
+            font-size: 21px;
+            font-weight: 400;
             letter-spacing: 1.8px;
             line-height: 1.4;
             font-family: serif;
@@ -158,12 +159,13 @@
             display: block;
             width: 100%;
             max-width: 320px;
-            padding: 12px 25px;
-            border: 1px solid var(--text-color);
+            padding: 13px 25px;
+            border: 1.5px solid var(--text-color);
             border-radius: 35px;
             color: var(--accent-gold);
             text-decoration: none;
             font-size: 13px;
+            font-weight: 600;
             letter-spacing: 1.5px;
             background: transparent;
             transition: background 0.3s ease, border-color 0.3s ease;
@@ -174,10 +176,11 @@
             border-color: var(--accent-gold);
         }
 
-        /* Footer contains only the Affiliate Disclosure message */
+        /* Footer */
         footer {
             padding: 30px 20px 40px 20px;
-            font-size: 10px;
+            font-size: 11px;
+            font-weight: 500;
             line-height: 1.6;
             color: var(--footer-color);
             border-top: 1px solid var(--border-color);
@@ -195,7 +198,7 @@
             <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
             <div class="header-right">
                 <a href="index.html" class="header-brand">The Priceless Touch</a>
-                <a href="about.html" class="about-link">Our Mission</a>
+                <a href="about.html" class="about-link">About</a>
             </div>
         </div>
     </header>
