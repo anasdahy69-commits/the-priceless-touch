@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <style>
-        /* Colors and Variables for Dark and Light Modes */
+        /* Colors and Variables: Default is Royal Burgundy, toggle switches to Clean White */
         :root {
             --bg-color: #3b0a12;
             --text-color: #ffffff;
@@ -18,7 +18,7 @@
             --border-color: rgba(255, 255, 255, 0.15);
             --accent-gold: #d4af37;
             --btn-hover-bg: rgba(255, 255, 255, 0.1);
-            --footer-color: rgba(255, 255, 255, 0.55); /* اللون العادي الهادئ في الوضع الملكي */
+            --footer-color: rgba(255, 255, 255, 0.55);
         }
 
         body.light-mode {
@@ -28,7 +28,7 @@
             --border-color: rgba(0, 0, 0, 0.1);
             --accent-gold: #b38f27;
             --btn-hover-bg: rgba(0, 0, 0, 0.05);
-            --footer-color: #b38f27; /* اللون الذهبي الفخم في الوضع الأبيض */
+            --footer-color: #b38f27;
         }
 
         * {
@@ -53,29 +53,40 @@
             top: 0;
             z-index: 1000;
             background-color: var(--nav-bg);
-            padding: 15px 10px;
+            /* تزويد المساحة فوق وتحت عشان الهيدر ينزل لتحت ويبقى مرتاح جداً على الموبايل */
+            padding: 18px 12px;
             border-bottom: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
-        /* Header layout optimized for mobile to avoid clutter */
         .nav-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
-            max-width: 600px;
+            /* مسافة فاصلة مريحة جداً ومتوازنة بين الكلمات وزرار الـ Light Mode */
+            gap: 16px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
         .nav-links {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            font-size: 12px;
-            letter-spacing: 1px;
+            align-items: center;
+            /* منع الالتفاف نهائياً لضمان بقاء جميع الكلمات في نفس السطر، مع مسافات متباعدة ومريحة */
+            flex-wrap: nowrap;
+            gap: 12px;
+            font-size: 11.5px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
+            width: 100%;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding-bottom: 2px;
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none; /* إخفاء شريط التمرير لو الشاشة ضيقة جداً لضمان النظافة البصرية */
         }
 
         .nav-links a {
@@ -93,15 +104,14 @@
             color: var(--accent-gold);
         }
 
-        /* Elegant and compact Theme Toggle button */
         #theme-toggle {
             background: transparent;
             border: 1px solid var(--accent-gold);
             color: var(--accent-gold);
-            padding: 4px 10px;
+            padding: 6px 16px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 11px;
+            font-size: 11.5px;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
         }
@@ -172,16 +182,17 @@
             transition: color 0.3s ease;
         }
 
-        /* Responsive layout for wider screens */
         @media (min-width: 600px) {
             .nav-container {
                 flex-direction: row;
                 justify-content: space-between;
                 padding: 0 15px;
+                gap: 0;
             }
             .nav-links {
                 font-size: 13px;
                 gap: 25px;
+                overflow-x: visible;
             }
         }
     </style>
@@ -196,8 +207,7 @@
                 <a href="decor.html">Decor</a>
                 <a href="kitchen.html">Kitchen</a>
             </nav>
-            <!-- Theme Toggle Button -->
-            <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">☀️ Light Mode</button>
+            <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light Mode</button>
         </div>
     </header>
 
@@ -214,12 +224,10 @@
         Affiliate Disclosure: We are a participant in affiliate programs with Amazon, Target, Walmart, and other major retailers. We may earn a commission from qualifying purchases at no extra cost to you.
     </footer>
 
-    <!-- Script for Theme Switching and Local Storage Persistence -->
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
         const bodyElement = document.body;
 
-        // Check saved preference on load
         if (localStorage.getItem('theme') === 'light') {
             bodyElement.classList.add('light-mode');
             themeToggleBtn.textContent = '🌙 Luxury Mode';
