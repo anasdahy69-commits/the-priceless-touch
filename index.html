@@ -58,7 +58,6 @@
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
-        /* توحيد المسافات والأبعاد بشكل متماثل تماماً بين الأطراف والعناصر الداخلية */
         .nav-container {
             display: flex;
             justify-content: space-between;
@@ -68,12 +67,14 @@
             width: 100%;
         }
 
-        /* Theme Toggle Button */
+        /* Theme Toggle Button with fixed width to guarantee exact symmetry */
         #theme-toggle {
             background: transparent;
             border: 1.5px solid var(--accent-gold);
             color: var(--accent-gold);
-            padding: 6px 14px;
+            padding: 6px 12px;
+            width: 82px; /* عرض ثابت يضمن ثبات أبعاد الزرار تماماً بين الكلمتين */
+            text-align: center;
             border-radius: 20px;
             cursor: pointer;
             font-size: 10px;
@@ -222,7 +223,7 @@
         // Apply saved theme across all pages automatically
         if (localStorage.getItem('theme') === 'light') {
             bodyElement.classList.add('light-mode');
-            themeToggleBtn.textContent = '🌙 Luxury';
+            themeToggleBtn.textContent = '🌙 Dark';
         } else {
             themeToggleBtn.textContent = '☀️ Light';
         }
@@ -231,7 +232,7 @@
             bodyElement.classList.toggle('light-mode');
             
             if (bodyElement.classList.contains('light-mode')) {
-                themeToggleBtn.textContent = '🌙 Luxury';
+                themeToggleBtn.textContent = '🌙 Dark';
                 localStorage.setItem('theme', 'light');
             } else {
                 themeToggleBtn.textContent = '☀️ Light';
