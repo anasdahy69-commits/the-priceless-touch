@@ -26,8 +26,8 @@
             --drawer-text: #ffffff; /* White text in Drawer */
             --drawer-border: rgba(255, 255, 255, 0.15);
             --brand-color: #ffffff; /* Pure white brand name in Dark Mode */
-            --categories-text-color: #ffffff; /* White text for categories list */
-            --categories-divider-color: rgba(255, 255, 255, 0.6); /* Clear divider color */
+            --categories-text-color: rgba(255, 255, 255, 0.75); /* White with slight transparency for a softer look */
+            --categories-divider-color: rgba(255, 255, 255, 0.4); /* Softer divider */
         }
 
         body.light-mode {
@@ -45,8 +45,8 @@
             --drawer-text: #2c2c2c; /* Dark text in Drawer */
             --drawer-border: rgba(0, 0, 0, 0.1);
             --brand-color: #2d6a4f; /* Exact matching green tone of the button for Brand Name in Light Mode */
-            --categories-text-color: #2c2c2c; /* Dark text for categories in light mode for clarity */
-            --categories-divider-color: rgba(44, 44, 44, 0.4);
+            --categories-text-color: rgba(44, 44, 44, 0.75); /* Dark text with slight transparency in light mode */
+            --categories-divider-color: rgba(44, 44, 44, 0.3);
         }
 
         * {
@@ -325,7 +325,7 @@
             transform: translateY(-1px);
         }
 
-        /* Categories text list styling (Strictly 2 lines with dash dividers) */
+        /* Categories text list styling (Strictly 2 lines, bottom line longer, soft semi-transparent white) */
         .home-categories-text {
             display: flex;
             flex-direction: column;
@@ -338,8 +338,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: nowrap; /* Prevent items from breaking arbitrarily */
-            white-space: nowrap; /* Keep line contents intact */
+            white-space: nowrap;
             gap: 8px;
             font-size: 11px;
             font-weight: 600;
@@ -424,15 +423,15 @@
         <h2 class="main-title">Discover Something<br>You'll Love</h2>
         <a href="categories.html" class="btn">Browse Categories</a>
         
-        <!-- 8 Categories in strictly 2 lines with dash (-) dividers -->
+        <!-- 8 Categories in strictly 2 lines (Bottom line is longer, soft semi-transparent white) -->
         <div class="home-categories-text">
             <div class="categories-line">
                 <span>Kitchen</span> <span class="cat-divider">-</span>
                 <span>Decor</span> <span class="cat-divider">-</span>
-                <span>Smart Tech</span> <span class="cat-divider">-</span>
-                <span>Bedrooms</span>
+                <span>Smart Tech</span>
             </div>
             <div class="categories-line">
+                <span>Bedrooms</span> <span class="cat-divider">-</span>
                 <span>Office</span> <span class="cat-divider">-</span>
                 <span>Bathroom</span> <span class="cat-divider">-</span>
                 <span>Patio</span> <span class="cat-divider">-</span>
