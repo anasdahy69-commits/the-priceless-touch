@@ -23,6 +23,7 @@
             --pure-icon-color: #ffffff; /* White sun in Dark Mode */
             --drawer-bg: #fcfbfa;
             --drawer-text: #2c2c2c;
+            --brand-color: #f3d06b; /* Light Gold for Brand Name */
         }
 
         body.light-mode {
@@ -37,6 +38,7 @@
             --pure-icon-color: #000000; /* Black moon in Light Mode */
             --drawer-bg: #f5f2f0;
             --drawer-text: #2c2c2c;
+            --brand-color: #b8972b; /* Refined Light Gold for Light Mode */
         }
 
         * {
@@ -61,7 +63,7 @@
             top: 0;
             z-index: 1000;
             background-color: var(--nav-bg);
-            padding: 14px 18px;
+            padding: 12px 18px;
             border-bottom: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
@@ -73,6 +75,42 @@
             max-width: 650px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
+        }
+
+        /* Brand Name in Header Center: Styled, Thick, Non-traditional, Light Gold */
+        .brand-header-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.15;
+            transition: opacity 0.3s ease;
+        }
+
+        .brand-header-title:hover {
+            opacity: 0.85;
+        }
+
+        .brand-line-1 {
+            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--brand-color);
+            text-transform: uppercase;
+        }
+
+        .brand-line-2 {
+            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: var(--brand-color);
+            text-transform: uppercase;
         }
 
         /* Pure geometric theme toggle icon without background */
@@ -288,6 +326,12 @@
                 <span id="theme-icon"></span>
             </button>
             
+            <!-- Brand Name in Center (The Priceless Touch) -->
+            <a href="index.html" class="brand-header-title">
+                <span class="brand-line-1">The</span>
+                <span class="brand-line-2">Priceless Touch</span>
+            </a>
+
             <button class="menu-btn" id="openMenu" aria-label="Open Menu">
                 <span></span>
                 <span></span>
