@@ -89,24 +89,28 @@
             background: var(--btn-hover-bg);
         }
 
-        /* كلمة About باللون الأصفر في الجهة المقابلة للزرار */
+        /* About Button: بنفس أبعاد وستايل زرار الـ Light/Dark تماماً */
         .about-link {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            display: inline-block;
+            background: transparent;
+            border: 1.5px solid var(--accent-gold);
             color: var(--accent-gold);
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            text-decoration-thickness: 1.5px;
-            text-decoration-color: var(--accent-gold);
+            padding: 6px 12px;
+            width: 82px;
+            text-align: center;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
             text-transform: uppercase;
+            text-decoration: none;
             white-space: nowrap;
-            opacity: 0.95;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .about-link:hover {
-            opacity: 1;
+            background: var(--btn-hover-bg);
         }
 
         .hero-section {
@@ -123,7 +127,7 @@
         }
 
         .content-container {
-            padding: 35px 24px 50px 24px;
+            padding: 35px 24px 30px 24px; /* قللنا المسافة السفلية عشان خط الفوتر يقرب شوية */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -167,9 +171,10 @@
             border-color: var(--accent-gold);
         }
 
+        /* Footer: تم تقريب الخط الفاصل ومسافة العرض لتكون متناسقة ومريحة للعين */
         footer {
             margin-top: auto;
-            padding: 40px 20px 40px 20px;
+            padding: 24px 20px 35px 20px; /* تقليل البادنج العلوي للخط الفاصل */
             font-size: 11px;
             font-weight: 500;
             line-height: 1.6;
