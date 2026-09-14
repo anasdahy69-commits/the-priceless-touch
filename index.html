@@ -23,8 +23,9 @@
             --footer-color: rgba(255, 255, 255, 0.6);
             --theme-btn-bg: #ffffff;
             --theme-icon-color: #3b0a12;
-            --drawer-bg: #fcfbfa;
-            --drawer-text: #2c2c2c;
+            --drawer-bg: #3b0a12;        /* خلفية الشريط الجانبي بالبورجندي في وضع البورجندي */
+            --drawer-text: #ffffff;      /* نص وأيقونات الشريط الجانبي بيضاء في وضع البورجندي */
+            --drawer-border: rgba(255, 255, 255, 0.15);
         }
 
         body.light-mode {
@@ -39,8 +40,9 @@
             --footer-color: #6c5713;
             --theme-btn-bg: #000000;
             --theme-icon-color: #f3d06b;
-            --drawer-bg: #f5f2f0;
-            --drawer-text: #2c2c2c;
+            --drawer-bg: #f5f2f0;        /* خلفية الشريط الجانبي بيضاء في الوضع الفاتح */
+            --drawer-text: #2c2c2c;      /* نص وأيقونات داكنة في الوضع الفاتح */
+            --drawer-border: rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -122,7 +124,7 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Sidebar Drawer Styling - تم تصغير العرض ليناسب المحتوى فقط */
+        /* Sidebar Drawer Styling - تم ضغط العرض ليكون أدق ما يمكن (على قد الكلمات والأشكال) */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -144,17 +146,17 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: -240px;
-            width: 240px; /* تم تصغير العرض ليكون مضغوط وأنيق */
+            right: -210px;
+            width: 210px; /* عرض مضغوط ومحدد بدقة على قدر المحتوى */
             height: 100%;
             background-color: var(--drawer-bg);
             color: var(--drawer-text);
             z-index: 2001;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.15);
             display: flex;
             flex-direction: column;
-            padding: 20px 16px;
-            transition: right 0.3s ease;
+            padding: 20px 14px;
+            transition: right 0.3s ease, background-color 0.3s ease;
             text-align: left;
         }
 
@@ -165,7 +167,7 @@
         .sidebar-header {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .close-btn {
@@ -187,22 +189,24 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 14px 4px;
+            border-bottom: 1px solid var(--drawer-border);
             text-decoration: none;
             color: var(--drawer-text);
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            white-space: nowrap;
         }
 
         .sidebar-item svg {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             stroke: var(--drawer-text);
             fill: none;
-            stroke-width: 2; /* زيادة وضوح وسُمك الخطوط الهندسية */
+            stroke-width: 2;
+            flex-shrink: 0;
         }
 
         .hero-section {
@@ -302,12 +306,12 @@
             <button class="close-btn" id="closeMenu" aria-label="Close Menu">&times;</button>
         </div>
         <div class="sidebar-menu">
-            <!-- Wishlist مع القلب الهندسي المفرغ -->
+            <!-- Wishlist with Geometric Heart -->
             <a href="wishlist.html" class="sidebar-item">
                 <span>WISHLIST</span>
                 <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </a>
-            <!-- About مع الدايرة الهندسية وعلامة الاستفهام الواضحة جداً -->
+            <!-- About with Geometric Circle & Clear Question Mark -->
             <a href="about.html" class="sidebar-item">
                 <span>ABOUT</span>
                 <svg viewBox="0 0 24 24">
