@@ -14,9 +14,7 @@
             --text-color: #ffffff;
             --nav-bg: #3b0a12;
             --border-color: rgba(255, 255, 255, 0.2);
-            --accent-gold: #f3d06b;
             --header-action-color: #ffffff; 
-            --btn-hover-bg: rgba(255, 255, 255, 0.12);
             --footer-color: rgba(255, 255, 255, 0.6);
             --pure-icon-color: #ffffff; 
             --drawer-bg: #3b0a12; 
@@ -30,9 +28,7 @@
             --text-color: #2c2c2c;
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
-            --accent-gold: #997413;
             --header-action-color: #000000; 
-            --btn-hover-bg: rgba(0, 0, 0, 0.08);
             --footer-color: #2d6a4f;
             --pure-icon-color: #000000; 
             --drawer-bg: #f5f2f0; 
@@ -251,9 +247,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: center;
             gap: 25px;
-            max-width: 650px;
+            max-width: 600px;
             margin: 0 auto;
             width: 100%;
             flex: 1;
@@ -269,55 +265,14 @@
             margin: 0;
         }
 
-        .empty-message {
+        .wishlist-text {
             font-size: 14px;
-            opacity: 0.8;
-            margin-top: 20px;
-        }
-
-        .wishlist-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            width: 100%;
-            margin-top: 15px;
-        }
-
-        .wishlist-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            border: 1.5px solid var(--border-color);
-            border-radius: 12px;
-            background: var(--btn-hover-bg);
-            text-align: left;
-        }
-
-        .wishlist-item-title {
-            font-size: 14px;
-            font-weight: 600;
+            line-height: 1.8;
+            font-weight: 400;
             color: var(--text-color);
-            text-decoration: none;
-        }
-
-        .wishlist-item-title:hover {
-            color: var(--accent-gold);
-        }
-
-        .remove-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-color);
-            cursor: pointer;
-            font-size: 14px;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .remove-btn:hover {
-            opacity: 1;
-            color: #ff4d4d;
+            opacity: 0.9;
+            text-align: center;
+            max-width: 500px;
         }
 
         .btn {
@@ -325,22 +280,22 @@
             width: auto;
             min-width: 200px;
             padding: 12px 28px;
-            border: 1.5px solid var(--text-color);
+            border: 1.5px solid #ffffff;
             border-radius: 35px;
-            color: var(--accent-gold);
+            background: #ffffff;
+            color: #3b0a12;
             text-decoration: none;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1.5px;
-            background: transparent;
-            margin-top: 25px;
+            margin-top: 15px;
             cursor: pointer;
-            transition: background 0.3s ease, border-color 0.3s ease;
+            transition: opacity 0.3s ease, background 0.3s ease;
         }
 
         .btn:hover {
-            background: var(--btn-hover-bg);
-            border-color: var(--accent-gold);
+            opacity: 0.9;
+            background: #f1f1f1;
         }
 
         footer {
@@ -412,7 +367,9 @@
 
     <div class="content-container">
         <h1 class="main-title">Your Wishlist</h1>
-        <div id="wishlist-container" class="wishlist-grid"></div>
+        <p class="wishlist-text">
+            Your wishlist is currently empty. Explore our collections and save your favorite minimalist luxury items to view them here later.
+        </p>
         <button onclick="goBack()" class="btn">BACK</button>
     </div>
 
@@ -473,35 +430,6 @@
                 window.location.href = 'index.html'; 
             }
         }
-
-        function loadWishlist() {
-            const container = document.getElementById('wishlist-container');
-            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-
-            if (wishlist.length === 0) {
-                container.innerHTML = '<p class="empty-message">Your wishlist is currently empty. Explore categories and tap the heart icon to save items.</p>';
-                return;
-            }
-
-            container.innerHTML = '';
-            wishlist.forEach((item, index) => {
-                container.innerHTML += `
-                    <div class="wishlist-item">
-                        <a href="${item.url}" class="wishlist-item-title">❤️ ${item.name}</a>
-                        <button class="remove-btn" onclick="removeFromWishlist(${index})">✕ Remove</button>
-                    </div>
-                `;
-            });
-        }
-
-        function removeFromWishlist(index) {
-            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-            wishlist.splice(index, 1);
-            localStorage.setItem('wishlist', JSON.stringify(wishlist));
-            loadWishlist();
-        }
-
-        window.onload = loadWishlist;
     </script>
 
 </body>
