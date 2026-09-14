@@ -17,7 +17,7 @@
             --nav-bg: #3b0a12;
             --border-color: rgba(255, 255, 255, 0.2);
             --accent-gold: #f3d06b;
-            --header-action-color: #ffffff;
+            --header-action-color: #ffffff; /* White menu lines in Dark Mode */
             --btn-hover-bg: rgba(255, 255, 255, 0.12);
             --footer-color: rgba(255, 255, 255, 0.6);
             --pure-icon-color: #ffffff; /* White sun in Dark Mode */
@@ -31,7 +31,7 @@
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
             --accent-gold: #997413;
-            --header-action-color: #997413;
+            --header-action-color: #000000; /* Black menu lines in Light Mode */
             --btn-hover-bg: rgba(0, 0, 0, 0.08);
             --footer-color: #6c5713;
             --pure-icon-color: #000000; /* Black moon in Light Mode */
@@ -75,7 +75,7 @@
             width: 100%;
         }
 
-        /* Pure geometric icon toggle without background or borders */
+        /* Pure geometric theme toggle icon without background */
         #theme-toggle {
             background: transparent;
             border: none;
@@ -91,7 +91,7 @@
         }
 
         #theme-toggle svg {
-            width: 28px; /* Prominent size filling the space */
+            width: 28px;
             height: 28px;
             fill: currentColor;
         }
@@ -283,7 +283,7 @@
 
     <header>
         <div class="nav-container">
-            <!-- Pure geometric theme toggle icon without button background -->
+            <!-- Pure geometric theme toggle icon without background -->
             <button id="theme-toggle" aria-label="Toggle Theme">
                 <span id="theme-icon"></span>
             </button>
@@ -336,18 +336,18 @@
         const themeIconSpan = document.getElementById('theme-icon');
         const bodyElement = document.body;
 
-        /* Pure geometric SVGs: Sun with rays for dark mode, Moon crescent for light mode */
-        const sunSvg = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2m-3.17-6.83l-1.42 1.42m-9.19 9.19l-1.42 1.42m0-12l1.42 1.42m9.19 9.19l1.42 1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+        /* Geometric SVGs: Sun with perfectly equal symmetrical rays, and a moon crescent */
+        const sunSvg = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
         const moonSvg = `<svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>`;
 
         function updateThemeUI(isLight) {
             if (isLight) {
                 bodyElement.classList.add('light-mode');
-                themeIconSpan.innerHTML = moonSvg; // Black geometric moon in light mode
+                themeIconSpan.innerHTML = moonSvg;
                 localStorage.setItem('theme', 'light');
             } else {
                 bodyElement.classList.remove('light-mode');
-                themeIconSpan.innerHTML = sunSvg; // White geometric sun with rays in burgundy mode
+                themeIconSpan.innerHTML = sunSvg;
                 localStorage.setItem('theme', 'dark');
             }
         }
