@@ -325,13 +325,14 @@
             transform: translateY(-1px);
         }
 
-        /* Categories text list styling (Strictly 2 lines, bottom line longer, soft semi-transparent white) */
+        /* Categories text list styling (Strictly 2 lines, bottom line longer, optimized font size & padding for mobile margins) */
         .home-categories-text {
             display: flex;
             flex-direction: column;
             gap: 8px;
             margin-top: 5px;
             width: 100%;
+            padding: 0 12px; /* Extra breathing room from screen edges on small devices */
         }
 
         .categories-line {
@@ -339,10 +340,10 @@
             justify-content: center;
             align-items: center;
             white-space: nowrap;
-            gap: 8px;
-            font-size: 11px;
+            gap: 6px; /* Optimized gap for better spacing */
+            font-size: 10px; /* Reduced font size so text never touches page margins */
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px; /* Slightly tightened letter spacing for mobile safety */
             text-transform: uppercase;
             color: var(--categories-text-color);
             transition: color 0.3s ease;
@@ -423,7 +424,7 @@
         <h2 class="main-title">Discover Something<br>You'll Love</h2>
         <a href="categories.html" class="btn">Browse Categories</a>
         
-        <!-- 8 Categories in strictly 2 lines (Bottom line is longer, soft semi-transparent white) -->
+        <!-- 8 Categories in strictly 2 lines with safe mobile margins -->
         <div class="home-categories-text">
             <div class="categories-line">
                 <span>Kitchen</span> <span class="cat-divider">-</span>
