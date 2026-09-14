@@ -71,7 +71,6 @@
             width: 100%;
         }
 
-        /* Theme Toggle Button */
         #theme-toggle {
             background: transparent;
             border: 1.5px solid var(--header-action-border);
@@ -93,8 +92,7 @@
             background: var(--btn-hover-bg);
         }
 
-        /* Home link (بدل About في الصفحة الرئيسية) */
-        .home-link {
+        .about-link {
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 1px;
@@ -109,11 +107,10 @@
             transition: color 0.3s ease, text-decoration-color 0.3s ease;
         }
 
-        .home-link:hover {
+        .about-link:hover {
             opacity: 1;
         }
 
-        /* محتوى صفحة من نحن */
         .content-container {
             padding: 50px 24px 30px 24px;
             display: flex;
@@ -127,23 +124,46 @@
             flex: 1;
         }
 
-        .page-title {
+        .main-title {
             font-size: 24px;
             font-weight: 400;
-            letter-spacing: 2px;
+            letter-spacing: 1.8px;
+            line-height: 1.4;
             font-family: serif;
             text-transform: uppercase;
-            color: var(--accent-gold);
-            margin-bottom: 10px;
+            margin: 0;
         }
 
         .about-text {
             font-size: 14px;
-            font-weight: 400;
             line-height: 1.8;
+            font-weight: 400;
+            color: var(--text-color);
             opacity: 0.9;
-            letter-spacing: 0.5px;
             text-align: center;
+            max-width: 500px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: auto;
+            min-width: 200px;
+            padding: 12px 28px;
+            border: 1.5px solid var(--text-color);
+            border-radius: 35px;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            background: transparent;
+            margin-top: 15px;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--btn-hover-bg);
+            border-color: var(--accent-gold);
         }
 
         footer {
@@ -167,15 +187,16 @@
     <header>
         <div class="nav-container">
             <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
-            <a href="index.html" class="home-link">Home</a>
+            <a href="index.html" class="about-link">Home</a>
         </div>
     </header>
 
     <div class="content-container">
-        <h1 class="page-title">About Us</h1>
+        <h1 class="main-title">About The Priceless Touch</h1>
         <p class="about-text">
-            Welcome to <strong>The Priceless Touch</strong>. We curate and bring you the finest selections, timeless pieces, and elegant inspirations to elevate your lifestyle. Every choice is thoughtfully selected to add a touch of unmatched beauty and value to your everyday moments.
+            Welcome to <strong>The Priceless Touch</strong>, your ultimate destination for minimalist luxury, curated elegance, and exceptional lifestyle selections. We handpick high-performance pieces and refined essentials to bring a touch of timeless sophistication to your everyday life.
         </p>
+        <a href="index.html" class="btn">Back To Home</a>
     </div>
 
     <footer>
@@ -186,7 +207,6 @@
         const themeToggleBtn = document.getElementById('theme-toggle');
         const bodyElement = document.body;
 
-        // Apply saved theme across all pages automatically
         if (localStorage.getItem('theme') === 'light') {
             bodyElement.classList.add('light-mode');
             themeToggleBtn.textContent = '🌙 Dark';
