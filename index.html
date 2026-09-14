@@ -16,7 +16,6 @@
             --text-color: #ffffff;
             --nav-bg: #3b0a12;
             --border-color: rgba(255, 255, 255, 0.2);
-            --accent-gold: #d1aa36; /* Slightly brighter, gorgeous glossy gold for Brand Name */
             --header-action-color: #ffffff; /* White menu lines in Dark Mode */
             --btn-bg-color: #ffffff; /* Solid Pure White Button in Dark Mode */
             --btn-hover-bg: rgba(255, 255, 255, 0.85); 
@@ -26,7 +25,7 @@
             --drawer-bg: #3b0a12; /* Burgundy Drawer matching Dark Mode */
             --drawer-text: #ffffff; /* White text in Drawer */
             --drawer-border: rgba(255, 255, 255, 0.15);
-            --brand-color: #d1aa36; /* Slightly brighter, gorgeous glossy gold for Brand Name in Dark Mode */
+            --brand-color: #ffffff; /* Pure white brand name */
         }
 
         body.light-mode {
@@ -34,7 +33,6 @@
             --text-color: #2c2c2c;
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
-            --accent-gold: #2d6a4f; /* Light Green theme tone */
             --header-action-color: #000000; /* Black menu lines in Light Mode */
             --btn-bg-color: #2d6a4f; /* Solid Light Green Button in Light Mode */
             --btn-hover-bg: rgba(45, 106, 79, 0.85); 
@@ -44,7 +42,7 @@
             --drawer-bg: #f5f2f0; /* Light Drawer in Light Mode */
             --drawer-text: #2c2c2c; /* Dark text in Drawer */
             --drawer-border: rgba(0, 0, 0, 0.1);
-            --brand-color: #2d6a4f; /* Matching Light Green tone for Brand Name in Light Mode */
+            --brand-color: #2c2c2c; /* Distinct dark brand name in light mode for readability */
         }
 
         * {
@@ -171,7 +169,7 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Sidebar Drawer Styling */
+        /* Sidebar Drawer Styling (Reduced width to half) */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -193,8 +191,8 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: -260px;
-            width: 260px;
+            right: -160px;
+            width: 160px;
             height: 100%;
             background-color: var(--drawer-bg);
             color: var(--drawer-text);
@@ -202,7 +200,7 @@
             box-shadow: -5px 0 20px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            padding: 24px 20px;
+            padding: 20px 14px;
             transition: right 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             text-align: left;
         }
@@ -214,13 +212,13 @@
         .sidebar-header {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .close-btn {
             background: transparent;
             border: none;
-            font-size: 28px;
+            font-size: 24px;
             cursor: pointer;
             color: var(--drawer-text);
             line-height: 1;
@@ -241,13 +239,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 0;
+            padding: 14px 0;
             border-bottom: 1px solid var(--drawer-border);
             text-decoration: none;
             color: var(--drawer-text);
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 700;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             transition: opacity 0.2s ease;
         }
@@ -257,8 +255,8 @@
         }
 
         .sidebar-item svg {
-            width: 22px;
-            height: 22px;
+            width: 18px;
+            height: 18px;
             stroke: var(--drawer-text);
             fill: none;
             stroke-width: 2;
