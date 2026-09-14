@@ -173,7 +173,7 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Sidebar Drawer Styling (Reduced width to half) */
+        /* Sidebar Drawer Styling */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -195,8 +195,8 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: -160px;
-            width: 160px;
+            right: -200px;
+            width: 200px;
             height: 100%;
             background-color: var(--drawer-bg);
             color: var(--drawer-text);
@@ -205,6 +205,7 @@
             display: flex;
             flex-direction: column;
             padding: 20px 14px;
+            overflow-y: auto;
             transition: right 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             text-align: left;
         }
@@ -216,7 +217,7 @@
         .sidebar-header {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .close-btn {
@@ -243,7 +244,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 0;
+            padding: 12px 0;
             border-bottom: 1px solid var(--drawer-border);
             text-decoration: none;
             color: var(--drawer-text);
@@ -259,11 +260,56 @@
         }
 
         .sidebar-item svg {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             stroke: var(--drawer-text);
             fill: none;
             stroke-width: 2;
+        }
+
+        /* Categories Section inside Sidebar (Placed after Wishlist & About) */
+        .sidebar-category-group {
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--drawer-border);
+            padding-bottom: 6px;
+            padding-top: 4px;
+        }
+
+        .sidebar-category-title {
+            padding: 10px 0 6px 0;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--drawer-text);
+            opacity: 0.9;
+        }
+
+        .sidebar-sub-items {
+            display: flex;
+            flex-direction: column;
+            padding-left: 10px;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .sidebar-sub-item {
+            text-decoration: none;
+            color: var(--drawer-text);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            opacity: 0.75;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: block;
+            padding: 3px 0;
+        }
+
+        .sidebar-sub-item:hover {
+            opacity: 1;
+            transform: translateX(3px);
         }
 
         .hero-section {
@@ -325,14 +371,14 @@
             transform: translateY(-1px);
         }
 
-        /* Categories text list styling (Strictly 2 lines, bottom line longer, optimized font size & padding for mobile margins) */
+        /* Categories text list styling on home page */
         .home-categories-text {
             display: flex;
             flex-direction: column;
             gap: 8px;
             margin-top: 5px;
             width: 100%;
-            padding: 0 12px; /* Extra breathing room from screen edges on small devices */
+            padding: 0 12px;
         }
 
         .categories-line {
@@ -340,10 +386,10 @@
             justify-content: center;
             align-items: center;
             white-space: nowrap;
-            gap: 6px; /* Optimized gap for better spacing */
-            font-size: 10px; /* Reduced font size so text never touches page margins */
+            gap: 6px;
+            font-size: 10px;
             font-weight: 600;
-            letter-spacing: 0.8px; /* Slightly tightened letter spacing for mobile safety */
+            letter-spacing: 0.8px;
             text-transform: uppercase;
             color: var(--categories-text-color);
             transition: color 0.3s ease;
@@ -401,10 +447,13 @@
             <button class="close-btn" id="closeMenu" aria-label="Close Menu">&times;</button>
         </div>
         <div class="sidebar-menu">
+            <!-- Wishlist Item -->
             <a href="wishlist.html" class="sidebar-item">
                 <span>WISHLIST</span>
                 <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </a>
+            
+            <!-- About Item -->
             <a href="about.html" class="sidebar-item">
                 <span>ABOUT</span>
                 <svg viewBox="0 0 24 24">
@@ -413,6 +462,21 @@
                     <circle cx="12" cy="17" r="1" fill="currentColor"/>
                 </svg>
             </a>
+
+            <!-- Categories Group (Placed at the bottom) -->
+            <div class="sidebar-category-group">
+                <div class="sidebar-category-title">CATEGORIES</div>
+                <div class="sidebar-sub-items">
+                    <a href="categories.html?cat=kitchen" class="sidebar-sub-item">Kitchen</a>
+                    <a href="categories.html?cat=decor" class="sidebar-sub-item">Decor</a>
+                    <a href="categories.html?cat=smart-tech" class="sidebar-sub-item">Smart Tech</a>
+                    <a href="categories.html?cat=bedrooms" class="sidebar-sub-item">Bedrooms</a>
+                    <a href="categories.html?cat=office" class="sidebar-sub-item">Office</a>
+                    <a href="categories.html?cat=bathroom" class="sidebar-sub-item">Bathroom</a>
+                    <a href="categories.html?cat=patio" class="sidebar-sub-item">Patio</a>
+                    <a href="categories.html?cat=pet-care" class="sidebar-sub-item">Pet Care</a>
+                </div>
+            </div>
         </div>
     </div>
 
