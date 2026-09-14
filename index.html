@@ -6,11 +6,10 @@
     <title>The Priceless Touch</title>
     
     <!-- Professional Favicon Integration -->
-    <link rel="icon" type="image/x-icon" href="/shop/images/favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="/shop/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <style>
-        /* Colors and Variables: Default is Royal Burgundy (Dark Mode) */
         :root {
             --bg-color: #3b0a12;
             --text-color: #ffffff;
@@ -20,8 +19,9 @@
             --header-action-color: #ffffff;
             --header-action-border: rgba(255, 255, 255, 0.4);
             --btn-hover-bg: rgba(255, 255, 255, 0.12);
-            --menu-bg: #4c0d18;
             --footer-color: rgba(255, 255, 255, 0.6);
+            --theme-btn-bg: #ffffff;
+            --theme-icon-color: #3b0a12;
         }
 
         body.light-mode {
@@ -30,11 +30,12 @@
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
             --accent-gold: #997413;
-            --header-action-color: #2c2c2c;
+            --header-action-color: #997413;
             --header-action-border: #997413;
             --btn-hover-bg: rgba(0, 0, 0, 0.08);
-            --menu-bg: #ebe5e0;
             --footer-color: #6c5713;
+            --theme-btn-bg: #000000;
+            --theme-icon-color: #f3d06b;
         }
 
         * {
@@ -59,7 +60,7 @@
             top: 0;
             z-index: 1000;
             background-color: var(--nav-bg);
-            padding: 16px 20px;
+            padding: 14px 18px;
             border-bottom: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
@@ -71,109 +72,70 @@
             max-width: 650px;
             margin: 0 auto;
             width: 100%;
-            position: relative;
         }
 
-        /* زرار المود الدائري الأكبر حجماً والمريح للموبايل */
         #theme-toggle {
-            background: transparent;
-            border: 1.5px solid var(--header-action-border);
-            color: var(--text-color);
-            width: 42px;
-            height: 42px;
-            display: inline-flex;
+            background: var(--theme-btn-bg);
+            border: 1.5px solid var(--accent-gold);
+            color: var(--theme-icon-color);
+            width: 40px;
+            height: 40px;
+            display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 18px;
             transition: all 0.3s ease;
         }
 
-        #theme-toggle:hover {
-            background: var(--btn-hover-bg);
-            transform: scale(1.05);
+        #theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
         }
 
-        /* الـ 3 خطوط بدون إطار أو مربع وبحجم كبير وواضح */
-        .menu-toggle-btn {
+        #theme-toggle:hover {
+            opacity: 0.85;
+        }
+
+        .menu-btn {
             background: transparent;
             border: none;
-            color: var(--header-action-color);
-            padding: 4px;
             cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.3s ease, transform 0.2s ease;
-        }
-
-        .menu-toggle-btn:hover {
-            opacity: 0.8;
-            transform: scale(1.05);
-        }
-
-        .menu-toggle-btn svg {
-            width: 26px;
-            height: 26px;
-            stroke: currentColor;
-            stroke-width: 2.2;
-            stroke-linecap: round;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 58px;
-            right: 0;
-            background-color: var(--menu-bg);
-            border: 1.5px solid var(--border-color);
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-            width: 180px;
-            display: none;
-            flex-direction: column;
-            padding: 8px 0;
-            z-index: 1100;
-            text-align: left;
-            animation: fadeIn 0.2s ease;
-        }
-
-        .dropdown-menu.show {
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            padding: 0;
         }
 
-        .dropdown-item {
-            padding: 11px 16px;
-            font-size: 11px;
+        .menu-btn span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--header-action-color);
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-link {
+            font-size: 10px;
             font-weight: 600;
             letter-spacing: 1px;
             color: var(--header-action-color);
-            text-decoration: none;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1.5px;
+            text-decoration-color: var(--header-action-color);
             text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: background 0.2s ease, color 0.2s ease;
+            white-space: nowrap;
+            opacity: 0.95;
+            transition: color 0.3s ease, text-decoration-color 0.3s ease;
         }
 
-        .dropdown-item:hover {
-            background: var(--btn-hover-bg);
-            color: var(--accent-gold);
-        }
-
-        .dropdown-item svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
+        .about-link:hover {
+            opacity: 1;
         }
 
         .hero-section {
@@ -254,45 +216,25 @@
 
     <header>
         <div class="nav-container">
-            <!-- زرار المود الدائري -->
-            <button id="theme-toggle" aria-label="Toggle Theme">☀️</button>
-            
-            <!-- الثلاث خطوط بدون إطار وبحجم كبير -->
-            <button class="menu-toggle-btn" id="menuBtn" aria-label="Menu">
-                <svg viewBox="0 0 24 24">
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
+            <button id="theme-toggle" aria-label="Toggle Theme">
+                <span id="theme-icon"></span>
             </button>
-
-            <!-- القائمة المنسدلة -->
-            <div class="dropdown-menu" id="dropdownMenu">
-                <a href="/shop/wishlist.html" class="dropdown-item">
-                    <span>Wishlist</span>
-                    <svg viewBox="0 0 24 24">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                    </svg>
-                </a>
-                <a href="/shop/about.html" class="dropdown-item">
-                    <span>About</span>
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                    </svg>
-                </a>
-            </div>
+            
+            <button class="menu-btn" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <div class="hero-section">
-        <img src="/shop/images/hero.JPG" alt="Hero Name" width="1200" height="600" fetchpriority="high">
+        <img src="images/hero.JPG" alt="Hero Name" width="1200" height="600" fetchpriority="high">
     </div>
 
     <div class="content-container">
         <h2 class="main-title">Discover Something<br>You'll Love</h2>
-        <a href="/shop/categories.html" class="btn">Browse Categories</a>
+        <a href="categories.html" class="btn">Browse Categories</a>
     </div>
 
     <footer>
@@ -301,39 +243,34 @@
 
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIconSpan = document.getElementById('theme-icon');
         const bodyElement = document.body;
 
-        if (localStorage.getItem('theme') === 'light') {
-            bodyElement.classList.add('light-mode');
-            themeToggleBtn.textContent = '🌙';
+        const sunSvg = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+        const moonSvg = `<svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+
+        function updateThemeUI(isLight) {
+            if (isLight) {
+                bodyElement.classList.add('light-mode');
+                themeIconSpan.innerHTML = moonSvg;
+                localStorage.setItem('theme', 'light');
+            } else {
+                bodyElement.classList.remove('light-mode');
+                themeIconSpan.innerHTML = sunSvg;
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            updateThemeUI(true);
         } else {
-            themeToggleBtn.textContent = '☀️';
+            updateThemeUI(false);
         }
 
         themeToggleBtn.addEventListener('click', () => {
-            bodyElement.classList.toggle('light-mode');
-            
-            if (bodyElement.classList.contains('light-mode')) {
-                themeToggleBtn.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-            } else {
-                themeToggleBtn.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-
-        const menuBtn = document.getElementById('menuBtn');
-        const dropdownMenu = document.getElementById('dropdownMenu');
-
-        menuBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('show');
-        });
-
-        window.addEventListener('click', () => {
-            if (dropdownMenu.classList.contains('show')) {
-                dropdownMenu.classList.remove('show');
-            }
+            const isLightNow = bodyElement.classList.contains('light-mode');
+            updateThemeUI(!isLightNow);
         });
     </script>
 
