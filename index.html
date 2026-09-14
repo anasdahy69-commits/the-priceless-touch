@@ -89,35 +89,41 @@
             background: var(--btn-hover-bg);
         }
 
+        /* اسم البراند بقى بلون النص الأساسي (الأبيض في الداكن / الغامق في الفاتح) */
         .header-brand {
             font-family: serif;
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 2.2px;
-            color: var(--accent-gold);
+            color: var(--text-color);
             text-decoration: none;
             text-transform: uppercase;
             white-space: nowrap;
+            transition: color 0.3s ease;
         }
 
-        /* About link with clear underline */
+        .header-brand:hover {
+            color: var(--accent-gold);
+        }
+
+        /* كلمة About والخط السفلي بقوا بالأصفر الفخم */
         .about-link {
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 1px;
-            color: var(--text-color);
+            color: var(--accent-gold);
             text-decoration: underline;
             text-underline-offset: 4px;
             text-decoration-thickness: 1.5px;
+            text-decoration-color: var(--accent-gold);
             text-transform: uppercase;
-            opacity: 0.95;
             white-space: nowrap;
-            transition: color 0.3s ease, text-decoration-color 0.3s ease;
+            opacity: 0.95;
+            transition: opacity 0.3s ease;
         }
 
         .about-link:hover {
-            color: var(--accent-gold);
-            text-decoration-color: var(--accent-gold);
+            opacity: 1;
         }
 
         .hero-section {
@@ -134,7 +140,7 @@
         }
 
         .content-container {
-            padding: 35px 24px 50px 24px; /* زيادة المساحة السفلى قليلاً لابعاد المحتوى عن الخط */
+            padding: 35px 24px 50px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -178,10 +184,9 @@
             border-color: var(--accent-gold);
         }
 
-        /* Footerنزلناه للمكان المطلوب وزدنا المسافة العلوية ليكون منسقاً */
         footer {
-            margin-top: auto; /* يدفع الفوتر لأسفل الصفحة تماماً */
-            padding: 40px 20px 40px 20px; /* زيادة المساحة فوق خط الفاصل */
+            margin-top: auto;
+            padding: 40px 20px 40px 20px;
             font-size: 11px;
             font-weight: 500;
             line-height: 1.6;
