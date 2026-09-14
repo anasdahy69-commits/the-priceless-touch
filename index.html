@@ -26,8 +26,8 @@
             --drawer-text: #ffffff; /* White text in Drawer */
             --drawer-border: rgba(255, 255, 255, 0.15);
             --brand-color: #ffffff; /* Pure white brand name in Dark Mode */
-            --categories-text-color: rgba(255, 255, 255, 0.75); /* White with slight transparency for a softer look */
-            --categories-divider-color: rgba(255, 255, 255, 0.4); /* Softer divider */
+            --categories-text-color: rgba(255, 255, 255, 0.82); /* Soft non-glaring white */
+            --categories-divider-color: rgba(255, 255, 255, 0.4); 
         }
 
         body.light-mode {
@@ -45,7 +45,7 @@
             --drawer-text: #2c2c2c; /* Dark text in Drawer */
             --drawer-border: rgba(0, 0, 0, 0.1);
             --brand-color: #2d6a4f; /* Exact matching green tone of the button for Brand Name in Light Mode */
-            --categories-text-color: rgba(44, 44, 44, 0.75); /* Dark text with slight transparency in light mode */
+            --categories-text-color: rgba(44, 44, 44, 0.82); /* Soft non-glaring dark text in light mode */
             --categories-divider-color: rgba(44, 44, 44, 0.3);
         }
 
@@ -173,7 +173,7 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Sidebar Drawer Styling */
+        /* Sidebar Drawer Styling (Keeping exact original dimensions) */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -267,17 +267,17 @@
             stroke-width: 2;
         }
 
-        /* Categories Section inside Sidebar (Placed after Wishlist & About) */
+        /* Categories Section inside Sidebar: Same font size as other items, spacious vertical padding to fill down gracefully */
         .sidebar-category-group {
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid var(--drawer-border);
-            padding-bottom: 6px;
-            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-top: 2px;
         }
 
         .sidebar-category-title {
-            padding: 10px 0 6px 0;
+            padding: 12px 0 6px 0;
             font-size: 11px;
             font-weight: 800;
             letter-spacing: 1.2px;
@@ -289,27 +289,32 @@
         .sidebar-sub-items {
             display: flex;
             flex-direction: column;
-            padding-left: 10px;
-            gap: 8px;
-            margin-bottom: 6px;
+            padding-left: 8px;
+            gap: 2px;
         }
 
         .sidebar-sub-item {
             text-decoration: none;
-            color: var(--drawer-text);
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.8px;
+            color: var(--categories-text-color); /* Soft non-glaring white/dark text */
+            font-size: 11px; /* Exact same font size as Wishlist and About */
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            opacity: 0.75;
-            transition: opacity 0.2s ease, transform 0.2s ease;
             display: block;
-            padding: 3px 0;
+            padding: 10px 0; /* Generous respectable spacing to fill down nicely */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle separator */
+            transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+        }
+
+        /* Remove border from the last sub-item */
+        .sidebar-sub-item:last-child {
+            border-bottom: none;
         }
 
         .sidebar-sub-item:hover {
             opacity: 1;
-            transform: translateX(3px);
+            transform: translateX(4px);
+            color: var(--drawer-text);
         }
 
         .hero-section {
@@ -463,18 +468,18 @@
                 </svg>
             </a>
 
-            <!-- Categories Group (Placed at the bottom) -->
+            <!-- Categories Group (Direct links to individual category pages, prominent font size, full vertical fill) -->
             <div class="sidebar-category-group">
                 <div class="sidebar-category-title">CATEGORIES</div>
                 <div class="sidebar-sub-items">
-                    <a href="categories.html?cat=kitchen" class="sidebar-sub-item">Kitchen</a>
-                    <a href="categories.html?cat=decor" class="sidebar-sub-item">Decor</a>
-                    <a href="categories.html?cat=smart-tech" class="sidebar-sub-item">Smart Tech</a>
-                    <a href="categories.html?cat=bedrooms" class="sidebar-sub-item">Bedrooms</a>
-                    <a href="categories.html?cat=office" class="sidebar-sub-item">Office</a>
-                    <a href="categories.html?cat=bathroom" class="sidebar-sub-item">Bathroom</a>
-                    <a href="categories.html?cat=patio" class="sidebar-sub-item">Patio</a>
-                    <a href="categories.html?cat=pet-care" class="sidebar-sub-item">Pet Care</a>
+                    <a href="kitchen.html" class="sidebar-sub-item">Kitchen</a>
+                    <a href="decor.html" class="sidebar-sub-item">Decor</a>
+                    <a href="smart-tech.html" class="sidebar-sub-item">Smart Tech</a>
+                    <a href="bedrooms.html" class="sidebar-sub-item">Bedrooms</a>
+                    <a href="office.html" class="sidebar-sub-item">Office</a>
+                    <a href="bathroom.html" class="sidebar-sub-item">Bathroom</a>
+                    <a href="patio.html" class="sidebar-sub-item">Patio</a>
+                    <a href="pet-care.html" class="sidebar-sub-item">Pet Care</a>
                 </div>
             </div>
         </div>
