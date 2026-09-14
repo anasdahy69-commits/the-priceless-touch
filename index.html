@@ -122,7 +122,7 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Sidebar Drawer Styling */
+        /* Sidebar Drawer Styling - تم تصغير العرض ليناسب المحتوى فقط */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -144,8 +144,8 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: -280px;
-            width: 280px;
+            right: -240px;
+            width: 240px; /* تم تصغير العرض ليكون مضغوط وأنيق */
             height: 100%;
             background-color: var(--drawer-bg);
             color: var(--drawer-text);
@@ -153,7 +153,7 @@
             box-shadow: -5px 0 15px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            padding: 25px 20px;
+            padding: 20px 16px;
             transition: right 0.3s ease;
             text-align: left;
         }
@@ -165,7 +165,7 @@
         .sidebar-header {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .close-btn {
@@ -187,13 +187,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 0;
+            padding: 14px 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             text-decoration: none;
             color: var(--drawer-text);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
         }
 
@@ -202,7 +202,7 @@
             height: 22px;
             stroke: var(--drawer-text);
             fill: none;
-            stroke-width: 1.8;
+            stroke-width: 2; /* زيادة وضوح وسُمك الخطوط الهندسية */
         }
 
         .hero-section {
@@ -307,10 +307,14 @@
                 <span>WISHLIST</span>
                 <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
             </a>
-            <!-- About مع الدايرة الهندسية المفرغة وداخلها علامة الاستفهام -->
+            <!-- About مع الدايرة الهندسية وعلامة الاستفهام الواضحة جداً -->
             <a href="about.html" class="sidebar-item">
                 <span>ABOUT</span>
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round"/>
+                    <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                </svg>
             </a>
         </div>
     </div>
