@@ -259,7 +259,7 @@
         }
 
         .top-title {
-            padding: 40px 20px 65px 20px; /* Noticeable clean gap before the categories list */
+            padding: 40px 20px 65px 20px;
         }
 
         .top-title h2 {
@@ -278,7 +278,7 @@
             padding: 10px 20px 40px 20px;
             display: flex;
             flex-direction: column;
-            gap: 45px; /* Comfortable gap between category items */
+            gap: 45px;
             align-items: center;
         }
 
@@ -305,12 +305,11 @@
 
         .category-card img {
             width: 100%;
-            height: 280px; /* Large, clear image height */
+            height: 280px;
             object-fit: cover;
             display: block;
         }
 
-        /* Enlarged, prominent category titles positioned below the card with proper spacing */
         .category-title {
             margin-top: 22px;
             font-size: 30px;
@@ -347,7 +346,7 @@
                 <span id="theme-icon"></span>
             </button>
             
-            <!-- Centered Home Link with Left-pointing geometric arrow (Doubled Size) -->
+            <!-- Centered Home Link with Left-pointing geometric arrow -->
             <a href="index.html" class="home-link">
                 <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                 <span>HOME</span>
@@ -389,65 +388,65 @@
     </div>
 
     <div class="categories-container">
-        <!-- 1. Kitchen (Highest demand & daily engagement) -->
+        <!-- 1. Kitchen -->
         <div class="category-item">
-            <a href="kitchen.html" class="category-card">
+            <a href="sections/1-kitchen.html" class="category-card">
                 <img src="images/Category1.webp" alt="Kitchen" width="400" height="280" loading="lazy">
             </a>
             <div class="category-title">Kitchen</div>
         </div>
 
-        <!-- 2. Decor (Highest visual appeal & traffic hook) -->
+        <!-- 2. Decor -->
         <div class="category-item">
-            <a href="decor.html" class="category-card">
+            <a href="sections/2-decor.html" class="category-card">
                 <img src="images/category2.webp" alt="Decor" width="400" height="280" loading="lazy">
             </a>
             <div class="category-title">Decor</div>
         </div>
 
-        <!-- 3. Smart Tech (High impulse buying & trending tech) -->
+        <!-- 3. Smart Tech -->
         <div class="category-item">
-            <a href="smart-tech.html" class="category-card">
+            <a href="sections/3-smart-tech.html" class="category-card">
                 <img src="images/smart-tech.webp" alt="Smart Tech" width="400" height="280" loading="lazy">
             </a>
             <div class="category-title">Smart Tech</div>
         </div>
 
-        <!-- 4. Bedrooms (High AOV & comfort items) -->
+        <!-- 4. Bedrooms -->
         <div class="category-item">
-            <a href="bedrooms.html" class="category-card">
+            <a href="sections/4-bedrooms.html" class="category-card">
                 <img src="images/bedrooms.webp" alt="Bedrooms" width="400" height="280" loading="lazy">
             </a>
             <div class="category-title">Bedrooms</div>
         </div>
 
-        <!-- 5. Office (Targeting WFH, creators & students) -->
+        <!-- 5. Office -->
         <div class="category-item">
-            <a href="office.html" class="category-card">
+            <a href="sections/5-office.html" class="category-card">
                 <img src="images/office.webp" alt="Office" width="400" height="280" loading="lazy">
             </a>
             <div class="category-title">Office</div>
         </div>
 
-        <!-- 6. Bathroom (Organization & space-saving solutions) -->
+        <!-- 6. Bathroom -->
         <div class="category-item">
-            <a href="bathroom.html" class="category-card">
+            <a href="sections/6-bathroom.html" class="category-card">
                 <img src="images/bathroom.webp" alt="Bathroom" width="400" height="280" loading="lazy">
             </a>
             <div class="category-title">Bathroom</div>
         </div>
 
-        <!-- 7. Patio (Outdoor living / Seasonal) -->
+        <!-- 7. Patio -->
         <div class="category-item">
-            <a href="patio.html" class="category-card">
+            <a href="sections/7-patio.html" class="category-card">
                 <img src="images/patio.webp" alt="Patio" width="400" height="280" loading="lazy">
             </a>
             <div class="category-title">Patio</div>
         </div>
 
-        <!-- 8. Pet Care (Dedicated niche audience) -->
+        <!-- 8. Pet Care -->
         <div class="category-item">
-            <a href="pet-care.html" class="category-card">
+            <a href="sections/8-pet-care.html" class="category-card">
                 <img src="images/pet-care.webp" alt="Pet Care" width="400" height="280" loading="lazy">
             </a>
             <div class="category-title">Pet Care</div>
@@ -463,7 +462,6 @@
         const themeIconSpan = document.getElementById('theme-icon');
         const bodyElement = document.body;
 
-        /* Geometric SVGs: Sun with perfectly equal symmetrical rays, and a moon crescent */
         const sunSvg = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
         const moonSvg = `<svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>`;
 
@@ -491,7 +489,6 @@
             updateThemeUI(!isLightNow);
         });
 
-        // Sidebar Menu Open/Close Logic
         const openMenuBtn = document.getElementById('openMenu');
         const closeMenuBtn = document.getElementById('closeMenu');
         const sidebar = document.getElementById('sidebar');
