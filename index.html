@@ -10,13 +10,15 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <style>
-        /* Colors and Variables: Default is Royal Burgundy, toggle switches to Clean White */
+        /* Colors and Variables: Default is Royal Burgundy (Dark Mode) */
         :root {
             --bg-color: #3b0a12;
             --text-color: #ffffff;
             --nav-bg: #3b0a12;
             --border-color: rgba(255, 255, 255, 0.2);
             --accent-gold: #f3d06b;
+            --header-action-color: #ffffff; /* لون أبيض لزر المود وكلمة أباوت في وضع البورجندي */
+            --header-action-border: rgba(255, 255, 255, 0.4);
             --btn-hover-bg: rgba(255, 255, 255, 0.12);
             --footer-color: rgba(255, 255, 255, 0.6);
         }
@@ -27,6 +29,8 @@
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
             --accent-gold: #997413;
+            --header-action-color: #997413; /* لون ذهبي في الوضع الفاتح */
+            --header-action-border: #997413;
             --btn-hover-bg: rgba(0, 0, 0, 0.08);
             --footer-color: #6c5713;
         }
@@ -67,11 +71,11 @@
             width: 100%;
         }
 
-        /* Theme Toggle Button */
+        /* Theme Toggle Button: أبيض في البورجندي وذهبي في الفاتح */
         #theme-toggle {
             background: transparent;
-            border: 1.5px solid var(--accent-gold);
-            color: var(--accent-gold);
+            border: 1.5px solid var(--header-action-border);
+            color: var(--header-action-color);
             padding: 6px 12px;
             width: 82px;
             text-align: center;
@@ -89,28 +93,24 @@
             background: var(--btn-hover-bg);
         }
 
-        /* About Button: مربع بزوايا حادة وقائمة (border-radius: 0) وبنفس العرض والأبعاد */
+        /* About Link: كلمة تحتها خط، أبيض في البورجندي وذهبي في الفاتح */
         .about-link {
-            display: inline-block;
-            background: transparent;
-            border: 1.5px solid var(--accent-gold);
-            color: var(--accent-gold);
-            padding: 6px 12px;
-            width: 82px;
-            text-align: center;
-            border-radius: 0; /* زوايا قائمة ومربعة تماماً */
-            cursor: pointer;
             font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.6px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--header-action-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1.5px;
+            text-decoration-color: var(--header-action-color);
             text-transform: uppercase;
-            text-decoration: none;
             white-space: nowrap;
-            transition: all 0.3s ease;
+            opacity: 0.95;
+            transition: color 0.3s ease, text-decoration-color 0.3s ease;
         }
 
         .about-link:hover {
-            background: var(--btn-hover-bg);
+            opacity: 1;
         }
 
         .hero-section {
@@ -171,7 +171,6 @@
             border-color: var(--accent-gold);
         }
 
-        /* Footer */
         footer {
             margin-top: auto;
             padding: 24px 20px 35px 20px;
