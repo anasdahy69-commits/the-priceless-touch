@@ -284,21 +284,22 @@
             width: auto;
             min-width: 200px;
             padding: 12px 28px;
-            border: 1.5px solid var(--text-color);
+            border: 1.5px solid #ffffff;
             border-radius: 35px;
-            color: var(--accent-gold);
+            background: #ffffff;
+            color: #3b0a12;
             text-decoration: none;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 1.5px;
-            background: transparent;
             margin-top: 15px;
-            transition: background 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            transition: opacity 0.3s ease, background 0.3s ease;
         }
 
         .btn:hover {
-            background: var(--btn-hover-bg);
-            border-color: var(--accent-gold);
+            opacity: 0.9;
+            background: #f1f1f1;
         }
 
         footer {
@@ -373,7 +374,7 @@
         <p class="about-text">
             Welcome to <strong>The Priceless Touch</strong>, your ultimate destination for minimalist luxury, curated elegance, and exceptional lifestyle selections. We handpick high-performance pieces and refined essentials to bring a touch of timeless sophistication to your everyday life.
         </p>
-        <a href="index.html" class="btn">Back To Home</a>
+        <button onclick="goBack()" class="btn">BACK</button>
     </div>
 
     <footer>
@@ -425,6 +426,14 @@
         openMenuBtn.addEventListener('click', toggleSidebar);
         closeMenuBtn.addEventListener('click', toggleSidebar);
         sidebarOverlay.addEventListener('click', toggleSidebar);
+
+        function goBack() {
+            if (document.referrer && document.referrer !== window.location.href) {
+                history.back();
+            } else {
+                window.location.href = 'index.html'; 
+            }
+        }
     </script>
 
 </body>
