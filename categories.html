@@ -25,8 +25,7 @@
             --drawer-border: rgba(255, 255, 255, 0.15);
             --brand-color: #ffffff; 
             --curated-color: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
-            --cat-overlay: rgba(0, 0, 0, 0.4);
-            --cat-overlay-hover: rgba(0, 0, 0, 0.2);
+            --cat-title-color: #ffffff; /* أبيض في الوضع الداكن */
         }
 
         body.light-mode {
@@ -45,8 +44,7 @@
             --drawer-border: rgba(0, 0, 0, 0.1);
             --brand-color: #2d6a4f; 
             --curated-color: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%); 
-            --cat-overlay: rgba(0, 0, 0, 0.35);
-            --cat-overlay-hover: rgba(0, 0, 0, 0.15);
+            --cat-title-color: #0a0a0a; /* أسود غامق جداً في الوضع الفاتح */
         }
 
         * {
@@ -286,24 +284,30 @@
         .categories-grid {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 32px;
             width: 100%;
         }
 
         .category-card {
-            position: relative;
-            border-radius: 14px;
-            overflow: hidden;
-            display: block;
+            display: flex;
+            flex-direction: column;
             text-decoration: none;
-            height: 180px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            transition: transform 0.3s ease;
         }
 
         .category-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* حاوية الصورة بنسبة 4:5 */
+        .category-img-wrapper {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            background-color: #000;
         }
 
         .category-card img {
@@ -315,34 +319,22 @@
         }
 
         .category-card:hover img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
-        .category-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--cat-overlay);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .category-card:hover .category-overlay {
-            background-color: var(--cat-overlay-hover);
-        }
-
+        /* اسم القسم تحت الصورة بخط رفيع وأنيق */
         .category-name {
-            color: #ffffff;
-            font-size: 22px;
-            font-weight: 900;
-            letter-spacing: 2.5px;
+            color: var(--cat-title-color);
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
+            margin-top: 12px;
+            transition: opacity 0.3s ease;
+        }
+
+        .category-card:hover .category-name {
+            opacity: 0.75;
         }
 
         footer {
@@ -419,52 +411,59 @@
         
         <div class="categories-grid">
             <a href="category-kitchen.html" class="category-card">
-                <img src="images/kitchen.jpg" alt="Kitchen">
-                <div class="category-overlay">
-                    <span class="category-name">Kitchen</span>
+                <div class="category-img-wrapper">
+                    <img src="images/kitchen.jpg" alt="Kitchen" loading="lazy">
                 </div>
+                <span class="category-name">Kitchen</span>
             </a>
+            
             <a href="category-decor.html" class="category-card">
-                <img src="images/decor.jpg" alt="Decor">
-                <div class="category-overlay">
-                    <span class="category-name">Decor</span>
+                <div class="category-img-wrapper">
+                    <img src="images/decor.jpg" alt="Decor" loading="lazy">
                 </div>
+                <span class="category-name">Decor</span>
             </a>
+            
             <a href="category-smart-tech.html" class="category-card">
-                <img src="images/smart-tech.jpg" alt="Smart Tech">
-                <div class="category-overlay">
-                    <span class="category-name">Smart Tech</span>
+                <div class="category-img-wrapper">
+                    <img src="images/smart-tech.jpg" alt="Smart Tech" loading="lazy">
                 </div>
+                <span class="category-name">Smart Tech</span>
             </a>
+            
             <a href="category-bedrooms.html" class="category-card">
-                <img src="images/bedrooms.jpg" alt="Bedrooms">
-                <div class="category-overlay">
-                    <span class="category-name">Bedrooms</span>
+                <div class="category-img-wrapper">
+                    <img src="images/bedrooms.jpg" alt="Bedrooms" loading="lazy">
                 </div>
+                <span class="category-name">Bedrooms</span>
             </a>
+            
             <a href="category-office.html" class="category-card">
-                <img src="images/office.jpg" alt="Office">
-                <div class="category-overlay">
-                    <span class="category-name">Office</span>
+                <div class="category-img-wrapper">
+                    <img src="images/office.jpg" alt="Office" loading="lazy">
                 </div>
+                <span class="category-name">Office</span>
             </a>
+            
             <a href="category-bathroom.html" class="category-card">
-                <img src="images/bathroom.jpg" alt="Bathroom">
-                <div class="category-overlay">
-                    <span class="category-name">Bathroom</span>
+                <div class="category-img-wrapper">
+                    <img src="images/bathroom.jpg" alt="Bathroom" loading="lazy">
                 </div>
+                <span class="category-name">Bathroom</span>
             </a>
+            
             <a href="category-patio.html" class="category-card">
-                <img src="images/patio.jpg" alt="Patio">
-                <div class="category-overlay">
-                    <span class="category-name">Patio</span>
+                <div class="category-img-wrapper">
+                    <img src="images/patio.jpg" alt="Patio" loading="lazy">
                 </div>
+                <span class="category-name">Patio</span>
             </a>
+            
             <a href="category-pet-care.html" class="category-card">
-                <img src="images/pet-care.jpg" alt="Pet Care">
-                <div class="category-overlay">
-                    <span class="category-name">Pet Care</span>
+                <div class="category-img-wrapper">
+                    <img src="images/pet-care.jpg" alt="Pet Care" loading="lazy">
                 </div>
+                <span class="category-name">Pet Care</span>
             </a>
         </div>
     </div>
