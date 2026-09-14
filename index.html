@@ -18,13 +18,14 @@
             --border-color: rgba(255, 255, 255, 0.2);
             --accent-gold: #b89728; /* Rich deep gold for Brand Name */
             --header-action-color: #ffffff; /* White menu lines in Dark Mode */
-            --btn-bg-color: #280308; /* Much darker distinct burgundy for the button in Dark Mode */
-            --btn-hover-bg: #1a0205; /* Even darker on hover */
-            --btn-text-color: #ffffff; /* White text inside button */
+            --btn-bg-color: #ffffff; /* Solid Pure White Button in Dark Mode */
+            --btn-hover-bg: rgba(255, 255, 255, 0.85); 
+            --btn-text-color: #3b0a12; /* Burgundy text inside button */
             --footer-color: rgba(255, 255, 255, 0.6);
             --pure-icon-color: #ffffff; /* White sun in Dark Mode */
-            --drawer-bg: #fcfbfa;
-            --drawer-text: #2c2c2c;
+            --drawer-bg: #3b0a12; /* Burgundy Drawer matching Dark Mode */
+            --drawer-text: #ffffff; /* White text in Drawer */
+            --drawer-border: rgba(255, 255, 255, 0.15);
             --brand-color: #b89728; /* Rich deep gold for Brand Name in Dark Mode */
         }
 
@@ -40,8 +41,9 @@
             --btn-text-color: #ffffff; /* White text inside button */
             --footer-color: #2d6a4f;
             --pure-icon-color: #000000; /* Black moon in Light Mode */
-            --drawer-bg: #f5f2f0;
-            --drawer-text: #2c2c2c;
+            --drawer-bg: #f5f2f0; /* Light Drawer in Light Mode */
+            --drawer-text: #2c2c2c; /* Dark text in Drawer */
+            --drawer-border: rgba(0, 0, 0, 0.1);
             --brand-color: #2d6a4f; /* Matching Light Green tone for Brand Name in Light Mode */
         }
 
@@ -189,17 +191,17 @@
         .sidebar {
             position: fixed;
             top: 0;
-            right: -240px;
-            width: 240px;
+            right: -260px;
+            width: 260px;
             height: 100%;
             background-color: var(--drawer-bg);
             color: var(--drawer-text);
             z-index: 2001;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
-            padding: 20px 16px;
-            transition: right 0.3s ease;
+            padding: 24px 20px;
+            transition: right 0.3s ease, background-color 0.3s ease, color 0.3s ease;
             text-align: left;
         }
 
@@ -210,16 +212,21 @@
         .sidebar-header {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .close-btn {
             background: transparent;
             border: none;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
             color: var(--drawer-text);
             line-height: 1;
+            transition: opacity 0.2s ease;
+        }
+
+        .close-btn:hover {
+            opacity: 0.7;
         }
 
         .sidebar-menu {
@@ -232,14 +239,19 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--drawer-border);
             text-decoration: none;
             color: var(--drawer-text);
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 1.2px;
             text-transform: uppercase;
+            transition: opacity 0.2s ease;
+        }
+
+        .sidebar-item:hover {
+            opacity: 0.8;
         }
 
         .sidebar-item svg {
@@ -292,7 +304,7 @@
             width: auto;
             min-width: 240px;
             padding: 15px 34px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: none;
             border-radius: 35px;
             background-color: var(--btn-bg-color);
             color: var(--btn-text-color);
@@ -300,8 +312,8 @@
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 1.5px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
         }
 
         .btn:hover {
