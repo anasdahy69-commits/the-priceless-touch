@@ -265,14 +265,14 @@
             display: block;
         }
 
-        /* تعديل المسافات لتكون واسعة، مريحة للعين وموزعة ببراعة */
+        /* مسافات مريحة ومتساوية بالكامل للعناصر، بدون تكبير خطوط الأقسام */
         .content-container {
-            padding: 45px 24px 50px 24px;
+            padding: 50px 24px 60px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 32px;
+            gap: 36px;
             flex: 1;
             max-width: 600px;
             margin: 0 auto;
@@ -315,8 +315,8 @@
         .home-categories-text {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 10px;
+            gap: 8px; /* رجعنا المسافة الأصلية والصغيرة بين سطور الأقسام */
+            margin-top: 5px;
             width: 100%;
             padding: 0 12px;
         }
@@ -326,10 +326,10 @@
             justify-content: center;
             align-items: center;
             white-space: nowrap;
-            gap: 8px;
-            font-size: 11px;
+            gap: 6px;
+            font-size: 10px; /* حجم الحروف رجع زي الأول تماماً (صغير وهادئ) */
             font-weight: 600;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             text-transform: uppercase;
             color: var(--categories-text-color);
         }
@@ -341,7 +341,7 @@
 
         footer {
             margin-top: auto;
-            padding: 35px 20px 45px 20px;
+            padding: 40px 20px 50px 20px; /* تباعد كبير ومريح ونازل لتحت خالص بعيد عن الزحمة */
             font-size: 11px;
             font-weight: 500;
             line-height: 1.7;
