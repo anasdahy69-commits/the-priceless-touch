@@ -53,7 +53,7 @@
             top: 0;
             z-index: 1000;
             background-color: var(--nav-bg);
-            padding: 16px 20px;
+            padding: 14px 18px;
             border-bottom: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
@@ -64,20 +64,22 @@
             align-items: center;
             max-width: 650px;
             margin: 0 auto;
+            width: 100%;
         }
 
-        /* Theme Toggle Button */
+        /* Left side: Theme Toggle Button on the exact same row */
         #theme-toggle {
             background: transparent;
             border: 1.5px solid var(--accent-gold);
             color: var(--accent-gold);
-            padding: 7px 15px;
+            padding: 6px 12px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.6px;
             text-transform: uppercase;
+            white-space: nowrap;
             transition: all 0.3s ease;
         }
 
@@ -85,32 +87,33 @@
             background: var(--btn-hover-bg);
         }
 
-        /* Right side container for Brand and About link */
+        /* Right side: Brand and About structured perfectly with ideal spacing */
         .header-right {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 4px;
+            align-items: center;
+            gap: 15px; /* مسافة متناسقة ومظبوطة بين اسم البراند وكلمة About */
         }
 
         .header-brand {
             font-family: serif;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
-            letter-spacing: 1.8px;
+            letter-spacing: 2.2px; /* تباعد حروف يمدد اسم البراند للمكان المطلوب تماماً */
             color: var(--accent-gold);
             text-decoration: none;
             text-transform: uppercase;
+            white-space: nowrap;
         }
 
         .about-link {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             color: var(--text-color);
             text-decoration: none;
             text-transform: uppercase;
             opacity: 0.95;
+            white-space: nowrap;
             transition: color 0.3s ease;
         }
 
