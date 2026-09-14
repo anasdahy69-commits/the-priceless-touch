@@ -67,7 +67,7 @@
             width: 100%;
         }
 
-        /* Theme Toggle Button with fixed width to guarantee exact symmetry */
+        /* Theme Toggle Button */
         #theme-toggle {
             background: transparent;
             border: 1.5px solid var(--accent-gold);
@@ -89,24 +89,7 @@
             background: var(--btn-hover-bg);
         }
 
-        /* اسم البراند بقى بلون النص الأساسي (الأبيض في الداكن / الغامق في الفاتح) */
-        .header-brand {
-            font-family: serif;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 2.2px;
-            color: var(--text-color);
-            text-decoration: none;
-            text-transform: uppercase;
-            white-space: nowrap;
-            transition: color 0.3s ease;
-        }
-
-        .header-brand:hover {
-            color: var(--accent-gold);
-        }
-
-        /* كلمة About والخط السفلي بقوا بالأصفر الفخم */
+        /* كلمة About باللون الأصفر في الجهة المقابلة للزرار */
         .about-link {
             font-size: 10px;
             font-weight: 600;
@@ -205,7 +188,6 @@
     <header>
         <div class="nav-container">
             <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
-            <a href="index.html" class="header-brand">The Priceless Touch</a>
             <a href="about.html" class="about-link">About</a>
         </div>
     </header>
