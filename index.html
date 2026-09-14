@@ -60,7 +60,7 @@
 
         .nav-container {
             display: flex;
-            justify-content: flex-start; /* جعل المحاذاة من جهة اليسار تماماً */
+            justify-content: space-between; /* زرار المود شمال، واسم الموقع وAbout يمين */
             align-items: center;
             max-width: 650px;
             margin: 0 auto;
@@ -82,6 +82,39 @@
 
         #theme-toggle:hover {
             background: var(--btn-hover-bg);
+        }
+
+        /* Right side container for Brand and About link */
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+        }
+
+        .header-brand {
+            font-family: serif;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            color: var(--accent-gold);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .about-link {
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: var(--text-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            opacity: 0.8;
+            transition: color 0.3s ease;
+        }
+
+        .about-link:hover {
+            color: var(--accent-gold);
+            opacity: 1;
         }
 
         .hero-section {
@@ -160,6 +193,10 @@
     <header>
         <div class="nav-container">
             <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
+            <div class="header-right">
+                <a href="index.html" class="header-brand">The Priceless Touch</a>
+                <a href="about.html" class="about-link">Our Mission</a>
+            </div>
         </div>
     </header>
 
