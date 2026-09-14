@@ -16,7 +16,7 @@
             --text-color: #ffffff;
             --nav-bg: #3b0a12;
             --border-color: rgba(255, 255, 255, 0.2);
-            --accent-gold: #b89728; /* Rich deep gold for Brand Name */
+            --accent-gold: #d1aa36; /* Slightly brighter, gorgeous glossy gold for Brand Name */
             --header-action-color: #ffffff; /* White menu lines in Dark Mode */
             --btn-bg-color: #ffffff; /* Solid Pure White Button in Dark Mode */
             --btn-hover-bg: rgba(255, 255, 255, 0.85); 
@@ -26,7 +26,7 @@
             --drawer-bg: #3b0a12; /* Burgundy Drawer matching Dark Mode */
             --drawer-text: #ffffff; /* White text in Drawer */
             --drawer-border: rgba(255, 255, 255, 0.15);
-            --brand-color: #b89728; /* Rich deep gold for Brand Name in Dark Mode */
+            --brand-color: #d1aa36; /* Slightly brighter, gorgeous glossy gold for Brand Name in Dark Mode */
         }
 
         body.light-mode {
@@ -84,7 +84,7 @@
             position: relative;
         }
 
-        /* Brand Name in Header Center: Two lines strictly ("The" alone, "Priceless Touch" together) */
+        /* Brand Name in Header Center: Extra Bold, Thicker, Clear, Two Lines Strictly */
         .brand-header-title {
             position: absolute;
             left: 50%;
@@ -104,21 +104,23 @@
 
         .brand-line-1 {
             font-family: "Playfair Display", Didot, "Bodoni MT", serif;
-            font-size: 19px;
-            font-weight: 800;
-            letter-spacing: 2px;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 2.2px;
             color: var(--brand-color);
             text-transform: none;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
             transition: color 0.3s ease;
         }
 
         .brand-line-2 {
             font-family: "Playfair Display", Didot, "Bodoni MT", serif;
-            font-size: 22px;
+            font-size: 23px;
             font-weight: 900;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.6px;
             color: var(--brand-color);
             text-transform: none;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
             transition: color 0.3s ease;
         }
 
