@@ -134,7 +134,7 @@
         }
 
         .content-container {
-            padding: 35px 24px;
+            padding: 35px 24px 50px 24px; /* زيادة المساحة السفلى قليلاً لابعاد المحتوى عن الخط */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -157,7 +157,6 @@
             margin: 0;
         }
 
-        /* تعديل الزرار ليناسب حجم الكلمة مع مساحة مريحة للعين */
         .btn {
             display: inline-block;
             width: auto;
@@ -179,16 +178,18 @@
             border-color: var(--accent-gold);
         }
 
-        /* Footer */
+        /* Footerنزلناه للمكان المطلوب وزدنا المسافة العلوية ليكون منسقاً */
         footer {
-            padding: 30px 20px 40px 20px;
+            margin-top: auto; /* يدفع الفوتر لأسفل الصفحة تماماً */
+            padding: 40px 20px 40px 20px; /* زيادة المساحة فوق خط الفاصل */
             font-size: 11px;
             font-weight: 500;
             line-height: 1.6;
             color: var(--footer-color);
             border-top: 1px solid var(--border-color);
             max-width: 650px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
             width: 100%;
             transition: color 0.3s ease, border-color 0.3s ease;
         }
