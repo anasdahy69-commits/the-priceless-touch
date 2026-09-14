@@ -10,6 +10,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <style>
+        /* Colors and Variables: Default is Royal Burgundy (Dark Mode) */
         :root {
             --bg-color: #3b0a12;
             --text-color: #ffffff;
@@ -22,6 +23,8 @@
             --footer-color: rgba(255, 255, 255, 0.6);
             --theme-btn-bg: #ffffff;
             --theme-icon-color: #3b0a12;
+            --drawer-bg: #fcfbfa;
+            --drawer-text: #2c2c2c;
         }
 
         body.light-mode {
@@ -36,6 +39,8 @@
             --footer-color: #6c5713;
             --theme-btn-bg: #000000;
             --theme-icon-color: #f3d06b;
+            --drawer-bg: #f5f2f0;
+            --drawer-text: #2c2c2c;
         }
 
         * {
@@ -74,6 +79,7 @@
             width: 100%;
         }
 
+        /* Theme Toggle Button */
         #theme-toggle {
             background: var(--theme-btn-bg);
             border: 1.5px solid var(--accent-gold);
@@ -94,10 +100,7 @@
             fill: currentColor;
         }
 
-        #theme-toggle:hover {
-            opacity: 0.85;
-        }
-
+        /* Menu Button (3 Lines) */
         .menu-btn {
             background: transparent;
             border: none;
@@ -119,15 +122,15 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Sidebar Overlay and Menu */
+        /* Sidebar Drawer Styling */
         .sidebar-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1999;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -144,13 +147,15 @@
             right: -280px;
             width: 280px;
             height: 100%;
-            background-color: var(--nav-bg);
-            border-left: 1px solid var(--border-color);
-            z-index: 2000;
+            background-color: var(--drawer-bg);
+            color: var(--drawer-text);
+            z-index: 2001;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
-            padding: 30px 20px;
+            padding: 25px 20px;
             transition: right 0.3s ease;
+            text-align: left;
         }
 
         .sidebar.active {
@@ -166,32 +171,38 @@
         .close-btn {
             background: transparent;
             border: none;
-            color: var(--text-color);
             font-size: 24px;
             cursor: pointer;
+            color: var(--drawer-text);
+            line-height: 1;
         }
 
-        .sidebar-links {
+        .sidebar-menu {
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            text-align: left;
+            gap: 0;
         }
 
-        .sidebar-links a {
-            color: var(--text-color);
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            color: var(--drawer-text);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: color 0.3s ease;
         }
 
-        .sidebar-links a:hover {
-            color: var(--accent-gold);
+        .sidebar-item svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--drawer-text);
+            fill: none;
+            stroke-width: 1.8;
         }
 
         .hero-section {
@@ -276,7 +287,7 @@
                 <span id="theme-icon"></span>
             </button>
             
-            <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
+            <button class="menu-btn" id="openMenu" aria-label="Open Menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -284,15 +295,23 @@
         </div>
     </header>
 
-    <!-- Sidebar Menu -->
-    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <!-- Sidebar Drawer Menu -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <button class="close-btn" id="close-btn">&times;</button>
+            <button class="close-btn" id="closeMenu" aria-label="Close Menu">&times;</button>
         </div>
-        <div class="sidebar-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+        <div class="sidebar-menu">
+            <!-- Wishlist مع القلب الهندسي المفرغ -->
+            <a href="wishlist.html" class="sidebar-item">
+                <span>WISHLIST</span>
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </a>
+            <!-- About مع الدايرة الهندسية المفرغة وداخلها علامة الاستفهام -->
+            <a href="about.html" class="sidebar-item">
+                <span>ABOUT</span>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </a>
         </div>
     </div>
 
@@ -341,20 +360,20 @@
             updateThemeUI(!isLightNow);
         });
 
-        // Sidebar Toggle Script
-        const menuBtn = document.getElementById('menu-btn');
+        // Sidebar Menu Open/Close Logic
+        const openMenuBtn = document.getElementById('openMenu');
+        const closeMenuBtn = document.getElementById('closeMenu');
         const sidebar = document.getElementById('sidebar');
-        const sidebarOverlay = document.getElementById('sidebar-overlay');
-        const closeBtn = document.getElementById('close-btn');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-        function toggleMenu() {
+        function toggleSidebar() {
             sidebar.classList.toggle('active');
             sidebarOverlay.classList.toggle('active');
         }
 
-        menuBtn.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
-        sidebarOverlay.addEventListener('click', toggleMenu);
+        openMenuBtn.addEventListener('click', toggleSidebar);
+        closeMenuBtn.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
     </script>
 
 </body>
