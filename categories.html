@@ -15,6 +15,9 @@
             --nav-bg: #3b0a12;
             --border-color: rgba(255, 255, 255, 0.2);
             --header-action-color: #ffffff; 
+            --btn-bg-color: #ffffff; 
+            --btn-hover-bg: rgba(255, 255, 255, 0.85); 
+            --btn-text-color: #3b0a12; 
             --footer-color: rgba(255, 255, 255, 0.6);
             --pure-icon-color: #ffffff; 
             --drawer-bg: #3b0a12; 
@@ -22,6 +25,9 @@
             --drawer-border: rgba(255, 255, 255, 0.15);
             --brand-color: #ffffff; 
             --curated-color: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%);
+            --cat-box-bg: rgba(255, 255, 255, 0.05);
+            --cat-box-border: rgba(255, 255, 255, 0.15);
+            --cat-box-hover: rgba(255, 255, 255, 0.1);
         }
 
         body.light-mode {
@@ -30,13 +36,19 @@
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
             --header-action-color: #000000; 
+            --btn-bg-color: #2d6a4f; 
+            --btn-hover-bg: rgba(45, 106, 79, 0.85); 
+            --btn-text-color: #ffffff; 
             --footer-color: #2d6a4f;
             --pure-icon-color: #000000; 
             --drawer-bg: #f5f2f0; 
             --drawer-text: #2c2c2c; 
             --drawer-border: rgba(0, 0, 0, 0.1);
-            --brand-color: #000000; 
-            --curated-color: #000000; 
+            --brand-color: #2d6a4f; 
+            --curated-color: linear-gradient(135deg, #f3e7c4 0%, #d4af37 50%, #aa771c 100%); 
+            --cat-box-bg: rgba(0, 0, 0, 0.03);
+            --cat-box-border: rgba(0, 0, 0, 0.1);
+            --cat-box-hover: rgba(0, 0, 0, 0.06);
         }
 
         * {
@@ -99,7 +111,7 @@
             font-weight: 900;
             letter-spacing: 2.2px;
             color: var(--brand-color);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .brand-line-2 {
@@ -108,7 +120,7 @@
             font-weight: 900;
             letter-spacing: 1.6px;
             color: var(--brand-color);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         #theme-toggle {
@@ -244,89 +256,70 @@
             stroke-width: 2;
         }
 
-        .content-wrapper {
-            width: 100%;
+        .content-container {
+            padding: 40px 20px 50px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             flex: 1;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-        .page-header-title {
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 3.5px;
-            line-height: 1.35;
-            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
+        .page-title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             text-transform: uppercase;
-            width: 100%;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            white-space: nowrap;
+        }
+
+        .page-title span {
             background: var(--curated-color);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
         }
 
-        body.light-mode .page-header-title {
-            background: none;
-            -webkit-background-clip: initial;
-            -webkit-text-fill-color: initial;
-            color: var(--curated-color);
-        }
-
-        .page-header-title span {
-            display: block;
-        }
-
-        .content-container {
-            padding: 0 20px 50px 20px;
+        .categories-grid {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            max-width: 650px;
-            margin: 0 auto;
+            gap: 14px;
             width: 100%;
-            gap: 40px;
-        }
-
-        .category-section {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .category-card {
-            width: 100%;
+            background-color: var(--cat-box-bg);
+            border: 1px solid var(--cat-box-border);
+            border-radius: 12px;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             text-decoration: none;
-            display: block;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            margin-bottom: 14px;
+            color: var(--text-color);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
         }
 
         .category-card:hover {
-            transform: translateY(-3px);
+            background-color: var(--cat-box-hover);
+            transform: translateY(-2px);
+            border-color: var(--pure-icon-color);
         }
 
-        .category-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            font-family: serif;
-            text-transform: uppercase;
-            color: var(--text-color);
+        .category-card svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: var(--text-color);
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         footer {
@@ -341,7 +334,6 @@
             margin-left: auto;
             margin-right: auto;
             width: 100%;
-            transition: color 0.3s ease, border-color 0.3s ease;
         }
     </style>
 </head>
@@ -396,78 +388,42 @@
         </div>
     </div>
 
-    <div class="content-wrapper">
-        <div class="content-container" style="padding-top: 15px; padding-bottom: 20px;">
-            <h1 class="page-header-title">
-                Curated
-                <span>Just For You.</span>
-            </h1>
-        </div>
-
-        <div class="content-container">
-            <!-- 1. Kitchen -->
-            <div class="category-section">
-                <a href="sections/1-kitchen.html" class="category-card">
-                    <img src="images/kitchen.jpg" alt="Kitchen" width="1200" height="600" loading="lazy">
-                </a>
-                <h2 class="section-title">Kitchen</h2>
-            </div>
-
-            <!-- 2. Decor -->
-            <div class="category-section">
-                <a href="sections/2-decor.html" class="category-card">
-                    <img src="images/decor.jpg" alt="Decor" width="1200" height="600" loading="lazy">
-                </a>
-                <h2 class="section-title">Decor</h2>
-            </div>
-
-            <!-- 3. Smart Tech -->
-            <div class="category-section">
-                <a href="sections/3-smart-tech.html" class="category-card">
-                    <img src="images/smart-tech.jpg" alt="Smart Tech" width="1200" height="600" loading="lazy">
-                </a>
-                <h2 class="section-title">Smart Tech</h2>
-            </div>
-
-            <!-- 4. Bedrooms -->
-            <div class="category-section">
-                <a href="sections/4-bedrooms.html" class="category-card">
-                    <img src="images/bedrooms.jpg" alt="Bedrooms" width="1200" height="600" loading="lazy">
-                </a>
-                <h2 class="section-title">Bedrooms</h2>
-            </div>
-
-            <!-- 5. Office -->
-            <div class="category-section">
-                <a href="sections/5-office.html" class="category-card">
-                    <img src="images/office.jpg" alt="Office" width="1200" height="600" loading="lazy">
-                </a>
-                <h2 class="section-title">Office</h2>
-            </div>
-
-            <!-- 6. Bathroom -->
-            <div class="category-section">
-                <a href="sections/6-bathroom.html" class="category-card">
-                    <img src="images/bathroom.jpg" alt="Bathroom" width="1200" height="600" loading="lazy">
-                </a>
-                <h2 class="section-title">Bathroom</h2>
-            </div>
-
-            <!-- 7. Patio -->
-            <div class="category-section">
-                <a href="sections/7-patio.html" class="category-card">
-                    <img src="images/patio.jpg" alt="Patio" width="1200" height="600" loading="lazy">
-                </a>
-                <h2 class="section-title">Patio</h2>
-            </div>
-
-            <!-- 8. Pet Care -->
-            <div class="category-section">
-                <a href="sections/8-pet-care.html" class="category-card">
-                    <img src="images/pet-care.jpg" alt="Pet Care" width="1200" height="600" loading="lazy">
-                </a>
-                <h2 class="section-title">Pet Care</h2>
-            </div>
+    <div class="content-container">
+        <h1 class="page-title"><span>Curated</span> Categories</h1>
+        
+        <div class="categories-grid">
+            <a href="category-kitchen.html" class="category-card">
+                <span>Kitchen</span>
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="category-decor.html" class="category-card">
+                <span>Decor</span>
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="category-smart-tech.html" class="category-card">
+                <span>Smart Tech</span>
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="category-bedrooms.html" class="category-card">
+                <span>Bedrooms</span>
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="category-office.html" class="category-card">
+                <span>Office</span>
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="category-bathroom.html" class="category-card">
+                <span>Bathroom</span>
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="category-patio.html" class="category-card">
+                <span>Patio</span>
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+            <a href="category-pet-care.html" class="category-card">
+                <span>Pet Care</span>
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
         </div>
     </div>
 
