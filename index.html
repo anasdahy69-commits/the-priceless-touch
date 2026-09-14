@@ -67,12 +67,12 @@
             width: 100%;
         }
 
-        /* Left side: Theme Toggle Button on the exact same row */
+        /* Theme Toggle Button: Natural flexible size matching the burgundy style */
         #theme-toggle {
             background: transparent;
             border: 1.5px solid var(--accent-gold);
             color: var(--accent-gold);
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 10px;
@@ -87,38 +87,42 @@
             background: var(--btn-hover-bg);
         }
 
-        /* Right side: Brand and About structured perfectly with ideal spacing */
+        /* Right side container with balanced gap to avoid crowding */
         .header-right {
             display: flex;
             align-items: center;
-            gap: 15px; /* مسافة متناسقة ومظبوطة بين اسم البراند وكلمة About */
+            gap: 18px;
         }
 
         .header-brand {
             font-family: serif;
             font-size: 14px;
             font-weight: 700;
-            letter-spacing: 2.2px; /* تباعد حروف يمدد اسم البراند للمكان المطلوب تماماً */
+            letter-spacing: 2.2px;
             color: var(--accent-gold);
             text-decoration: none;
             text-transform: uppercase;
             white-space: nowrap;
         }
 
+        /* About link with a distinct clear underline */
         .about-link {
             font-size: 10px;
             font-weight: 600;
             letter-spacing: 1px;
             color: var(--text-color);
-            text-decoration: none;
+            text-decoration: underline;
+            text-underline-offset: 4px; /* مسافة أنيقة بين الكلمة والخط السفلي */
+            text-decoration-thickness: 1.5px; /* سمك الخط السفلي عشان يكون واضح للعين */
             text-transform: uppercase;
             opacity: 0.95;
             white-space: nowrap;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, text-decoration-color 0.3s ease;
         }
 
         .about-link:hover {
             color: var(--accent-gold);
+            text-decoration-color: var(--accent-gold);
         }
 
         .hero-section {
