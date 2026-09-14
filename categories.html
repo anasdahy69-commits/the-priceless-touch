@@ -79,34 +79,18 @@
             left: 50%;
             transform: translateX(-50%);
             text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            line-height: 1.1;
+            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--brand-color);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
             white-space: nowrap;
             transition: opacity 0.3s ease;
         }
 
         .brand-header-title:hover {
             opacity: 0.85;
-        }
-
-        .brand-line-1 {
-            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
-            font-size: 20px;
-            font-weight: 900;
-            letter-spacing: 2.2px;
-            color: var(--brand-color);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-        }
-
-        .brand-line-2 {
-            font-family: "Playfair Display", Didot, "Bodoni MT", serif;
-            font-size: 23px;
-            font-weight: 900;
-            letter-spacing: 1.6px;
-            color: var(--brand-color);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
         }
 
         #theme-toggle {
@@ -242,7 +226,7 @@
             stroke-width: 2;
         }
 
-        /* حاوية المحتوى مع مسافات مريحة ومتماثلة */
+        /* حاوية المحتوى بمسافات مريحة ومتباعدة تماماً */
         .content-container {
             padding: 40px 20px 50px 20px;
             display: flex;
@@ -252,10 +236,9 @@
             margin: 0 auto;
             width: 100%;
             flex: 1;
-            gap: 40px; /* مسافة مريحة بين كل قسم والثاني */
+            gap: 45px;
         }
 
-        /* تنسيق القسم الواحد (عنوان + خط فاصل + صورة) */
         .category-section {
             width: 100%;
             display: flex;
@@ -263,24 +246,7 @@
             align-items: center;
         }
 
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            font-family: serif;
-            text-transform: uppercase;
-            margin-bottom: 20px; /* مسافة متماثلة تحت العنوان وقبل الخط الفاصل */
-        }
-
-        /* الخط الفاصل المطابق تماماً لخط الهيدر */
-        .section-divider {
-            width: 100%;
-            height: 1px;
-            background-color: var(--border-color);
-            margin-bottom: 25px; /* مسافة مريحة تحت الخط وقبل الصورة مباشرة */
-            transition: background-color 0.3s ease;
-        }
-
+        /* كارت القسم الذي يحتوي الصورة أولاً */
         .category-card {
             width: 100%;
             text-decoration: none;
@@ -289,6 +255,7 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
+            margin-bottom: 18px; /* مسافة مريحة بين الصورة وتحت الخط أو الاسم */
         }
 
         .category-card:hover {
@@ -300,6 +267,25 @@
             height: auto;
             display: block;
             object-fit: cover;
+        }
+
+        /* الخط الفاصل المطابق لخط الهيدر */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background-color: var(--border-color);
+            margin-bottom: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* اسم القسم تحت الصورة والخط */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-family: serif;
+            text-transform: uppercase;
+            color: var(--text-color);
         }
 
         footer {
@@ -326,10 +312,7 @@
                 <span id="theme-icon"></span>
             </button>
             
-            <a href="index.html" class="brand-header-title">
-                <span class="brand-line-1">The</span>
-                <span class="brand-line-2">Priceless Touch</span>
-            </a>
+            <a href="index.html" class="brand-header-title">HOME</a>
 
             <button class="menu-btn" id="openMenu" aria-label="Open Menu">
                 <span></span>
@@ -370,22 +353,76 @@
     </div>
 
     <div class="content-container">
-        <!-- قسم المطبخ (مثال) -->
+        <!-- 1. Kitchen -->
         <div class="category-section">
-            <h2 class="section-title">Kitchen</h2>
-            <div class="section-divider"></div>
             <a href="kitchen.html" class="category-card">
                 <img src="images/kitchen.jpg" alt="Kitchen" width="1200" height="600" loading="lazy">
             </a>
+            <div class="section-divider"></div>
+            <h2 class="section-title">Kitchen</h2>
         </div>
 
-        <!-- قسم الديكور (مثال) -->
+        <!-- 2. Decor -->
         <div class="category-section">
-            <h2 class="section-title">Decor</h2>
-            <div class="section-divider"></div>
             <a href="decor.html" class="category-card">
                 <img src="images/decor.jpg" alt="Decor" width="1200" height="600" loading="lazy">
             </a>
+            <div class="section-divider"></div>
+            <h2 class="section-title">Decor</h2>
+        </div>
+
+        <!-- 3. Smart Tech -->
+        <div class="category-section">
+            <a href="smart-tech.html" class="category-card">
+                <img src="images/smart-tech.jpg" alt="Smart Tech" width="1200" height="600" loading="lazy">
+            </a>
+            <div class="section-divider"></div>
+            <h2 class="section-title">Smart Tech</h2>
+        </div>
+
+        <!-- 4. Bedrooms -->
+        <div class="category-section">
+            <a href="bedrooms.html" class="category-card">
+                <img src="images/bedrooms.jpg" alt="Bedrooms" width="1200" height="600" loading="lazy">
+            </a>
+            <div class="section-divider"></div>
+            <h2 class="section-title">Bedrooms</h2>
+        </div>
+
+        <!-- 5. Office -->
+        <div class="category-section">
+            <a href="office.html" class="category-card">
+                <img src="images/office.jpg" alt="Office" width="1200" height="600" loading="lazy">
+            </a>
+            <div class="section-divider"></div>
+            <h2 class="section-title">Office</h2>
+        </div>
+
+        <!-- 6. Bathroom -->
+        <div class="category-section">
+            <a href="bathroom.html" class="category-card">
+                <img src="images/bathroom.jpg" alt="Bathroom" width="1200" height="600" loading="lazy">
+            </a>
+            <div class="section-divider"></div>
+            <h2 class="section-title">Bathroom</h2>
+        </div>
+
+        <!-- 7. Patio -->
+        <div class="category-section">
+            <a href="patio.html" class="category-card">
+                <img src="images/patio.jpg" alt="Patio" width="1200" height="600" loading="lazy">
+            </a>
+            <div class="section-divider"></div>
+            <h2 class="section-title">Patio</h2>
+        </div>
+
+        <!-- 8. Pet Care -->
+        <div class="category-section">
+            <a href="pet-care.html" class="category-card">
+                <img src="images/pet-care.jpg" alt="Pet Care" width="1200" height="600" loading="lazy">
+            </a>
+            <div class="section-divider"></div>
+            <h2 class="section-title">Pet Care</h2>
         </div>
     </div>
 
@@ -418,6 +455,7 @@
             updateThemeUI(true);
         }
 
+        themeToggleBtn.executeListener = false; // dummy anchor
         themeToggleBtn.addEventListener('click', () => {
             const isLightNow = bodyElement.classList.contains('light-mode');
             updateThemeUI(!isLightNow);
