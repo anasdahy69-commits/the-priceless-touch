@@ -59,7 +59,7 @@
             top: 0;
             z-index: 1000;
             background-color: var(--nav-bg);
-            padding: 14px 18px;
+            padding: 16px 20px;
             border-bottom: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
@@ -74,55 +74,56 @@
             position: relative;
         }
 
+        /* زرار المود الدائري الأكبر حجماً والمريح للموبايل */
         #theme-toggle {
             background: transparent;
             border: 1.5px solid var(--header-action-border);
             color: var(--text-color);
-            padding: 6px 12px;
-            width: 82px;
-            text-align: center;
-            border-radius: 20px;
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
             cursor: pointer;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            white-space: nowrap;
+            font-size: 18px;
             transition: all 0.3s ease;
         }
 
         #theme-toggle:hover {
             background: var(--btn-hover-bg);
+            transform: scale(1.05);
         }
 
+        /* الـ 3 خطوط بدون إطار أو مربع وبحجم كبير وواضح */
         .menu-toggle-btn {
             background: transparent;
-            border: 1.5px solid var(--header-action-border);
+            border: none;
             color: var(--header-action-color);
-            padding: 6px 10px;
-            border-radius: 20px;
+            padding: 4px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease, transform 0.2s ease;
         }
 
         .menu-toggle-btn:hover {
-            background: var(--btn-hover-bg);
+            opacity: 0.8;
+            transform: scale(1.05);
         }
 
         .menu-toggle-btn svg {
-            width: 18px;
-            height: 18px;
+            width: 26px;
+            height: 26px;
             stroke: currentColor;
-            stroke-width: 2;
+            stroke-width: 2.2;
             stroke-linecap: round;
         }
 
         .dropdown-menu {
             position: absolute;
-            top: 55px;
+            top: 58px;
             right: 0;
             background-color: var(--menu-bg);
             border: 1.5px solid var(--border-color);
@@ -253,8 +254,10 @@
 
     <header>
         <div class="nav-container">
-            <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
+            <!-- زرار المود الدائري -->
+            <button id="theme-toggle" aria-label="Toggle Theme">☀️</button>
             
+            <!-- الثلاث خطوط بدون إطار وبحجم كبير -->
             <button class="menu-toggle-btn" id="menuBtn" aria-label="Menu">
                 <svg viewBox="0 0 24 24">
                     <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -263,6 +266,7 @@
                 </svg>
             </button>
 
+            <!-- القائمة المنسدلة -->
             <div class="dropdown-menu" id="dropdownMenu">
                 <a href="/shop/wishlist.html" class="dropdown-item">
                     <span>Wishlist</span>
@@ -301,19 +305,19 @@
 
         if (localStorage.getItem('theme') === 'light') {
             bodyElement.classList.add('light-mode');
-            themeToggleBtn.textContent = '🌙 Dark';
+            themeToggleBtn.textContent = '🌙';
         } else {
-            themeToggleBtn.textContent = '☀️ Light';
+            themeToggleBtn.textContent = '☀️';
         }
 
         themeToggleBtn.addEventListener('click', () => {
             bodyElement.classList.toggle('light-mode');
             
             if (bodyElement.classList.contains('light-mode')) {
-                themeToggleBtn.textContent = '🌙 Dark';
+                themeToggleBtn.textContent = '🌙';
                 localStorage.setItem('theme', 'light');
             } else {
-                themeToggleBtn.textContent = '☀️ Light';
+                themeToggleBtn.textContent = '☀️';
                 localStorage.setItem('theme', 'dark');
             }
         });
