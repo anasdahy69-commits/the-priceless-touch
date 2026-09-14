@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - The Priceless Touch</title>
+    
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+    <style>
+        :root {
+            --bg-color: #3b0a12;
+            --text-color: #ffffff;
+            --nav-bg: #3b0a12;
+            --border-color: rgba(255, 255, 255, 0.2);
+            --accent-gold: #f3d06b;
+            --header-action-color: #ffffff;
+            --header-action-border: rgba(255, 255, 255, 0.4);
+            --btn-hover-bg: rgba(255, 255, 255, 0.12);
+            --footer-color: rgba(255, 255, 255, 0.6);
+        }
+
+        body.light-mode {
+            --bg-color: #fcfbfa;
+            --text-color: #2c2c2c;
+            --nav-bg: #f5f2f0;
+            --border-color: rgba(0, 0, 0, 0.15);
+            --accent-gold: #997413;
+            --header-action-color: #997413;
+            --header-action-border: #997413;
+            --btn-hover-bg: rgba(0, 0, 0, 0.08);
+            --footer-color: #6c5713;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 650px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        #theme-toggle {
+            background: transparent;
+            border: 1.5px solid var(--header-action-border);
+            color: var(--header-action-color);
+            padding: 6px 12px;
+            width: 82px;
+            text-align: center;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            background: var(--btn-hover-bg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--header-action-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1.5px;
+            text-decoration-color: var(--header-action-color);
+            text-transform: uppercase;
+            white-space: nowrap;
+            opacity: 0.95;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-link:hover {
+            opacity: 1;
+        }
+
+        .content-container {
+            padding: 50px 24px 30px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 25px;
+            max-width: 650px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        .main-title {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 1.8px;
+            line-height: 1.4;
+            font-family: serif;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .empty-message {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 20px;
+        }
+
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .wishlist-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border: 1.5px solid var(--border-color);
+            border-radius: 12px;
+            background: var(--btn-hover-bg);
+            text-align: left;
+        }
+
+        .wishlist-item-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .wishlist-item-title:hover {
+            color: var(--accent-gold);
+        }
+
+        .remove-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 14px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .remove-btn:hover {
+            opacity: 1;
+            color: #ff4d4d;
+        }
+
+        .btn {
+            display: inline-block;
+            width: auto;
+            min-width: 200px;
+            padding: 12px 28px;
+            border: 1.5px solid var(--text-color);
+            border-radius: 35px;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            background: transparent;
+            margin-top: 25px;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--btn-hover-bg);
+            border-color: var(--accent-gold);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 24px 20px 35px 20px;
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--footer-color);
+            border-top: 1px solid var(--border-color);
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="content-container">
+        <h1 class="main-title">Your Wishlist</h1>
+        <div id="wishlist-container" class="wishlist-grid">
+            <!-- المنتجات المحفوظة هتظهر هنا أوتوماتيك -->
+        </div>
+        <a href="index.html" class="btn">Back To Home</a>
+    </div>
+
+    <footer>
+        <p>Affiliate Disclosure: We are a participant in affiliate programs with Amazon, Target, Walmart, and other major retailers. We may earn a commission from qualifying purchases at no extra cost to you, helping us bring you the finest selections.</p>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const bodyElement = document.body;
+
+        if (localStorage.getItem('theme') === 'light') {
+            bodyElement.classList.add('light-mode');
+            themeToggleBtn.textContent = '🌙 Dark';
+        } else {
+            themeToggleBtn.textContent = '☀️ Light';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            bodyElement.classList.toggle('light-mode');
+            
+            if (bodyElement.classList.contains('light-mode')) {
+                themeToggleBtn.textContent = '🌙 Dark';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeToggleBtn.textContent = '☀️ Light';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // كود عرض عناصر المفضلة المحفوظة على جهاز الزائر
+        function loadWishlist() {
+            const container = document.getElementById('wishlist-container');
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+            if (wishlist.length === 0) {
+                container.innerHTML = '<p class="empty-message">Your wishlist is currently empty. Explore categories and tap the heart icon to save items.</p>';
+                return;
+            }
+
+            container.innerHTML = '';
+            wishlist.forEach((item, index) => {
+                container.innerHTML += `
+                    <div class="wishlist-item">
+                        <a href="${item.url}" class="wishlist-item-title">❤️ ${item.name}</a>
+                        <button class="remove-btn" onclick="removeFromWishlist(${index})">✕ Remove</button>
+                    </div>
+                `;
+            });
+        }
+
+        function removeFromWishlist(index) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist.splice(index, 1);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            loadWishlist();
+        }
+
+        window.onload = loadWishlist;
+    </script>
+
+</body>
+</html>
