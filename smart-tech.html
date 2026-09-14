@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Tech - The Priceless Touch</title>
+    
+    <!-- Custom Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+
+    <style>
+        /* Colors and Variables: Default is Royal Burgundy (Dark Mode) -> Pure White text */
+        :root {
+            --bg-color: #3b0a12;
+            --text-color: #ffffff;
+            --nav-bg: #3b0a12;
+            --border-color: rgba(255, 255, 255, 0.2);
+            --accent-gold: #f3d06b;
+            --header-action-color: #ffffff;
+            --btn-hover-bg: rgba(255, 255, 255, 0.12);
+            --footer-color: rgba(255, 255, 255, 0.6);
+            --pure-icon-color: #ffffff;
+            --drawer-bg: #3b0a12;
+            --drawer-text: #ffffff;
+            --card-title-color: #ffffff;
+            --home-link-color: #ffffff;
+            --curated-title-color: #ffffff;
+        }
+
+        body.light-mode {
+            --bg-color: #fcfbfa;
+            --text-color: #2c2c2c;
+            --nav-bg: #f5f2f0;
+            --border-color: rgba(0, 0, 0, 0.15);
+            --accent-gold: #997413;
+            --header-action-color: #000000;
+            --btn-hover-bg: rgba(0, 0, 0, 0.08);
+            --footer-color: #2c2c2c;
+            --pure-icon-color: #000000;
+            --drawer-bg: #f5f2f0;
+            --drawer-text: #2c2c2c;
+            --card-title-color: #2c2c2c;
+            --home-link-color: #2c2c2c;
+            --curated-title-color: #2d6a4f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--nav-bg);
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 650px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+        }
+
+        .home-link {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--home-link-color);
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease, opacity 0.3s ease;
+        }
+
+        .home-link svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .home-link:hover {
+            opacity: 0.8;
+        }
+
+        #theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--pure-icon-color);
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #theme-toggle svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
+        }
+
+        #theme-toggle:hover {
+            opacity: 0.8;
+        }
+
+        .menu-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            padding: 0;
+        }
+
+        .menu-btn span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--header-action-color);
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -160px;
+            width: 160px;
+            height: 100%;
+            background-color: var(--drawer-bg);
+            color: var(--drawer-text);
+            z-index: 2001;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            padding: 20px 14px;
+            transition: right 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            text-align: left;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--drawer-text);
+            line-height: 1;
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            text-decoration: none;
+            color: var(--drawer-text);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        body.light-mode .sidebar-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-item svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--drawer-text);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .top-title {
+            padding: 40px 20px 40px 20px;
+        }
+
+        .top-title h2 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            line-height: 1.35;
+            font-family: serif;
+            text-transform: uppercase;
+            color: var(--curated-title-color);
+        }
+
+        .content-container {
+            flex: 1;
+            padding: 10px 20px 40px 20px;
+            max-width: 650px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: left;
+        }
+
+        /* هنا سيتم وضع منتجات القسم لاحقاً */
+        .placeholder-text {
+            text-align: center;
+            font-size: 16px;
+            opacity: 0.8;
+            margin-top: 40px;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 24px 20px 35px 20px;
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--footer-color);
+            border-top: 1px solid var(--border-color);
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <button id="theme-toggle" aria-label="Toggle Theme">
+                <span id="theme-icon"></span>
+            </button>
+            
+            <a href="categories.html" class="home-link">
+                <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                <span>Smart Tech</span>
+            </a>
+
+            <button class="menu-btn" id="openMenu" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <button class="close-btn" id="closeMenu" aria-label="Close Menu">&times;</button>
+        </div>
+        <div class="sidebar-menu">
+            <a href="wishlist.html" class="sidebar-item">
+                <span>WISHLIST</span>
+                <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </a>
+            <a href="about.html" class="sidebar-item">
+                <span>ABOUT</span>
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke-linecap="round"/>
+                    <circle cx="12" cy="17" r="1" fill="currentColor"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="top-title">
+        <h2>Smart Tech Selections</h2>
+    </div>
+
+    <div class="content-container">
+        <p class="placeholder-text">Curated smart technology products coming soon...</p>
+    </div>
+
+    <footer>
+        <p>Affiliate Disclosure: We are a participant in affiliate programs with Amazon, Target, Walmart, and other major retailers. We may earn a commission from qualifying purchases at no extra cost to you, helping us bring you the finest selections.</p>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIconSpan = document.getElementById('theme-icon');
+        const bodyElement = document.body;
+
+        const sunSvg = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+        const moonSvg = `<svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>`;
+
+        function updateThemeUI(isLight) {
+            if (isLight) {
+                bodyElement.classList.add('light-mode');
+                themeIconSpan.innerHTML = moonSvg;
+                localStorage.setItem('theme', 'light');
+            } else {
+                bodyElement.classList.remove('light-mode');
+                themeIconSpan.innerHTML = sunSvg;
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            updateThemeUI(true);
+        } else {
+            updateThemeUI(false);
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const isLightNow = bodyElement.classList.contains('light-mode');
+            updateThemeUI(!isLightNow);
+        });
+
+        const openMenuBtn = document.getElementById('openMenu');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        }
+
+        openMenuBtn.addEventListener('click', toggleSidebar);
+        closeMenuBtn.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', toggleSidebar);
+    </script>
+</body>
+</html>
