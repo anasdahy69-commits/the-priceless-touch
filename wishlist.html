@@ -9,6 +9,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 
     <style>
+        /* Colors and Variables: Default is Royal Burgundy (Dark Mode) */
         :root {
             --bg-color: #3b0a12;
             --text-color: #ffffff;
@@ -16,9 +17,10 @@
             --border-color: rgba(255, 255, 255, 0.2);
             --accent-gold: #f3d06b;
             --header-action-color: #ffffff;
-            --header-action-border: rgba(255, 255, 255, 0.4);
             --btn-hover-bg: rgba(255, 255, 255, 0.12);
             --footer-color: rgba(255, 255, 255, 0.6);
+            --pure-icon-color: #ffffff; 
+            --nav-link-color: #ffffff;
         }
 
         body.light-mode {
@@ -27,10 +29,11 @@
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
             --accent-gold: #997413;
-            --header-action-color: #997413;
-            --header-action-border: #997413;
+            --header-action-color: #000000;
             --btn-hover-bg: rgba(0, 0, 0, 0.08);
-            --footer-color: #6c5713;
+            --footer-color: #2d6a4f;
+            --pure-icon-color: #000000; 
+            --nav-link-color: #2d6a4f;
         }
 
         * {
@@ -55,7 +58,7 @@
             top: 0;
             z-index: 1000;
             background-color: var(--nav-bg);
-            padding: 14px 18px;
+            padding: 16px 18px;
             border-bottom: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
@@ -71,48 +74,37 @@
 
         #theme-toggle {
             background: transparent;
-            border: 1.5px solid var(--header-action-border);
-            color: var(--header-action-color);
-            padding: 6px 12px;
-            width: 82px;
-            text-align: center;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            white-space: nowrap;
-            transition: all 0.3s ease;
-        }
-
-        #theme-toggle:hover {
-            background: var(--btn-hover-bg);
-        }
-
-        .nav-links {
+            border: none;
+            color: var(--pure-icon-color);
+            width: 34px;
+            height: 34px;
             display: flex;
-            gap: 15px;
             align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #theme-toggle svg {
+            width: 28px;
+            height: 28px;
+            fill: currentColor;
         }
 
         .nav-link {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: var(--header-action-color);
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            text-decoration-thickness: 1.5px;
-            text-decoration-color: var(--header-action-color);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: var(--nav-link-color);
+            text-decoration: none;
             text-transform: uppercase;
             white-space: nowrap;
-            opacity: 0.95;
             transition: opacity 0.3s ease;
         }
 
         .nav-link:hover {
-            opacity: 1;
+            opacity: 0.8;
         }
 
         .content-container {
@@ -203,6 +195,7 @@
             letter-spacing: 1.5px;
             background: transparent;
             margin-top: 25px;
+            cursor: pointer;
             transition: background 0.3s ease, border-color 0.3s ease;
         }
 
@@ -231,11 +224,10 @@
 
     <header>
         <div class="nav-container">
-            <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link">About</a>
-            </div>
+            <button id="theme-toggle" aria-label="Toggle Theme">
+                <span id="theme-icon"></span>
+            </button>
+            <a href="index.html" class="nav-link">Home</a>
         </div>
     </header>
 
@@ -244,7 +236,7 @@
         <div id="wishlist-container" class="wishlist-grid">
             <!-- المنتجات المحفوظة هتظهر هنا أوتوماتيك -->
         </div>
-        <a href="index.html" class="btn">Back To Home</a>
+        <button onclick="goBack()" class="btn">BACK</button>
     </div>
 
     <footer>
@@ -253,26 +245,44 @@
 
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIconSpan = document.getElementById('theme-icon');
         const bodyElement = document.body;
 
-        if (localStorage.getItem('theme') === 'light') {
-            bodyElement.classList.add('light-mode');
-            themeToggleBtn.textContent = '🌙 Dark';
+        const sunSvg = `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+        const moonSvg = `<svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg>`;
+
+        function updateThemeUI(isLight) {
+            if (isLight) {
+                bodyElement.classList.add('light-mode');
+                themeIconSpan.innerHTML = moonSvg;
+                localStorage.setItem('theme', 'light');
+            } else {
+                bodyElement.classList.remove('light-mode');
+                themeIconSpan.innerHTML = sunSvg;
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            updateThemeUI(true);
         } else {
-            themeToggleBtn.textContent = '☀️ Light';
+            updateThemeUI(false);
         }
 
         themeToggleBtn.addEventListener('click', () => {
-            bodyElement.classList.toggle('light-mode');
-            
-            if (bodyElement.classList.contains('light-mode')) {
-                themeToggleBtn.textContent = '🌙 Dark';
-                localStorage.setItem('theme', 'light');
-            } else {
-                themeToggleBtn.textContent = '☀️ Light';
-                localStorage.setItem('theme', 'dark');
-            }
+            const isLightNow = bodyElement.classList.contains('light-mode');
+            updateThemeUI(!isLightNow);
         });
+
+        // Smart Back function to return to the exact previous page
+        function goBack() {
+            if (document.referrer && document.referrer !== window.location.href) {
+                history.back();
+            } else {
+                window.location.href = 'index.html'; // Fallback to home if no history
+            }
+        }
 
         // كود عرض عناصر المفضلة المحفوظة على جهاز الزائر
         function loadWishlist() {
