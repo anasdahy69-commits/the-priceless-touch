@@ -26,6 +26,8 @@
             --drawer-text: #ffffff; /* White text in Drawer */
             --drawer-border: rgba(255, 255, 255, 0.15);
             --brand-color: #ffffff; /* Pure white brand name in Dark Mode */
+            --categories-text-color: #ffffff; /* White text for categories list */
+            --categories-divider-color: rgba(255, 255, 255, 0.6); /* Clear divider color */
         }
 
         body.light-mode {
@@ -43,6 +45,8 @@
             --drawer-text: #2c2c2c; /* Dark text in Drawer */
             --drawer-border: rgba(0, 0, 0, 0.1);
             --brand-color: #2d6a4f; /* Exact matching green tone of the button for Brand Name in Light Mode */
+            --categories-text-color: #2c2c2c; /* Dark text for categories in light mode for clarity */
+            --categories-divider-color: rgba(44, 44, 44, 0.4);
         }
 
         * {
@@ -281,9 +285,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             min-height: 35vh;
-            max-width: 500px;
+            max-width: 550px;
             margin: 0 auto;
             width: 100%;
         }
@@ -319,6 +323,35 @@
         .btn:hover {
             background-color: var(--btn-hover-bg);
             transform: translateY(-1px);
+        }
+
+        /* Categories text list styling (2 lines, white text, clear dividers) */
+        .home-categories-text {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        .categories-line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--categories-text-color);
+            transition: color 0.3s ease;
+        }
+
+        .cat-divider {
+            color: var(--categories-divider-color);
+            font-weight: 400;
+            transition: color 0.3s ease;
         }
 
         footer {
@@ -389,6 +422,22 @@
     <div class="content-container">
         <h2 class="main-title">Discover Something<br>You'll Love</h2>
         <a href="categories.html" class="btn">Browse Categories</a>
+        
+        <!-- 8 Categories in 2 lines with clear distinct dividers -->
+        <div class="home-categories-text">
+            <div class="categories-line">
+                <span>Kitchen</span> <span class="cat-divider">/</span>
+                <span>Decor</span> <span class="cat-divider">/</span>
+                <span>Smart Tech</span> <span class="cat-divider">/</span>
+                <span>Bedrooms</span>
+            </div>
+            <div class="categories-line">
+                <span>Office</span> <span class="cat-divider">/</span>
+                <span>Bathroom</span> <span class="cat-divider">/</span>
+                <span>Patio</span> <span class="cat-divider">/</span>
+                <span>Pet Care</span>
+            </div>
+        </div>
     </div>
 
     <footer>
