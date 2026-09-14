@@ -226,7 +226,7 @@
             stroke-width: 2;
         }
 
-        /* حاوية المحتوى بمسافات مريحة ومتباعدة تماماً */
+        /* حاوية المحتوى مع المسافات المتماثلة والمريحة */
         .content-container {
             padding: 40px 20px 50px 20px;
             display: flex;
@@ -239,6 +239,19 @@
             gap: 45px;
         }
 
+        /* تنسيق جملة Curated تحت الهيدر مباشرة بمسافات متماثلة */
+        .page-header-title {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1.5;
+            font-family: serif;
+            text-transform: uppercase;
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
         .category-section {
             width: 100%;
             display: flex;
@@ -246,7 +259,6 @@
             align-items: center;
         }
 
-        /* كارت القسم الذي يحتوي الصورة أولاً */
         .category-card {
             width: 100%;
             text-decoration: none;
@@ -255,7 +267,7 @@
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
-            margin-bottom: 18px; /* مسافة مريحة بين الصورة وتحت الخط أو الاسم */
+            margin-bottom: 18px;
         }
 
         .category-card:hover {
@@ -269,7 +281,6 @@
             object-fit: cover;
         }
 
-        /* الخط الفاصل المطابق لخط الهيدر */
         .section-divider {
             width: 100%;
             height: 1px;
@@ -278,7 +289,6 @@
             transition: background-color 0.3s ease;
         }
 
-        /* اسم القسم تحت الصورة والخط */
         .section-title {
             font-size: 20px;
             font-weight: 700;
@@ -353,6 +363,9 @@
     </div>
 
     <div class="content-container">
+        <!-- جملة Curated تحت الهيدر مباشرة -->
+        <h1 class="page-header-title">Curated Just For You.</h1>
+
         <!-- 1. Kitchen -->
         <div class="category-section">
             <a href="kitchen.html" class="category-card">
@@ -453,9 +466,10 @@
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'light') {
             updateThemeUI(true);
+        } else {
+            updateThemeUI(false);
         }
 
-        themeToggleBtn.executeListener = false; // dummy anchor
         themeToggleBtn.addEventListener('click', () => {
             const isLightNow = bodyElement.classList.contains('light-mode');
             updateThemeUI(!isLightNow);
