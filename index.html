@@ -18,12 +18,14 @@
             --border-color: rgba(255, 255, 255, 0.2);
             --accent-gold: #f3d06b;
             --header-action-color: #ffffff; /* White menu lines in Dark Mode */
-            --btn-hover-bg: rgba(255, 255, 255, 0.12);
+            --btn-hover-bg: rgba(243, 208, 107, 0.85); /* Slightly transparent gold on hover */
             --footer-color: rgba(255, 255, 255, 0.6);
             --pure-icon-color: #ffffff; /* White sun in Dark Mode */
             --drawer-bg: #fcfbfa;
             --drawer-text: #2c2c2c;
             --brand-color: #f3d06b; /* Light Gold for Brand Name in Dark Mode */
+            --btn-bg-color: #f3d06b; /* Solid Gold Button in Dark Mode */
+            --btn-text-color: #ffffff; /* White text inside button */
         }
 
         body.light-mode {
@@ -31,14 +33,16 @@
             --text-color: #2c2c2c;
             --nav-bg: #f5f2f0;
             --border-color: rgba(0, 0, 0, 0.15);
-            --accent-gold: #997413;
+            --accent-gold: #2d6a4f; /* Light Green theme tone */
             --header-action-color: #000000; /* Black menu lines in Light Mode */
-            --btn-hover-bg: rgba(0, 0, 0, 0.08);
-            --footer-color: #6c5713;
+            --btn-hover-bg: rgba(45, 106, 79, 0.85); /* Slightly transparent light green on hover */
+            --footer-color: #2d6a4f;
             --pure-icon-color: #000000; /* Black moon in Light Mode */
             --drawer-bg: #f5f2f0;
             --drawer-text: #2c2c2c;
-            --brand-color: #1b4d3e; /* Deep Dark Green / Olive tone for Light Mode */
+            --brand-color: #2d6a4f; /* Matching Light Green tone for Brand Name in Light Mode */
+            --btn-bg-color: #2d6a4f; /* Solid Light Green Button in Light Mode */
+            --btn-text-color: #ffffff; /* White text inside button */
         }
 
         * {
@@ -78,7 +82,7 @@
             position: relative;
         }
 
-        /* Brand Name in Header Center: Enlarged clearly, Thick, Non-traditional */
+        /* Brand Name in Header Center: Title Case, Clear, Non-traditional */
         .brand-header-title {
             position: absolute;
             left: 50%;
@@ -97,21 +101,21 @@
 
         .brand-line-1 {
             font-family: "Playfair Display", Didot, "Bodoni MT", serif;
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
             color: var(--brand-color);
-            text-transform: uppercase;
+            text-transform: none;
             transition: color 0.3s ease;
         }
 
         .brand-line-2 {
             font-family: "Playfair Display", Didot, "Bodoni MT", serif;
-            font-size: 19px;
-            font-weight: 800;
-            letter-spacing: 2px;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
             color: var(--brand-color);
-            text-transform: uppercase;
+            text-transform: none;
             transition: color 0.3s ease;
         }
 
@@ -287,20 +291,20 @@
             width: auto;
             min-width: 230px;
             padding: 14px 32px;
-            border: 1.5px solid var(--text-color);
+            border: none;
             border-radius: 35px;
-            color: var(--accent-gold);
+            background-color: var(--btn-bg-color);
+            color: var(--btn-text-color);
             text-decoration: none;
             font-size: 13px;
             font-weight: 600;
             letter-spacing: 1.5px;
-            background: transparent;
-            transition: background 0.3s ease, border-color 0.3s ease;
+            transition: background-color 0.3s ease, opacity 0.3s ease;
         }
 
         .btn:hover {
-            background: var(--btn-hover-bg);
-            border-color: var(--accent-gold);
+            background-color: var(--btn-bg-color);
+            opacity: 0.9;
         }
 
         footer {
