@@ -53,50 +53,35 @@
             top: 0;
             z-index: 1000;
             background-color: var(--nav-bg);
-            padding: 16px 15px;
+            padding: 15px 20px;
             border-bottom: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .nav-container {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end; /* وضع زرار المود على أقصى الشمال أو اليمين بشكل أنيق */
             align-items: center;
             max-width: 650px;
             margin: 0 auto;
         }
 
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
-            gap: 16px;
-            font-size: 14px;
-            letter-spacing: 1.2px;
+        /* Theme Toggle in Header */
+        #theme-toggle {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 11px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
-            width: 100%;
-            overflow-x: auto;
-            white-space: nowrap;
+            transition: all 0.3s ease;
         }
 
-        .nav-links::-webkit-scrollbar {
-            display: none;
-        }
-
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a.active {
-            color: var(--accent-gold);
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-gold);
+        #theme-toggle:hover {
+            background: var(--btn-hover-bg);
         }
 
         .hero-section {
@@ -120,13 +105,13 @@
             justify-content: center;
             gap: 30px;
             min-height: 35vh;
-            max-width: 500px; /* تحديد عرض مناسب عشان العناصر تملأ المسافة المطلوبة بالظبط زي الابعاد الحمراء */
+            max-width: 500px;
             margin: 0 auto;
             width: 100%;
         }
 
         .main-title {
-            font-size: 20px; /* تكبير حجم الخط شوية عشان يناسب العرض الجديد */
+            font-size: 20px;
             font-weight: 300;
             letter-spacing: 1.8px;
             line-height: 1.4;
@@ -138,8 +123,8 @@
 
         .btn {
             display: block;
-            width: 100%; /* جعل الزرار يأخذ العرض بالكامل حسب الابعاد المطلوبة */
-            max-width: 320px; /* عرض مثالي متناسق مع مسافة الخطين الحمر */
+            width: 100%;
+            max-width: 320px;
             padding: 12px 25px;
             border: 1px solid var(--text-color);
             border-radius: 35px;
@@ -156,8 +141,9 @@
             border-color: var(--accent-gold);
         }
 
+        /* Footer contains only the Affiliate Disclosure message */
         footer {
-            padding: 25px 20px 40px 20px;
+            padding: 30px 20px 40px 20px;
             font-size: 10px;
             line-height: 1.6;
             color: var(--footer-color);
@@ -165,39 +151,7 @@
             max-width: 650px;
             margin: 0 auto;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
             transition: color 0.3s ease, border-color 0.3s ease;
-        }
-
-        #theme-toggle {
-            background: transparent;
-            border: 1.5px solid var(--accent-gold);
-            color: var(--accent-gold);
-            width: 80%;
-            max-width: 280px;
-            padding: 11px 18px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 12px;
-            letter-spacing: 1px;
-            font-weight: 500;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
-
-        #theme-toggle:hover {
-            background: var(--btn-hover-bg);
-        }
-
-        @media (min-width: 600px) {
-            .nav-links {
-                font-size: 15px;
-                gap: 30px;
-                overflow-x: visible;
-            }
         }
     </style>
 </head>
@@ -205,17 +159,12 @@
 
     <header>
         <div class="nav-container">
-            <nav class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="categories.html">Categories</a>
-                <a href="decor.html">Decor</a>
-                <a href="kitchen.html">Kitchen</a>
-            </nav>
+            <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light</button>
         </div>
     </header>
 
     <div class="hero-section">
-        <image src="images/hero.JPG" alt="Hero Image" width="1200" height="600" fetchpriority="high">
+        <img src="images/hero.JPG" alt="Hero Image" width="1200" height="600" fetchpriority="high">
     </div>
 
     <div class="content-container">
@@ -224,7 +173,6 @@
     </div>
 
     <footer>
-        <button id="theme-toggle" aria-label="Toggle Theme">☀️ Light Mode</button>
         <p>Affiliate Disclosure: We are a participant in affiliate programs with Amazon, Target, Walmart, and other major retailers. We may earn a commission from qualifying purchases at no extra cost to you, helping us bring you the finest selections.</p>
     </footer>
 
@@ -232,21 +180,22 @@
         const themeToggleBtn = document.getElementById('theme-toggle');
         const bodyElement = document.body;
 
+        // Apply saved theme across all pages automatically
         if (localStorage.getItem('theme') === 'light') {
             bodyElement.classList.add('light-mode');
-            themeToggleBtn.textContent = '🌙 Luxury Mode';
+            themeToggleBtn.textContent = '🌙 Luxury';
         } else {
-            themeToggleBtn.textContent = '☀️ Light Mode';
+            themeToggleBtn.textContent = '☀️ Light';
         }
 
         themeToggleBtn.addEventListener('click', () => {
             bodyElement.classList.toggle('light-mode');
             
             if (bodyElement.classList.contains('light-mode')) {
-                themeToggleBtn.textContent = '🌙 Luxury Mode';
+                themeToggleBtn.textContent = '🌙 Luxury';
                 localStorage.setItem('theme', 'light');
             } else {
-                themeToggleBtn.textContent = '☀️ Light Mode';
+                themeToggleBtn.textContent = '☀️ Light';
                 localStorage.setItem('theme', 'dark');
             }
         });
